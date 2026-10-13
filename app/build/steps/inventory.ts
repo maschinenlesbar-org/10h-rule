@@ -6,7 +6,7 @@ import { join } from 'node:path';
 import { WIKI, log, type Ctx } from '../lib/ctx.ts';
 import { docIdFromFilename } from '../lib/ids.ts';
 import { parliamentOf } from '../lib/refs.ts';
-import { mdTables, plain, mdLinks, parseDate } from '../lib/text.ts';
+import { mdTables, plain, mdLinks, parseDate, httpUrl } from '../lib/text.ts';
 import { upsertEntity } from '../lib/db.ts';
 
 const ARCHIVES = ['pdfs', ...readdirSync(join(WIKI, 'anfragen'), { withFileTypes: true })
@@ -72,7 +72,9 @@ export function inventory(ctx: Ctx): void {
     const manifest = join(WIKI, dir, 'manifest.tsv');
     if (!existsSync(manifest)) continue;
     for (const line of readFileSync(manifest, 'utf8').split('\n').filter(Boolean)) {
-      const [name, url, bytes, sha] = line.split('\t');
+      const [name, rawUrl, bytes, sha] = line.split('\t');
+      const url = httpUrl(rawUrl);
+      if (rawUrl && !url) report.add('Source URLs that are not http(s), left out', `${dir}/${name}: ${rawUrl}`);
       const rel = `${dir}/${name}`;
       listed.add(rel);
       const path = join(WIKI, rel);

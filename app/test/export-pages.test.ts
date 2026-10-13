@@ -16,7 +16,7 @@ test('static pages carry the facts, the head tags and the JSON-LD', { skip: !exi
     const q = new Queries(new DatabaseSync(DB, { readOnly: true }));
     const site = 'https://example.org/10h/';
     const entities = [{ id: 'person/florian-pronold', type: 'Person', label: 'Florian Pronold' }, { id: 'vote/2014-06-27-bundestag-465-114', type: 'VoteEvent', label: 'Bundestag' }];
-    const node = { '@id': 'tenh:person/florian-pronold', 'schema:name': 'Florian Pronold </script><b>' };
+    const node = { '@id': 'tenh:person/florian-pronold', 'schema:name': 'Florian Pronold </script><b><!--' };
     writeStaticPages(q, entities, { site, dist, builtAt: '2026-10-13T00:00:00Z', jsonld: new Map([['person/florian-pronold', node]]), context: {} });
 
     const page = readFileSync(join(dist, 'e/person/florian-pronold/index.html'), 'utf8');
@@ -24,7 +24,9 @@ test('static pages carry the facts, the head tags and the JSON-LD', { skip: !exi
     assert.match(page, /<meta property="og:image" content="https:\/\/example.org\/10h\/og.png">/);
     assert.match(page, /<link rel="stylesheet" href="..\/..\/..\/web\/styles.css">/, 'paths are relative to the page');
     assert.match(page, /href="..\/..\/..\/e\/doc\/bt-drs-18-268\/">BT Drs 18\/268<\/a>/, 'facts link to the other entries');
-    assert.ok(page.includes('<\\/script><b>') && !page.includes('</script><b>'), 'JSON-LD cannot close its script element');
+    assert.ok(page.includes('\\u003c/script\\u003e\\u003cb\\u003e') && !page.includes('</script><b>'), 'JSON-LD cannot close its script element');
+    assert.match(page, /<meta http-equiv="Content-Security-Policy" content="default-src 'self';/);
+    assert.ok(!/<script>/.test(page), 'no inline script');
     assert.match(page, /href="..\/..\/..\/#\/e\/person\/florian-pronold"/, 'links into the app');
     assert.match(page, /<meta name="description" content="Florian Pronold \(SPD\): person in the record/);
 

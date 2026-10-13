@@ -1,42 +1,9 @@
 {
-  "env": {
-
-  },
   "enabledPlugins": {
     "abgeordnetenwatch@maschinenlesbar": true,
-    "ausbildungssuche@maschinenlesbar": true,
-    "autobahn@maschinenlesbar": true,
-    "bundeshaushalt@maschinenlesbar": true,
     "bundesrat@maschinenlesbar": true,
-    "bundeswahl@maschinenlesbar": true,
-    "ckan@maschinenlesbar": true,
-    "destatis-genesis@maschinenlesbar": true,
-    "ddb@maschinenlesbar": true,
     "dip-bundestag@maschinenlesbar": true,
-    "dwd@maschinenlesbar": true,
-    "entgeltatlas@maschinenlesbar": true,
-    "fim-portal@maschinenlesbar": true,
-    "fit-connect@maschinenlesbar": true,
-    "fragdenstaat@maschinenlesbar": true,
-    "govdata@maschinenlesbar": true,
-    "hochwasser@maschinenlesbar": true,
-    "jobsuche@maschinenlesbar": true,
-    "ladesaeulen@maschinenlesbar": true,
-    "lebensmittelwarnung@maschinenlesbar": true,
-    "lobbyregister@maschinenlesbar": true,
-    "luftqualitaet@maschinenlesbar": true,
-    "mastr@maschinenlesbar": true,
-    "mudab@maschinenlesbar": true,
-    "nina@maschinenlesbar": true,
-    "oparl@maschinenlesbar": true,
-    "pegel@maschinenlesbar": true,
-    "regionalatlas@maschinenlesbar": true,
-    "regionalstatistik@maschinenlesbar": true,
-    "reisewarnungen@maschinenlesbar": true,
-    "smard@maschinenlesbar": true,
-    "strahlenschutz@maschinenlesbar": true,
-    "tagesschau@maschinenlesbar": true,
-    "openka@maschinenlesbar": true
+    "fragdenstaat@maschinenlesbar": true
   },
   "extraKnownMarketplaces": {
     "maschinenlesbar": {

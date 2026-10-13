@@ -74,8 +74,9 @@ for f in 10h-windkraft-2013-2014.md 10h-wiki/*.md 10h-wiki/people/*.md 10h-wiki/
 
 ## Data sources and tools
 
-`.claude/settings.json` enables the `maschinenlesbar` plugin marketplace (`maschinenlesbar-org/plugins`). The plugins
-that matter here:
+`.claude/settings.json` enables the `maschinenlesbar` plugin marketplace (`maschinenlesbar-org/plugins`) and, of its
+plugins, only the four this research uses (dip-bundestag, abgeordnetenwatch, bundesrat, fragdenstaat). Enable others
+only when a task needs them. The plugins that matter here:
 
 - `dip-bundestag`: Bundestag and Bundesrat Drucksachen and Vorgänge, WP 17–18. The DIP API was queried directly with
   its public key.

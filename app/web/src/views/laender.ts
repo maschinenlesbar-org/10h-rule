@@ -21,8 +21,10 @@ export async function laenderView(): Promise<Node> {
     const l = by.get(id);
     const label = l?.land.label ?? name;
     const st = STATUS[l?.status ?? 'no_record'] ?? STATUS.no_record;
-    const tile = h('a', { href: `#/e/${id}`, class: `tile tile-${st[1]}`, style: `grid-column: ${c + 1}; grid-row: ${r + 1}`, 'aria-label': `${label}: ${st[0]}` },
+    const tile = h('a', { href: `#/e/${id}`, class: `tile tile-${st[1]}`, 'aria-label': `${label}: ${st[0]}` },
       h('span', { class: 'abbr' }, abbr), h('span', { class: 'name' }, label));
+    // Through the CSSOM: the Content Security Policy blocks style attributes.
+    Object.assign(tile.style, { gridColumn: String(c + 1), gridRow: String(r + 1) });
     withTip(tile, st[0], label, l?.summary);
     return tile;
   });

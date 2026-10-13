@@ -8,6 +8,10 @@ import { join } from 'node:path';
 import { CACHE } from './ctx.ts';
 
 export const MODEL = 'Xenova/bge-m3';
+// Pinned: the model is downloaded from Hugging Face and its ONNX file parsed by native code, so an upstream change must
+// not arrive silently. Revision of 10.02.2026; on 13.10.2026 the cached files were checked against it (the ONNX file by
+// its LFS SHA-256). To update: change the hash, check the new files, rebuild the embeddings.
+export const MODEL_REVISION = '4de13258303883538bd53b696b452bf8099f0858';
 export { toBlob, fromBlob } from './vec.ts';
 
 type Extractor = (texts: string[], opts: { pooling: 'cls' | 'mean'; normalize: boolean }) => Promise<{ tolist(): number[][] }>;
@@ -18,7 +22,10 @@ export function embedder(): Promise<Extractor> {
     loading = (async () => {
       const t = await import('@huggingface/transformers');
       t.env.cacheDir = join(CACHE, 'models');
-      return (await t.pipeline('feature-extraction', MODEL, { dtype: 'q8' })) as unknown as Extractor;
+      // The pipeline lists its files from a config.json it fetches without the revision; fixing the commit in the URL
+      // template makes that request use the pinned revision too.
+      t.env.remotePathTemplate = `{model}/resolve/${MODEL_REVISION}/`;
+      return (await t.pipeline('feature-extraction', MODEL, { dtype: 'q8', revision: MODEL_REVISION })) as unknown as Extractor;
     })();
   }
   return loading;

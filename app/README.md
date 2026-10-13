@@ -15,7 +15,8 @@ phases are built:
 - Node 24 or newer. TypeScript runs directly through Node's type stripping, with no compile step.
 - `pdftotext` and `pdftoppm` (poppler), and `tesseract` with German language data (`deu`) for the scanned pages.
 - Network access for the first Wikidata lookup and the first download of the embedding model (about 570 MB, cached in
-  `.cache/models/`). After that, everything runs offline.
+  `.cache/models/`). The model is pinned to one revision (`MODEL_REVISION` in `build/lib/embed.ts`). After that,
+  everything runs offline.
 - `npm install` once, for the embedding runtime (`@huggingface/transformers`) and the browser SQLite (`@sqlite.org/sqlite-wasm`).
 
 ## Commands
@@ -117,6 +118,8 @@ The server loads the model in the background at start; until it is ready, search
   `sitemap.xml` listing every page. The app lives behind `#/` routes that search engines and link previews do not
   see; these pages carry the same facts at real URLs, with a description, Open Graph tags, `og.png` and the entity's
   JSON-LD, and work without JavaScript. Entity pages in the app link to them ("Permanent link");
+- `config.js` (the database's address and size) and a Content Security Policy in every page: scripts, styles and
+  frames only from the site itself, no inline script or style;
 - `og.png`, the link preview image, rendered from `web/og.svg` (`rsvg-convert web/og.svg -o web/og.png`).
 
 `SITE_URL` (default `https://maschinenlesbar.org/10h-rule/`) sets the address used in canonical links, Open Graph tags
@@ -140,7 +143,13 @@ The build is too slow for CI (OCR and embeddings time out there), so it runs loc
 ```sh
 ./publish-pages.sh              # build offline, test, export, push dist/ to gh-pages
 ./publish-pages.sh --no-build   # push the existing dist/ as it is
+./publish-pages.sh --force      # also from uncommitted or unpushed changes (marked -dirty / -unpushed)
 ```
+
+Only what is on `origin/main` goes live: without `--force` the script stops when the working tree has changes or
+`HEAD` is not `origin/main`. The push expects the `gh-pages` commit seen at the start (`--force-with-lease`), so a
+deploy made from elsewhere in the meantime is not overwritten. A missing archive file or a checksum mismatch fails the
+build, and with it the deploy.
 
 The build is offline, so Wikidata links come from `data/wikidata.csv` as reviewed. A failed build check or test stops
 the script before anything is pushed. `gh-pages` is replaced by a single commit on every run, so old PDFs and databases

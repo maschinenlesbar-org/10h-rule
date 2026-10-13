@@ -27,6 +27,10 @@ const fmtDate = (iso: string | null | undefined): string => {
 const fmtBytes = (n: number | null | undefined): string =>
   !n ? '' : n < 1e6 ? `${Math.max(1, Math.round(n / 1e3))} KB` : `${(n / 1e6).toFixed(n < 1e7 ? 1 : 0)} MB`;
 const clip = (s: string, n: number) => (s.length > n ? `${s.slice(0, s.lastIndexOf(' ', n - 1))} …` : s);
+// An http(s) link to a third-party site, or the text alone: no other scheme becomes a link.
+const extLink = (url: string | null | undefined, text: string, cls = ''): string =>
+  url && /^https?:\/\//i.test(url) ? `<a${cls ? ` class="${cls}"` : ''} href="${esc(url)}" rel="noopener noreferrer nofollow">${esc(text)}</a>` : esc(text);
+const hostOf = (url: string): string => { try { return new URL(url).host; } catch { return url; } };
 const fileHref = (rel: string, id: string) => `${rel}files/${id.split('/').map(encodeURIComponent).join('/')}`;
 export const pagePath = (id: string) => `e/${id}/`;
 
@@ -57,7 +61,7 @@ function entityPage(p: EntityPage, ctx: Ctx): string {
     p.aliases.length ? `<p class="muted small">Also: ${p.aliases.slice(0, 12).map(esc).join(' · ')}</p>` : '',
     props.description ? `<p>${esc(props.description)}</p>` : '',
     p.external.filter((x) => x.url).length
-      ? `<p class="ids">${p.external.filter((x) => x.url).map((x) => `<a class="id-chip" href="${esc(x.url)}" rel="noopener">${esc(x.scheme)} ${esc(x.value)}</a>`).join('')}</p>` : '',
+      ? `<p class="ids">${p.external.filter((x) => x.url).map((x) => extLink(x.url, `${x.scheme} ${x.value}`, 'id-chip')).join('')}</p>` : '',
     `<p class="static-note">This is the plain page of this entry. <a href="${rel}#/e/${esc(e.id)}">Open it in the explorer</a> for search, the document reader and the charts.</p>`,
     documentPanel(p, rel),
     eventPanel(p),
@@ -84,7 +88,7 @@ function documentPanel(p: EntityPage, rel: string): string {
     : '<p class="muted">Not in the archive. Cited by archived documents; the source link opens the original.</p>';
   return `<section class="doc-panel"><dl class="meta-grid">${row('Type', esc(d.kind))}${row('Number', esc(d.number))}${row('Date', fmtDate(d.date))}`
     + `${row('Issuer', esc(d.issuer))}${row('Title', esc(d.title))}`
-    + `${row('Source', d.source_url ? `<a href="${esc(d.source_url)}" rel="noopener">${esc(new URL(d.source_url).host)}</a>` : null)}</dl>${files}</section>`;
+    + `${row('Source', d.source_url ? extLink(d.source_url, hostOf(d.source_url)) : null)}</dl>${files}</section>`;
 }
 
 function eventPanel(p: EntityPage): string {
@@ -149,7 +153,7 @@ function worksSection(p: EntityPage, rel: string): string {
   if (!p.works?.length) return '';
   return `<section class="works"><h2>Works cited<span class="count">${p.works.length}</span></h2>`
     + `<p class="muted small">Outside the archive, found by pattern in the text. <a href="${rel}bibliography/">The whole bibliography</a></p><ul class="fact-list">`
-    + p.works.map((w) => `<li class="fact">${w.url ? `<a href="${esc(w.url)}" rel="noopener">${esc(w.label)}</a>` : esc(w.label)}`
+    + p.works.map((w) => `<li class="fact">${extLink(w.url, w.label)}`
       + `<div class="fact-evidence">${w.pages.map((n) => `<a class="evidence" href="${fileHref(rel, w.file_id)}#page=${n}">p. ${n}</a>`).join(' ')}</div></li>`).join('')
     + '</ul></section>';
 }
@@ -169,7 +173,7 @@ function bibliographyPage(all: BibEntry[], ctx: Ctx): string {
       return `<section class="bib-group"><h2>${title}<span class="count">${group.length}</span></h2><ol class="bib-entries">`
         + group.map((e) => {
           const label = e.entity ? `<a href="${rel}${pagePath(e.entity.id)}">${esc(e.label)}</a>`
-            : e.url ? `<a class="bib-url" href="${esc(e.url)}" rel="noopener">${esc(e.label)}</a>` : esc(e.label);
+            : extLink(e.url, e.label, 'bib-url');
           const docs = [...new Map(e.citations.map((c) => [c.doc.id, c.doc])).values()];
           return `<li class="bib-entry">${label}<span class="muted small"> · cited in ${docs.map((d) => `<a href="${rel}${pagePath(d.id)}">${esc(d.label)}</a>`).join(', ')}</span></li>`;
         }).join('') + '</ol></section>';
@@ -243,6 +247,9 @@ export function headTags(o: { site: string; title: string; url: string; descript
   ].join('\n  ');
 }
 
+// Same policy as web/index.html. The JSON-LD block is data, not script, so it needs no exception.
+export const CSP = `<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">`;
+
 export const FAVICON = `<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5f8b'/%3E%3Ctext x='16' y='21.5' font-family='Georgia,serif' font-size='14' font-weight='700' text-anchor='middle' fill='white'%3E10H%3C/text%3E%3C/svg%3E">`;
 
 export function footer(rel: string): string {
@@ -254,13 +261,14 @@ export function footer(rel: string): string {
 function shell(o: { rel: string; ctx: Ctx; title: string; url: string; description: string; body: string; jsonld: unknown; ogType: string }): string {
   const nav = [['#/story', 'Story'], ['#/questions', 'Questions'], ['#/effects', 'Effects'], ['#/laender', 'Länder'], ['e/', 'All entries'], ['bibliography/', 'Bibliography'], ['#/about', 'About']]
     .map(([h, t]) => `<a href="${o.rel}${h}">${t}</a>`).join('\n      ');
-  // "</" inside a script element would end it early.
-  const ld = o.jsonld ? `\n  <script type="application/ld+json">${JSON.stringify(o.jsonld).replace(/<\//g, '<\\/')}</script>` : '';
+  // Inside a script element, "</script" would end it and "<!--" would change how the parser reads it: escape < and >.
+  const ld = o.jsonld ? `\n  <script type="application/ld+json">${JSON.stringify(o.jsonld).replace(/</g, '\\u003c').replace(/>/g, '\\u003e')}</script>` : '';
   return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  ${CSP}
   ${FAVICON}
   <title>${esc(o.title)} · ${SITE_NAME}</title>
   ${headTags({ site: o.ctx.site, title: o.title, url: o.url, description: o.description, ogType: o.ogType })}

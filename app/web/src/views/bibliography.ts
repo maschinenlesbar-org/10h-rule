@@ -1,7 +1,7 @@
 // Bibliography: works outside the archive that the documents cite, by kind, each with the pages that cite it.
 // State in the URL: #/bibliography?kind=court&all=1&sort=az. The text filter and the CSV download work on what is shown.
 import { api } from '../api.ts';
-import { h, setTitle, entityLink, readerHref, entityHref } from '../dom.ts';
+import { h, setTitle, entityLink, readerHref, entityHref, safeUrl, EXTERNAL_REL } from '../dom.ts';
 import type { BibEntry, WorkKind } from '../types.ts';
 
 export const KINDS: Array<[WorkKind, string, string]> = [
@@ -9,7 +9,7 @@ export const KINDS: Array<[WorkKind, string, string]> = [
   ['court', 'Court decisions', 'By court, date and file number, or by the official collection (BVerfGE, BVerwGE, VerfGHE)'],
   ['legislation', 'Legislation', 'Laws and amendments by their place in the Bundesgesetzblatt or a Land gazette'],
   ['literature', 'Literature', 'Journal articles and commentaries; authors where the citation names them'],
-  ['web', 'Web sources', 'Addresses in the text; imprints and footers left out. Links may have moved since'],
+  ['web', 'Web sources', 'Addresses as given in the documents, imprints and footers left out. The pages may have moved or changed owner since'],
 ];
 
 const collator = new Intl.Collator('de', { numeric: true, sensitivity: 'base' });
@@ -80,7 +80,7 @@ const docCount = (e: BibEntry) => new Set(e.citations.map((c) => c.doc.id)).size
 function entry(e: BibEntry): Node {
   const docs = docCount(e);
   const title = e.entity ? entityLink(e.entity)
-    : e.url ? h('a', { href: e.url, target: '_blank', rel: 'noopener', class: 'bib-url' }, e.label)
+    : safeUrl(e.url) ? h('a', { href: safeUrl(e.url), target: '_blank', rel: EXTERNAL_REL, class: 'bib-url' }, e.label)
     : h('span', { class: 'bib-label' }, e.label);
   // Grouped by citing document: "BT Drs 18/1310, pp. 3, 7".
   const byDoc = new Map<string, BibEntry['citations']>();

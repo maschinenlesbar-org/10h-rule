@@ -115,3 +115,11 @@ test('a Saxon Vf. number is not a BayVerfGH decision', () => {
   assert.deepEqual(ids('SächsVerfGH, Urteil vom 23. April 2008, Vf. 87-I-06'), []);
   assert.deepEqual(ids('BayVerfGH, Entscheidung vom 9. Mai 2016, Vf. 14-VII-14'), ['doc/bayverfgh-vf-14-vii-14']);
 });
+
+test('bibliography patterns stay linear on hostile text', () => {
+  for (const t of ['Abc/'.repeat(20000), 'OVG Abc-Def '.repeat(20000), 'BVerwG, Urteil vom 1. 1. '.repeat(10000), 'www.' + 'a'.repeat(200000)]) {
+    const t0 = performance.now();
+    extractWorks(t);
+    assert.ok(performance.now() - t0 < 500, `${t.slice(0, 12)}…: ${(performance.now() - t0).toFixed(0)} ms`);
+  }
+});

@@ -125,7 +125,7 @@ createServer(async (req, res) => {
     return serveStatic(res, WEB, decodeURIComponent(p.slice(1)));
   } catch (err) {
     console.error(err);
-    json(res, { error: String(err) }, 500);
+    json(res, { error: 'internal error, see the server log' }, 500); // details stay in the log
   }
 }).listen(port, '127.0.0.1', () => {
   console.log(`10H Explorer: http://localhost:${port}/${reviewMode ? '  (review mode: decisions are saved)' : ''}`);

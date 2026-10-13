@@ -6,7 +6,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join, basename } from 'node:path';
 import type { DatabaseSync } from 'node:sqlite';
 import { WIKI, log, type Ctx } from '../lib/ctx.ts';
-import { mdTables, plain, mdLinks, markerOf, parseDate, type MdTable, type Marker } from '../lib/text.ts';
+import { mdTables, plain, mdLinks, markerOf, parseDate, httpUrl, type MdTable, type Marker } from '../lib/text.ts';
 import { slug, personId } from '../lib/ids.ts';
 import { extractRefs, type Parliament } from '../lib/refs.ts';
 import { upsertEntity, addAlias, addStatement, addEvidence } from '../lib/db.ts';
@@ -41,8 +41,9 @@ class Writer {
   }
 }
 
-export function ensureDoc(db: DatabaseSync, id: string, url?: string): void {
+export function ensureDoc(db: DatabaseSync, id: string, link?: string): void {
   if (!id.startsWith('doc/')) return;
+  const url = httpUrl(link) ?? undefined; // wiki links can be anything; only http(s) becomes a source link
   const exists = db.prepare('SELECT 1 FROM document WHERE id = ?').get(id);
   if (exists) {
     if (url) db.prepare('UPDATE document SET source_url = coalesce(source_url, ?) WHERE id = ?').run(url, id);

@@ -19,8 +19,8 @@ documents publish. The main risks are:
   curated file that is committed and published.
 - **Integrity of the record:** what is deployed should be exactly the reviewed archive and code.
 
-Nothing was changed in the code for this review. The findings below were checked by reading the code and, where noted,
-by tests against a running local server.
+The findings were checked by reading the code and, where noted, by tests against a running local server. All of them
+were fixed the same day; each finding ends with what was changed and how it was checked.
 
 ## Summary
 
@@ -28,16 +28,16 @@ by tests against a running local server.
 | --- | --- | --- | --- |
 | 1 | Review endpoint accepts cross-site and DNS-rebinding requests (**fixed**) | Medium | `app/serve.ts:84`, `:101` |
 | 2 | Checksum mismatches do not stop the build (**fixed**) | Medium | `app/build/steps/inventory.ts:81` |
-| 3 | No Content Security Policy on the site | Low | `app/web/index.html`, `app/export.ts:65`, `app/export-pages.ts` |
-| 4 | Link URLs are not checked for their scheme | Low | `app/web/src/views/entity.ts:48`, `:62`; `app/build/steps/wiki.ts:48`; `app/build/steps/inventory.ts:88` |
-| 5 | JSON-LD in static pages escapes `</` but not `<!--` | Low | `app/export-pages.ts:258` |
-| 6 | Quadratic regular expression in the commentary pattern | Low | `app/build/lib/biblio.ts:112` |
-| 7 | Server errors are returned to the client | Low | `app/serve.ts:117` |
-| 8 | Review CSV: unchecked values, `\r` not quoted | Low | `app/serve.ts:101`, `app/build/lib/text.ts:31` |
-| 9 | Web sources link to third-party sites from old documents | Info | `app/web/src/views/bibliography.ts:83` |
-| 10 | Embedding model is not pinned to a revision | Info | `app/build/lib/embed.ts:21` |
-| 11 | Deploys can come from an unreviewed working tree | Info | `app/publish-pages.sh:26` |
-| 12 | Repository enables 34 Claude Code plugins on trust | Info | `.claude/settings.json` |
+| 3 | No Content Security Policy on the site (**fixed**) | Low | `app/web/index.html`, `app/export.ts:65`, `app/export-pages.ts` |
+| 4 | Link URLs are not checked for their scheme (**fixed**) | Low | `app/web/src/views/entity.ts:48`, `:62`; `app/build/steps/wiki.ts:48`; `app/build/steps/inventory.ts:88` |
+| 5 | JSON-LD in static pages escapes `</` but not `<!--` (**fixed**) | Low | `app/export-pages.ts:258` |
+| 6 | Quadratic regular expression in the commentary pattern (**fixed**) | Low | `app/build/lib/biblio.ts:112` |
+| 7 | Server errors are returned to the client (**fixed**) | Low | `app/serve.ts:117` |
+| 8 | Review CSV: unchecked values, `\r` not quoted (**fixed**) | Low | `app/serve.ts:101`, `app/build/lib/text.ts:31` |
+| 9 | Web sources link to third-party sites from old documents (**fixed**) | Info | `app/web/src/views/bibliography.ts:83` |
+| 10 | Embedding model is not pinned to a revision (**fixed**) | Info | `app/build/lib/embed.ts:21` |
+| 11 | Deploys can come from an unreviewed working tree (**fixed**) | Info | `app/publish-pages.sh:26` |
+| 12 | Repository enables 34 Claude Code plugins on trust (**fixed**) | Info | `.claude/settings.json` |
 
 ## Findings
 
@@ -98,7 +98,7 @@ archive's promise that each file matches its checksum.
 Checked by changing one checksum in `10h-wiki/pdfs/manifest.tsv`: the inventory step reported one failure. The
 manifest was then restored.
 
-### 3. No Content Security Policy on the site (Low)
+### 3. No Content Security Policy on the site (Low, fixed)
 
 Neither the app nor the static pages set a CSP, and GitHub Pages cannot send one as a header. No XSS was found: every
 piece of document text goes through text nodes (`app/web/src/dom.ts`, `app/web/src/charts/svg.ts`), and the static pages
@@ -112,7 +112,19 @@ displayed text comes from untrusted PDFs.
   `default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; img-src 'self' data:; style-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'`.
   sqlite-wasm needs `wasm-unsafe-eval`; the PDF reader needs `frame-src 'self'`.
 
-### 4. Link URLs are not checked for their scheme (Low)
+**Fixed (13.10.2026).**
+
+- The app (`app/web/index.html`) and every static page (`app/export-pages.ts`) carry the policy
+  `default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'`.
+- The inline `window.TENH_STATIC` script is now `config.js`. The export refuses to run if the shell no longer has the
+  policy.
+- The one inline `style` attribute (the Länder tile map) is set through the CSSOM instead.
+
+Checked in headless Chrome: every view of the static site and the local server, the plain pages and the bibliography
+load without a CSP violation or console error. A probe page with inline script and style was reported, so the check
+does detect violations.
+
+### 4. Link URLs are not checked for their scheme (Low, fixed)
 
 The document source links and external-id links are written into `href` as they are (`app/web/src/views/entity.ts:48`,
 `:62`; `app/export-pages.ts` escapes them as HTML but does not check the scheme). The URLs come from the manifests and
@@ -128,7 +140,16 @@ to the latter.
 **Fix:** accept only `http:` and `https:` when the build stores a URL, and report the rest. Guard the
 `new URL(...)` call in the view.
 
-### 5. JSON-LD in static pages escapes `</` but not `<!--` (Low)
+**Fixed (13.10.2026).**
+
+- **Build:** `httpUrl` (`app/build/lib/text.ts`) admits only `http(s)` addresses. The inventory reports others as
+  "Source URLs that are not http(s), left out", and `ensureDoc` drops them from wiki links. All 143 current source links
+  pass.
+- **Front end:** links to other sites go through `safeUrl` (`app/web/src/dom.ts`); an address that does not parse is
+  shown as text instead of breaking the page.
+- **Static pages:** they use `extLink`, which links only `http(s)` addresses.
+
+### 5. JSON-LD in static pages escapes `</` but not `<!--` (Low, fixed)
 
 `app/export-pages.ts:258` replaces `</` in the embedded JSON-LD, which stops the script element from being closed early
 (a test covers this). It does not escape `<!--`, which together with `<script` can change how the HTML parser reads the
@@ -136,7 +157,10 @@ rest of the script block. The data comes from the wiki and the vocabularies, not
 
 **Fix:** escape every `<` as `<` (and `>` as `>`) in the serialised JSON.
 
-### 6. Quadratic regular expression in the commentary pattern (Low)
+**Fixed (13.10.2026).** Every `<` and `>` in the serialised JSON-LD is written as `\u003c` and `\u003e`. The test
+`app/test/export-pages.test.ts` now plants `</script><b><!--` in a name.
+
+### 6. Quadratic regular expression in the commentary pattern (Low, fixed)
 
 The commentary pattern `(AUTHOR(?:/AUTHOR)+),\s+(CODES)` (`app/build/lib/biblio.ts:112`) rescans the rest of a long run
 of `Name/Name/…` from every starting point.
@@ -147,7 +171,10 @@ build time on archived PDFs, so a crafted PDF could slow the build but not the s
 
 **Fix:** bound the repetition, for example `(?:\/AUTHOR){1,6}`.
 
-### 7. Server errors are returned to the client (Low)
+**Fixed (13.10.2026).** The name lists are bounded to seven names. The same 80,000 characters now take 9 ms, and
+`app/test/lib.test.ts` checks that four hostile inputs stay under 500 ms.
+
+### 7. Server errors are returned to the client (Low, fixed)
 
 The local server's catch-all handler returns `String(err)` (`app/serve.ts:117`). That can expose paths and internals.
 The server binds to 127.0.0.1 (`:119`), so the exposure is small, but together with finding 1 a page could read the
@@ -155,7 +182,9 @@ messages.
 
 **Fix:** log the error and return a generic message.
 
-### 8. Review CSV: unchecked values, `\r` not quoted (Low)
+**Fixed (13.10.2026).** The server logs the error and returns "internal error, see the server log".
+
+### 8. Review CSV: unchecked values, `\r` not quoted (Low, fixed)
 
 `toCsv` (`app/build/lib/text.ts:31`) quotes fields that contain `"`, `,` or `\n`, but not `\r`. Values posted to the review
 endpoint go into the CSV unchecked (see finding 1). A carriage return in a surface form could break the row structure
@@ -163,7 +192,12 @@ of a committed data file.
 
 **Fix:** quote on `\r` as well, and validate the values (finding 1).
 
-### 9. Web sources link to third-party sites from old documents (Info)
+**Fixed (13.10.2026).**
+
+- `toCsv` now quotes fields containing `\r`.
+- Posted values reach the CSV only if they match existing mentions (finding 1).
+
+### 9. Web sources link to third-party sites from old documents (Info, fixed)
 
 The bibliography links 351 web addresses extracted from documents written between 2006 and 2020
 (`app/web/src/views/bibliography.ts:83`). Some domains may have changed owner since. The links open with
@@ -174,7 +208,13 @@ The bibliography links 351 web addresses extracted from documents written betwee
 - Add `noreferrer nofollow`.
 - Label the links as taken from the source documents, which the page already says in its introduction.
 
-### 10. Embedding model is not pinned to a revision (Info)
+**Fixed (13.10.2026).**
+
+- Links to other sites, in the app and on the static pages, carry `rel="noopener noreferrer nofollow"`.
+- Web sources and the "Works cited" links say that the address is as given in the document and that the page may have
+  moved or changed owner since.
+
+### 10. Embedding model is not pinned to a revision (Info, fixed)
 
 The local server and the build download `Xenova/bge-m3` from Hugging Face on first use, at the latest revision
 (`app/build/lib/embed.ts:21`). If the model repository changed upstream, the semantic search would change silently, and
@@ -183,7 +223,16 @@ the vectors are cached.
 
 **Fix:** pass a fixed `revision` (a commit hash).
 
-### 11. Deploys can come from an unreviewed working tree (Info)
+**Fixed (13.10.2026).**
+
+- **Pin:** `MODEL_REVISION` in `app/build/lib/embed.ts` pins commit `4de13258303883538bd53b696b452bf8099f0858` (10.02.2026).
+- **Download URLs:** transformers.js lists the pipeline's files from a `config.json` it fetches without the revision, so
+  the revision is also fixed in the download URL template.
+- **Cached files:** before pinning, they were compared with that revision: the ONNX model by its LFS SHA-256, the
+  three JSON files byte for byte. They were then moved to the revision's cache path, so nothing was downloaded again.
+- **Check:** with request logging, the model loads with every request going to the pinned commit.
+
+### 11. Deploys can come from an unreviewed working tree (Info, fixed)
 
 `app/publish-pages.sh` builds from the local checkout and publishes even when the tree has uncommitted changes. It
 marks those builds `-dirty` (`:26`) and force-pushes over `gh-pages`. What is live can therefore differ from what is on
@@ -191,13 +240,23 @@ marks those builds `-dirty` (`:26`) and force-pushes over `gh-pages`. What is li
 
 **Fix:** refuse to publish unless the tree is clean and `HEAD` equals `origin/main`, with an explicit override.
 
-### 12. Repository enables 34 Claude Code plugins on trust (Info)
+**Fixed (13.10.2026).**
+
+- `app/publish-pages.sh` fetches `origin/main` and stops when the working tree has changes or `HEAD` is not
+  `origin/main`. `--force` overrides this, and marks the deploy `-dirty` or `-unpushed`.
+- The push uses `--force-with-lease` against the `gh-pages` commit seen at the start, so a deploy made from elsewhere in
+  the meantime is not overwritten.
+
+### 12. Repository enables 34 Claude Code plugins on trust (Info, fixed)
 
 `.claude/settings.json` enables 34 plugins from the `maschinenlesbar-org/plugins` marketplace for anyone who opens and
 trusts the repository in Claude Code. CLAUDE.md names four that this research uses (dip-bundestag, abgeordnetenwatch,
 bundesrat, fragdenstaat). The others add tools, and supply-chain surface, without a use here.
 
 **Fix:** enable only the plugins the research needs.
+
+**Fixed (13.10.2026).** `.claude/settings.json` enables only dip-bundestag, abgeordnetenwatch, bundesrat and
+fragdenstaat; CLAUDE.md says so.
 
 ## Checked and sound
 
@@ -221,8 +280,6 @@ bundesrat, fragdenstaat). The others add tools, and supply-chain surface, withou
 - **Network access in the build.** Wikidata is queried over HTTPS, and only in online builds; deploys build offline
   from the reviewed `data/wikidata.csv`.
 
-## Suggested order
+## Status
 
-1. Findings 1 and 2: fixed on 13.10.2026.
-2. Findings 3 and 4: defence in depth for the public site.
-3. The rest when the code is next touched.
+All twelve findings were fixed on 13.10.2026; each section says how, and how the fix was checked.

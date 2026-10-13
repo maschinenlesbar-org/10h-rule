@@ -1,5 +1,5 @@
 import { api } from '../api.ts';
-import { h, setTitle, entityLink, fmtDate, readerHref, typeLabel, badge, markerBadge, entityHref, fileUrl, fmtBytes } from '../dom.ts';
+import { h, setTitle, entityLink, fmtDate, readerHref, typeLabel, badge, markerBadge, entityHref, fileUrl, fmtBytes, safeUrl, EXTERNAL_REL } from '../dom.ts';
 import { isStatic } from '../api.ts';
 import { groupFacts } from '../facts.ts';
 import type { Fact, EntityPage, Evidence } from '../types.ts';
@@ -44,8 +44,8 @@ function header(e: EntityPage): Node {
     e.aliases.length ? h('p', { class: 'muted small' }, 'Also: ', e.aliases.slice(0, 12).join(' · ')) : null,
     props.description ? h('p', {}, props.description) : null,
     e.external.length || props.profile ? h('p', { class: 'ids' },
-      ...e.external.map((x) => x.url
-        ? h('a', { href: x.url, target: '_blank', rel: 'noopener', class: 'id-chip' }, `${x.scheme} ${x.value}`, x.status !== 'confirmed' ? ' (unverified)' : '')
+      ...e.external.map((x) => safeUrl(x.url)
+        ? h('a', { href: safeUrl(x.url), target: '_blank', rel: EXTERNAL_REL, class: 'id-chip' }, `${x.scheme} ${x.value}`, x.status !== 'confirmed' ? ' (unverified)' : '')
         : h('span', { class: 'id-chip' }, `${x.scheme} ${x.value}`)),
       props.profile ? h('span', { class: 'id-chip' }, `wiki: ${props.profile}`) : null) : null,
     // The static page of this entity: a plain URL that search engines index and link previews can read.
@@ -59,13 +59,22 @@ function documentPanel(e: EntityPage): Node {
     h('dl', { class: 'meta-grid' },
       ...row('Type', d.kind), ...row('Number', d.number), ...row('Date', fmtDate(d.date)), ...row('Issuer', d.issuer),
       ...row('Title', d.title),
-      ...row('Source', d.source_url ? h('a', { href: d.source_url, target: '_blank', rel: 'noopener' }, new URL(d.source_url).host) : null)),
+      ...row('Source', sourceLink(d.source_url))),
     d.archived
       ? h('ul', { class: 'files' }, ...d.files.map((f) => h('li', {},
           h('a', { href: readerHref(f.id, 1), class: 'button' }, `Read${f.part ? ` (${f.part})` : ''}`), ' ',
           h('a', { href: `${fileUrl(f.id)}`, target: '_blank' }, 'PDF'),
           h('span', { class: 'muted small' }, ` ${[`${f.pages} pages`, fmtBytes(f.bytes), f.id].filter(Boolean).join(' · ')}`))))
       : h('p', { class: 'muted' }, 'Not in the archive. Cited by archived documents; the source link opens the original.'));
+}
+
+// The source link shows the host; an address that does not parse is shown as text, not as a broken page.
+function sourceLink(u: string | null): Node | null {
+  const url = safeUrl(u);
+  if (!url) return u ? document.createTextNode(u) : null;
+  let host = url;
+  try { host = new URL(url).host; } catch { /* keep the address */ }
+  return h('a', { href: url, target: '_blank', rel: EXTERNAL_REL }, host);
 }
 
 function eventPanel(e: EntityPage): Node {
@@ -144,10 +153,11 @@ function worksSection(e: EntityPage): Node | null {
     h('h2', {}, 'Works cited', h('span', { class: 'count' }, String(e.works.length))),
     h('p', { class: 'muted small' }, 'Outside the archive, found by pattern in the text. ', h('a', { href: '#/bibliography' }, 'The whole bibliography')),
     h('ul', { class: 'fact-list' }, ...e.works.map((w) => h('li', { class: 'fact' },
-      w.url ? h('a', { href: w.url, target: '_blank', rel: 'noopener' }, w.label) : w.label,
+      safeUrl(w.url) ? h('a', { href: safeUrl(w.url), target: '_blank', rel: EXTERNAL_REL, title: WEB_NOTE }, w.label) : w.label,
       h('span', { class: 'badge' }, KIND_LABEL[w.kind]),
       h('div', { class: 'fact-evidence' }, ...w.pages.map((n) => h('a', { class: 'evidence', href: readerHref(w.file_id, n) }, `p. ${n}`)))))));
 }
+const WEB_NOTE = 'Address as given in the document; the page may have moved or changed owner since.';
 const KIND_LABEL: Record<string, string> = { court: 'court decision', legislation: 'legislation', literature: 'literature', web: 'web', parliamentary: 'parliamentary' };
 
 function mentionsSection(e: EntityPage): Node | null {

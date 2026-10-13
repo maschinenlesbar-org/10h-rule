@@ -56,6 +56,11 @@ export function entityLink(e: { id: string; type: string; label: string }, extra
   return h('a', { href: entityHref(e.id), class: `ent ent-${e.type.toLowerCase()} ${extra}`.trim(), title: typeLabel(e.type) }, e.label);
 }
 
+// Only http(s) addresses become links (defence in depth: the build already filters them).
+export const safeUrl = (u: string | null | undefined): string | null => (u && /^https?:\/\//i.test(u) ? u : null);
+// Rel for links to third-party sites, many taken from documents written years ago.
+export const EXTERNAL_REL = 'noopener noreferrer nofollow';
+
 export function badge(text: string, kind = ''): HTMLSpanElement {
   return h('span', { class: `badge ${kind}`.trim() }, text);
 }

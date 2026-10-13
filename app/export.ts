@@ -62,10 +62,13 @@ const html = readFileSync(join(APP, 'web', 'index.html'), 'utf8')
   .replace('<title>10H Explorer</title>', `<title>10H Explorer</title>\n  ${headTags({ site: SITE, title: 'How Bayern got 10H', url: SITE, description: DESCRIPTION, ogType: 'website' })}`)
   .replace('href="styles.css"', 'href="web/styles.css"')
   .replace('<script type="module" src="src/main.ts"></script>',
-    `<script>window.TENH_STATIC = { db: "10h-web.db", size: ${dbBytes}, vendor: new URL("vendor/sqlite-wasm/index.mjs", location.href).href };</script>\n  <script type="module" src="web/src/main.js"></script>`)
+    '<script src="config.js"></script>\n  <script type="module" src="web/src/main.js"></script>')
   .replace('</body>', `  ${footer('')}\n</body>`);
-if (!html.includes('TENH_STATIC') || !html.includes('og:title')) throw new Error('web/index.html no longer matches the export');
+if (!html.includes('config.js') || !html.includes('og:title') || !html.includes('Content-Security-Policy')) throw new Error('web/index.html no longer matches the export');
 writeFileSync(join(DIST, 'index.html'), html);
+// In a file, not inline, so the Content Security Policy needs no 'unsafe-inline'.
+writeFileSync(join(DIST, 'config.js'),
+  `window.TENH_STATIC = { db: "10h-web.db", size: ${dbBytes}, vendor: new URL("vendor/sqlite-wasm/index.mjs", location.href).href };\n`);
 
 // The start page's numbers, so it renders without the database.
 const webQueries = new Queries(new DatabaseSync(webDb, { readOnly: true }));

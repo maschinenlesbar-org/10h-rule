@@ -109,7 +109,8 @@ const PATTERNS: Pattern[] = [
         detail: { journal, year, page: m[5], ...(authors ? { authors } : {}) } };
     } },
   // Commentaries: "Battis/Krautzberger/Löhr, BauGB", "Jarass, BImSchG, 11. Aufl. 2015", "in: Dreier (Hrsg.), GG"
-  { re: new RegExp(String.raw`\b(${AUTHOR}(?:\/${AUTHOR})+),\s+(${CODES})\b|\b(${AUTHOR}),\s+(${CODES}),\s*\d{1,2}\.\s?Aufl|\bin:\s+(${AUTHOR}(?:\/${AUTHOR})*)\s*(?:\(Hrsg\.\))?,\s+(${CODES})\b`, 'g'),
+  // At most seven names: an unbounded list would make the scan quadratic on long runs of "Name/Name/…".
+  { re: new RegExp(String.raw`\b(${AUTHOR}(?:\/${AUTHOR}){1,6}),\s+(${CODES})\b|\b(${AUTHOR}),\s+(${CODES}),\s*\d{1,2}\.\s?Aufl|\bin:\s+(${AUTHOR}(?:\/${AUTHOR}){0,6})\s*(?:\(Hrsg\.\))?,\s+(${CODES})\b`, 'g'),
     make: (m) => {
       const authors = m[1] ?? m[3] ?? m[5], code = m[2] ?? m[4] ?? m[6];
       if (/^(Bund|Land|Länder|Bayern|Sachsen)$/.test(authors)) return null;

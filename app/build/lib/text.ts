@@ -27,8 +27,11 @@ export function parseCsv(src: string): string[][] {
   return rows;
 }
 
+// Only http(s) addresses become links: a "javascript:" or "data:" URL in a manifest or a wiki link would run in the site.
+export const httpUrl = (u: string | null | undefined): string | null => (u && /^https?:\/\/\S+$/i.test(u.trim()) ? u.trim() : null);
+
 export function toCsv(rows: Array<Record<string, string>>, cols: string[]): string {
-  const esc = (v: string) => (/[",\n]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v);
+  const esc = (v: string) => (/[",\r\n]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v);
   return [cols.join(','), ...rows.map((r) => cols.map((c) => esc(r[c] ?? '')).join(','))].join('\n') + '\n';
 }
 

@@ -3,7 +3,7 @@ import { api, isStatic } from '../api.ts';
 import { h, setTitle } from '../dom.ts';
 
 const REPO = 'https://github.com/maschinenlesbar-org/10h-rule';
-const ext = (href: string, text: string) => h('a', { href, target: '_blank', rel: 'noopener' }, text);
+const ext = (href: string, text: string) => h('a', { href, target: '_blank', rel: 'noopener noreferrer' }, text);
 
 export async function aboutView(): Promise<Node> {
   setTitle('About');
