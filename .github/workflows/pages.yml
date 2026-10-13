@@ -1,0 +1,74 @@
+# Builds the 10H Explorer from the wiki and the archived PDFs and deploys the static export (app/dist) to GitHub Pages.
+# Enable once: Settings → Pages → Build and deployment → Source: GitHub Actions.
+#
+# app/.cache (page text, OCR, embedding model and vectors) is kept between runs. The first run OCRs the scans and
+# embeds every chunk (about an hour); later runs only process new or changed files and take a few minutes.
+name: Deploy 10H Explorer
+
+on:
+  push:
+    branches: [main]
+    paths: ['10h-wiki/**', 'app/**', '.github/workflows/pages.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 26
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - name: Install poppler and tesseract (German)
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends poppler-utils tesseract-ocr tesseract-ocr-deu
+
+      - name: Restore build cache
+        uses: actions/cache@v4
+        with:
+          path: app/.cache
+          key: build-cache-${{ hashFiles('10h-wiki/**/manifest.tsv', 'app/data/**', 'app/build/**') }}
+          restore-keys: build-cache-
+
+      - run: npm ci
+
+      # Offline: Wikidata links come from data/wikidata.csv as reviewed; no lookups from CI.
+      - name: Build the database
+        run: npm run build:offline
+
+      - run: npm test
+
+      - name: Static export
+        run: npm run export
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: app/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

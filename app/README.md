@@ -111,6 +111,16 @@ The server loads the model in the background at start; until it is ready, search
 The static site has keyword search and the precomputed "more like this"; semantic search needs the local server,
 because the model is too large to ship. Review mode is local only.
 
+### Deploying to GitHub Pages
+
+`.github/workflows/pages.yml` (in the repository root) builds the database, runs the tests, exports and deploys `dist/`
+on every push to `main` that touches the wiki or the app, and on demand (Actions → Deploy 10H Explorer → Run workflow).
+Enable it once under Settings → Pages → Build and deployment → Source: **GitHub Actions**.
+
+The workflow runs on Ubuntu 24.04 with its poppler and tesseract. It builds offline, so Wikidata links come from
+`data/wikidata.csv` as reviewed. `app/.cache` is kept between runs: the first run OCRs the scans and embeds every
+chunk (about an hour), later runs take a few minutes. A failed build check or test stops the deployment.
+
 ## Review status (13.10.2026)
 
 - **`data/wikidata.csv`:** all 166 links are confirmed. 81 people were matched exactly by their abgeordnetenwatch id
