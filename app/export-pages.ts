@@ -1,11 +1,11 @@
-// Static pages for the export: one plain HTML page per entity at e/<id>/, an index of all entries at e/, and
-// sitemap.xml. The app itself lives behind #/ routes that search engines and link previews cannot see; these pages
-// carry the same facts as real URLs, with a description, Open Graph tags and the entity's JSON-LD, and link back into
-// the app for search, the reader and the charts. They work without JavaScript.
+// Static pages for the export: one plain HTML page per entity at e/<id>/, an index of all entries at e/, the
+// bibliography at bibliography/, and sitemap.xml. The app itself lives behind #/ routes that search engines and link
+// previews cannot see; these pages carry the same facts as real URLs, with a description, Open Graph tags and the
+// entity's JSON-LD, and link back into the app for search, the reader and the charts. They work without JavaScript.
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { Queries } from './server/queries.ts';
-import type { EntityPage, Fact, Evidence } from './web/src/types.ts';
+import type { EntityPage, Fact, Evidence, BibEntry } from './web/src/types.ts';
 import { groupFacts } from './web/src/facts.ts';
 
 const TYPE_LABEL: Record<string, string> = { Person: 'Person', Organization: 'Organisation', Document: 'Document', Law: 'Law', Concept: 'Concept',
@@ -39,6 +39,8 @@ export function writeStaticPages(q: Queries, entities: Array<{ id: string; type:
     writeFileSync(join(dir, 'index.html'), entityPage(page, ctx));
   }
   writeFileSync(join(ctx.dist, 'e', 'index.html'), indexPage(entities, ctx));
+  mkdirSync(join(ctx.dist, 'bibliography'), { recursive: true });
+  writeFileSync(join(ctx.dist, 'bibliography', 'index.html'), bibliographyPage(q.bibliography(), ctx));
   writeFileSync(join(ctx.dist, 'sitemap.xml'), sitemap(entities, ctx));
   return entities.length;
 }
@@ -62,6 +64,7 @@ function entityPage(p: EntityPage, ctx: Ctx): string {
     procedurePanel(p, link),
     rollcallPanel(p, link),
     factsSection(p, rel, link),
+    worksSection(p, rel),
     mentionsSection(p, link),
   ].join('\n');
   return shell({
@@ -142,6 +145,39 @@ function factsSection(p: EntityPage, rel: string, link: (x: { id: string; label:
     `<div class="fact-group"><h3>${esc(label)}<span class="count">${fs.length}</span></h3><ul class="fact-list">${fs.map((f) => factRow(f, rel, link)).join('')}</ul></div>`).join('')}</section>`;
 }
 
+function worksSection(p: EntityPage, rel: string): string {
+  if (!p.works?.length) return '';
+  return `<section class="works"><h2>Works cited<span class="count">${p.works.length}</span></h2>`
+    + `<p class="muted small">Outside the archive, found by pattern in the text. <a href="${rel}bibliography/">The whole bibliography</a></p><ul class="fact-list">`
+    + p.works.map((w) => `<li class="fact">${w.url ? `<a href="${esc(w.url)}" rel="noopener">${esc(w.label)}</a>` : esc(w.label)}`
+      + `<div class="fact-evidence">${w.pages.map((n) => `<a class="evidence" href="${fileHref(rel, w.file_id)}#page=${n}">p. ${n}</a>`).join(' ')}</div></li>`).join('')
+    + '</ul></section>';
+}
+
+// The bibliography as a plain page: citations on pages about wind power only, as the app shows by default.
+const BIB_KINDS: Array<[string, string]> = [['parliamentary', 'Parliamentary documents'], ['court', 'Court decisions'], ['legislation', 'Legislation'],
+  ['literature', 'Literature'], ['web', 'Web sources']];
+function bibliographyPage(all: BibEntry[], ctx: Ctx): string {
+  const rel = '../';
+  const entries = all.map((e) => ({ ...e, citations: e.citations.filter((c) => c.on_topic) })).filter((e) => e.citations.length);
+  const collator = new Intl.Collator('de', { numeric: true, sensitivity: 'base' });
+  const body = '<h1>Bibliography</h1><p class="lede-small">The works outside the archive that the archived documents cite on pages about wind power. '
+    + `Found by pattern in the full text and not reviewed. <a href="${rel}#/bibliography">The explorer</a> has filters, all citations and a CSV download.</p>`
+    + BIB_KINDS.map(([k, title]) => {
+      const group = entries.filter((e) => e.kind === k).sort((a, b) => collator.compare(a.label, b.label));
+      if (!group.length) return '';
+      return `<section class="bib-group"><h2>${title}<span class="count">${group.length}</span></h2><ol class="bib-entries">`
+        + group.map((e) => {
+          const label = e.entity ? `<a href="${rel}${pagePath(e.entity.id)}">${esc(e.label)}</a>`
+            : e.url ? `<a class="bib-url" href="${esc(e.url)}" rel="noopener">${esc(e.label)}</a>` : esc(e.label);
+          const docs = [...new Map(e.citations.map((c) => [c.doc.id, c.doc])).values()];
+          return `<li class="bib-entry">${label}<span class="muted small"> · cited in ${docs.map((d) => `<a href="${rel}${pagePath(d.id)}">${esc(d.label)}</a>`).join(', ')}</span></li>`;
+        }).join('') + '</ol></section>';
+    }).join('');
+  return shell({ rel, ctx, title: 'Bibliography', url: `${ctx.site}bibliography/`, ogType: 'website', jsonld: null, body,
+    description: `${entries.length} works cited in the record of how Bayern got the 10H rule: parliamentary documents, court decisions, legislation, literature and web sources.` });
+}
+
 function mentionsSection(p: EntityPage, link: (x: { id: string; label: string }) => string): string {
   if (!p.mentionedIn.length) return '';
   const shown = p.mentionedIn.slice(0, MAX_MENTIONS);
@@ -185,7 +221,7 @@ function indexPage(entities: Array<{ id: string; type: string; label: string }>,
 
 function sitemap(entities: Array<{ id: string }>, ctx: Ctx): string {
   const day = ctx.builtAt.slice(0, 10);
-  const urls = ['', 'e/', ...entities.map((e) => pagePath(e.id))];
+  const urls = ['', 'e/', 'bibliography/', ...entities.map((e) => pagePath(e.id))];
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
     + urls.map((u) => `<url><loc>${esc(ctx.site + u)}</loc>${day ? `<lastmod>${day}</lastmod>` : ''}</url>`).join('\n') + '\n</urlset>\n';
 }
@@ -211,12 +247,12 @@ export const FAVICON = `<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='
 
 export function footer(rel: string): string {
   return `<footer class="site"><a href="${rel}">10H Explorer</a> · <a href="${rel}#/about">About, sources and rights</a> · `
-    + `<a href="${rel}e/">All entries</a> · <a href="${rel}10h.jsonld">Data (JSON-LD)</a> · `
+    + `<a href="${rel}e/">All entries</a> · <a href="${rel}bibliography/">Bibliography</a> · <a href="${rel}10h.jsonld">Data (JSON-LD)</a> · `
     + '<a href="https://github.com/maschinenlesbar-org/10h-rule" rel="noopener">Source</a> · <a href="https://maschinenlesbar.org/">maschinenlesbar.org</a></footer>';
 }
 
 function shell(o: { rel: string; ctx: Ctx; title: string; url: string; description: string; body: string; jsonld: unknown; ogType: string }): string {
-  const nav = [['#/story', 'Story'], ['#/questions', 'Questions'], ['#/effects', 'Effects'], ['#/laender', 'Länder'], ['e/', 'All entries'], ['#/about', 'About']]
+  const nav = [['#/story', 'Story'], ['#/questions', 'Questions'], ['#/effects', 'Effects'], ['#/laender', 'Länder'], ['e/', 'All entries'], ['bibliography/', 'Bibliography'], ['#/about', 'About']]
     .map(([h, t]) => `<a href="${o.rel}${h}">${t}</a>`).join('\n      ');
   // "</" inside a script element would end it early.
   const ld = o.jsonld ? `\n  <script type="application/ld+json">${JSON.stringify(o.jsonld).replace(/<\//g, '<\\/')}</script>` : '';

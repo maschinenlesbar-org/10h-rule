@@ -48,7 +48,7 @@ export async function home(): Promise<Node> {
       stat(c.pages, 'pages of text'),
       stat(c.Person, 'people', '#/list/people'),
       stat(c.Event, 'events', '#/list/events'),
-      stat(c.citations, 'citation links'),
+      stat(c.worksOnTopic, 'works cited from outside the archive', '#/bibliography'),
       isStatic
         ? h('div', { class: 'stat' }, h('div', { class: 'stat-n' }, `${Math.round(100 * (m.markers.primary ?? 0) / (totalFacts || 1))} %`), h('a', { href: '#/about' }, 'of facts checked against the primary source'))
         : stat(c.review, 'mentions to review', '#/review')),

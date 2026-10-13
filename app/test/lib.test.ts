@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { docIdFromFilename, slug } from '../build/lib/ids.ts';
+import { extractWorks, isoDate, onTopic } from '../build/lib/biblio.ts';
 import { extractRefs, lawLabel } from '../build/lib/refs.ts';
 import { mdTables, parseDate, markerOf, parseCsv } from '../build/lib/text.ts';
 
@@ -78,4 +79,39 @@ test('markers', () => {
 
 test('csv', () => {
   assert.deepEqual(parseCsv('a,b\n"x, y","he said ""hi"""\n'), [['a', 'b'], ['x, y', 'he said "hi"']]);
+});
+
+test('bibliography: court decisions, by file number or collection, with aliases', () => {
+  const one = (t: string) => extractWorks(t).map((w) => [w.kind, w.label, w.key]);
+  assert.deepEqual(one('vgl. BVerwG, Urt. vom 29. Aug. 2007, Az. 4 C 2/07, juris'),
+    [['court', 'BVerwG, Urteil vom 29.08.2007, 4 C 2/07', 'court|BVerwG|4 C 2.07']]);
+  assert.equal(extractWorks('Bundesverwaltungsgericht (BVerwG), Urteil vom 29. August 2007, Az.: 4 C 2.07')[0].key, 'court|BVerwG|4 C 2.07', 'same file number');
+  assert.equal(extractWorks('OVG Schleswig, Urteil vom 20. Januar 2015, Az. 1 KN 6/13')[0].label, 'OVG Schleswig-Holstein, Urteil vom 20.01.2015, 1 KN 6/13');
+  assert.deepEqual(one('(vgl. BVerfGE 124, 161, 193 f.)'), [['court', 'BVerfGE 124, 161', 'court|BVerfGE 124, 161']]);
+  assert.deepEqual(one('VGH Mannheim, ZfBR 2016, 159'), [['court', 'VGH BW, ZfBR 2016, 159', 'court|VGH BW|ZfBR 2016, 159']], 'a decision printed in a journal');
+  // Not citations: proceedings in permit tables, ministry file numbers.
+  assert.deepEqual(extractWorks('Antrag auf Nichtzulassung der Berufung beim VGH anhängig; durch BayVGH am 06.10.2014'), []);
+  assert.deepEqual(extractWorks('Schreiben vom 3. September 2014 (Az.: IB1-1404.2-112)'), []);
+  assert.equal(isoDate('7. März 2016'), '2016-03-07');
+  assert.equal(isoDate('17.10.13'), '2013-10-17');
+});
+
+test('bibliography: literature, legislation and web sources', () => {
+  const labels = (t: string) => extractWorks(t).map((w) => `${w.kind}: ${w.label}`);
+  assert.deepEqual(labels('vgl. Grüner, NVwZ 2015, 108/110 f.'), ['literature: Grüner, NVwZ 2015, 108']);
+  assert.deepEqual(labels('Windenergie auf dem Prüfstand, NVwZ 2015, S. 1093'), ['literature: NVwZ 2015, 1093'], 'a title word is no author');
+  assert.deepEqual(labels('Battis/Krautzberger/Löhr, BauGB, § 35 Rn. 4'), ['literature: Battis/Krautzberger/Löhr, BauGB']);
+  assert.deepEqual(labels('Jarass, BImSchG, 11. Aufl. 2015, § 5 Rn. 18'), ['literature: Jarass, BImSchG']);
+  assert.deepEqual(labels('Gesetz vom 17. November 2014 (GVBl S. 478)'), ['legislation: GVBl. 2014 S. 478'], 'year from the date before');
+  assert.deepEqual(labels('BGBl. I S. 2414'), [], 'no year, no identity');
+  assert.deepEqual(labels('siehe www.umweltbundesamt.de/themen/windenergie.'), ['web: www.umweltbundesamt.de/themen/windenergie']);
+  assert.equal(extractWorks('www.umweltbundesamt.de/x')[0].url, 'https://www.umweltbundesamt.de/x');
+  assert.deepEqual(labels('Druck: www.heenemann-druck.de'), [], 'imprint');
+  assert.ok(onTopic('Windenergieanlagen') && onTopic('die 10 H-Regelung') && !onTopic('Asylbewerber'));
+});
+
+test('a Saxon Vf. number is not a BayVerfGH decision', () => {
+  const ids = (t: string) => extractRefs(t, null).map((r) => r.id);
+  assert.deepEqual(ids('SächsVerfGH, Urteil vom 23. April 2008, Vf. 87-I-06'), []);
+  assert.deepEqual(ids('BayVerfGH, Entscheidung vom 9. Mai 2016, Vf. 14-VII-14'), ['doc/bayverfgh-vf-14-vii-14']);
 });

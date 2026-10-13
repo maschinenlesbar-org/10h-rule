@@ -52,7 +52,8 @@ const PATTERNS: Pattern[] = [
   { re: /\bSH[- ]Umdruck\s*(\d{2})\/(\d{1,5})/g, resolve: (m) => `doc/sh-umdruck-${m[1]}-${m[2]}` },
   // Bundestag research services: "WD 7 - 3000 - 042/19", "WD 7-042/19"
   { re: /\bWD\s*(\d{1,2})\s*-\s*(?:3000\s*-\s*)?(\d{1,3})\/(\d{2})(?!\d)/g, resolve: (m) => `doc/wd-${m[1]}-${pad3(m[2])}-${m[3]}` },
-  { re: /\bVf\.\s*(\d+)-([IVX]+)-(\d{2})/g, resolve: (m) => `doc/bayverfgh-vf-${m[1]}-${m[2].toLowerCase()}-${m[3]}` },
+  // Vf. numbers of the BayVerfGH; the Saxon court uses the same form ("SächsVerfGH, Urteil vom 23. April 2008, Vf. 87-I-06").
+  { re: /(?<!Sächs\w*\s?VerfGH\b[^;)]{0,60})\bVf\.\s*(\d+)-([IVX]+)-(\d{2})/g, resolve: (m) => `doc/bayverfgh-vf-${m[1]}-${m[2].toLowerCase()}-${m[3]}` },
   // Plenarprotokolle: prefixed BT, or bare with context
   { re: /\b(?:BT-PlPr|PlPr\.?|Plenarprotokoll)\s*(\d{1,2})\/(\d{1,3})(?!\d)/g,
     resolve: (m, ctx) => {

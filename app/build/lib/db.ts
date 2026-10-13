@@ -60,6 +60,15 @@ CREATE TABLE observation (id TEXT PRIMARY KEY, metric TEXT NOT NULL, value REAL 
                           place_id TEXT, doc_id TEXT, file_id TEXT, page INTEGER, quote TEXT, note TEXT, verified INTEGER NOT NULL DEFAULT 0);
 CREATE TABLE land_status (land_id TEXT PRIMARY KEY, status TEXT NOT NULL, summary TEXT, marker TEXT, doc_id TEXT, source TEXT);
 
+-- Bibliography: works outside the archive cited in the full text (build/steps/bibliography.ts). Parliamentary
+-- documents are entities already (entity_id); court decisions, legislation, literature and web sources are not.
+CREATE TABLE work (id TEXT PRIMARY KEY, kind TEXT NOT NULL CHECK (kind IN ('parliamentary','court','legislation','literature','web')),
+                   label TEXT NOT NULL, entity_id TEXT, url TEXT, props TEXT NOT NULL DEFAULT '{}');
+CREATE TABLE work_citation (work_id TEXT NOT NULL REFERENCES work(id), doc_id TEXT NOT NULL, file_id TEXT NOT NULL, page INTEGER NOT NULL,
+                            quote TEXT, on_topic INTEGER NOT NULL);
+CREATE INDEX work_citation_work ON work_citation(work_id);
+CREATE INDEX work_citation_doc  ON work_citation(doc_id);
+
 CREATE TABLE meta (key TEXT PRIMARY KEY, value TEXT);
 
 CREATE INDEX statement_subj ON statement(subj);

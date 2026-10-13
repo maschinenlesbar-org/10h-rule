@@ -56,6 +56,7 @@ there is no compile step. Routes:
 | `#/e/<id>` | Entity page: facts in both directions with marker, date and evidence chips; documents with files; "mentioned in". Procedures show their steps; roll calls show a stacked bar per Fraktion, the deviators and all names. Documents list similar documents |
 | `#/read?file=&n=` | Document reader: page text with linked entities and references, the PDF at the same page, OCR warning, similar passages in other documents |
 | `#/list/<kind>` | people, documents, events, concepts, organizations, places, laws (in the menu under Browse) |
+| `#/bibliography` | Works outside the archive that the documents cite: parliamentary documents, court decisions, legislation, literature, web sources. Filter by kind and text, sort by citations or A–Z, every citation linked to its page, CSV download. By default only citations on pages about wind power |
 | `#/about` | Who made the site, how the record was built, sources, rights, downloads and limits |
 | `#/review` | Mentions of organisations, places and concepts by surface form, with sample contexts; confirm or reject in review mode. Local only: the published site leaves it out of the menu |
 
@@ -71,6 +72,7 @@ there is no compile step. Routes:
 | 4b answers | `steps/answers.ts` | `answered_for` statements: the ministry that answered each Bavarian Schriftliche Anfrage (from the answer's heading) and each wind question in the Anfragen zum Plenum (per asker, from the numbered question block) |
 | 8b observations | `steps/observations.ts` | `observation` (figures from `data/observations.csv`) and `land_status` (`data/laender-status.csv`). Each figure's quote is looked up on its page; only found figures are charted |
 | 5 references | `steps/references.ts` | `cites` statements from the full text, with page evidence |
+| 5b bibliography | `steps/bibliography.ts` | `work`, `work_citation`: every work outside the archive the full text cites, with page and quote. Parliamentary documents come from step 5; court decisions (court, decision type, date, file number, or BVerfGE/BVerwGE/VerfGHE), legislation (BGBl and Land gazettes, the year from the citation or the date before it), journal articles and commentaries, and web addresses from `lib/biblio.ts`. A decision cited by date and by file number is one entry; works in the archive (BayVerfGH decisions, Bavarian GVBl issues) are left out, and so are bare domains in 3+ documents or on 3+ pages of one (imprints, letterheads). Each citation is flagged when its page is about wind power |
 | 9 chunks | `steps/chunks.ts` | `chunk` and the FTS5 index `chunk_fts` |
 | 6 mentions | `steps/mentions.ts` | `mention`: entity linking on chunks |
 | 7 votes | `steps/votes.ts` | `vote`: individual votes from the roll-call lists (word positions via `pdftotext -bbox-layout`). The totals must equal the protocol |
@@ -110,6 +112,7 @@ The server loads the model in the background at start; until it is ready, search
 - the archived PDFs in `files/` (about 104 MB);
 - `10h.jsonld`: every entity with its statements and evidence (schema.org types, SKOS for concepts, `owl:sameAs` for
   Wikidata);
+- `bibliography/`: the bibliography as a plain page (citations on pages about wind power);
 - `e/<id>/`: a plain HTML page per entity (`export-pages.ts`, about 9 MB in all), with `e/` listing every entry and
   `sitemap.xml` listing every page. The app lives behind `#/` routes that search engines and link previews do not
   see; these pages carry the same facts at real URLs, with a description, Open Graph tags, `og.png` and the entity's

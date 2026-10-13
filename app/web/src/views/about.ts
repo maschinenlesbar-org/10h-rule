@@ -23,7 +23,8 @@ export async function aboutView(): Promise<Node> {
         h('em', {}, 'secondary'), ' means only a secondary source backs it; ', h('em', {}, 'not verified'), ' means it is not confirmed.'),
       h('li', {}, 'A build step reads the wiki and the PDFs into one database. Pages without a text layer were read by OCR (marked “OCR text” in the reader, as it can contain errors). ',
         'People, organisations, places, concepts and laws are linked by dictionary; every link for an organisation, place or concept was reviewed one by one, in sample contexts.'),
-      h('li', {}, 'Citations between documents are extracted from the full text, each with the page it was found on. The “led to” links of the story are interpretations: each has a rationale and a quote that the build checks against the cited page.')),
+      h('li', {}, 'Citations between documents are extracted from the full text, each with the page it was found on. The “led to” links of the story are interpretations: each has a rationale and a quote that the build checks against the cited page.'),
+      h('li', {}, 'The ', h('a', { href: '#/bibliography' }, 'bibliography'), ' lists what the documents cite from outside the archive: parliamentary documents, court decisions, legislation, legal literature and web sources. It is found by pattern and not reviewed; books other than commentaries are not recognised.')),
 
     h('h2', {}, 'Sources'),
     h('ul', {},
@@ -39,6 +40,7 @@ export async function aboutView(): Promise<Node> {
 
     h('h2', {}, 'Downloads'),
     h('ul', {},
+      h('li', {}, 'The bibliography as CSV, from the ', h('a', { href: '#/bibliography' }, 'Bibliography'), ' page (Download CSV).'),
       h('li', {}, h('a', { href: '10h.jsonld', download: '' }, '10h.jsonld'), ': every entity with its statements and evidence as JSON-LD (schema.org, SKOS, owl:sameAs to Wikidata).'),
       isStatic ? h('li', {}, h('a', { href: '10h-web.db', download: '' }, '10h-web.db'), ': the SQLite database this site runs on, with full text and an FTS5 index.') : null,
       h('li', {}, ext(REPO, 'The repository'), ': the wiki, the archived PDFs with their manifests, and the code of this site.')),

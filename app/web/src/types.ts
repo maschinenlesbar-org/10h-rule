@@ -38,6 +38,7 @@ export interface EntityPage {
   document: DocumentInfo | null;
   mentionedIn: Array<{ doc: EntityRef; n: number; status: string }>;
   mentionTotal: number;
+  works?: WorkCited[];
   procedure?: ProcedureView;
   rollcall?: RollCallView;
 }
@@ -102,3 +103,12 @@ export interface Observation {
   place: EntityRef | null; doc: EntityRef; file_id: string | null; page: number | null; quote: string; note: string; verified: boolean;
 }
 export interface LandStatus { land: EntityRef; status: string; summary: string; marker: Marker; doc: EntityRef | null; source: string }
+
+export type WorkKind = 'parliamentary' | 'court' | 'legislation' | 'literature' | 'web';
+export interface BibCitation { doc: EntityRef; file_id: string; page: number; quote: string | null; on_topic: boolean }
+export interface BibEntry {
+  id: string; kind: WorkKind; label: string; url: string | null; detail: Record<string, string>;
+  entity: EntityRef | null; // parliamentary documents and BayVerfGH decisions are entities of the record
+  citations: BibCitation[];
+}
+export interface WorkCited { id: string; kind: WorkKind; label: string; url: string | null; file_id: string; pages: number[] }

@@ -18,6 +18,7 @@ export async function entityView(_p: URLSearchParams, id: string): Promise<Node>
     e.procedure ? procedurePanel(e) : null,
     e.rollcall ? rollcallSection(e.rollcall) : null,
     factsSection(e),
+    worksSection(e),
     mentionsSection(e),
     e.document ? similarSection(e.entity.id) : null);
 }
@@ -135,6 +136,19 @@ function factsSection(e: EntityPage): Node | null {
       return h('div', { class: 'fact-group' }, h('h3', {}, label, h('span', { class: 'count' }, String(facts.length))), list, more);
     }));
 }
+
+// Court decisions, legislation, literature and web sources this document cites (bibliography step).
+function worksSection(e: EntityPage): Node | null {
+  if (!e.works?.length) return null;
+  return h('section', { class: 'works' },
+    h('h2', {}, 'Works cited', h('span', { class: 'count' }, String(e.works.length))),
+    h('p', { class: 'muted small' }, 'Outside the archive, found by pattern in the text. ', h('a', { href: '#/bibliography' }, 'The whole bibliography')),
+    h('ul', { class: 'fact-list' }, ...e.works.map((w) => h('li', { class: 'fact' },
+      w.url ? h('a', { href: w.url, target: '_blank', rel: 'noopener' }, w.label) : w.label,
+      h('span', { class: 'badge' }, KIND_LABEL[w.kind]),
+      h('div', { class: 'fact-evidence' }, ...w.pages.map((n) => h('a', { class: 'evidence', href: readerHref(w.file_id, n) }, `p. ${n}`)))))));
+}
+const KIND_LABEL: Record<string, string> = { court: 'court decision', legislation: 'legislation', literature: 'literature', web: 'web', parliamentary: 'parliamentary' };
 
 function mentionsSection(e: EntityPage): Node | null {
   if (!e.mentionedIn.length) return null;

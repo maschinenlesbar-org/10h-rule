@@ -1,7 +1,7 @@
 // Data access. With the local server the views call the JSON API. In the static export (window.TENH_STATIC set by the
 // exported index.html) the same query code runs in the browser on sqlite-wasm; semantic search and review writes are
 // then unavailable. The start page needs only meta.json, so it appears before the database has loaded.
-import type { EntityPage, SearchResult, PageView, ListRow, ReviewGroup, Meta, Story, SimilarDoc, SimilarPassage, QuestionRow, Observation, LandStatus } from './types.ts';
+import type { EntityPage, SearchResult, PageView, ListRow, ReviewGroup, Meta, Story, SimilarDoc, SimilarPassage, QuestionRow, Observation, LandStatus, BibEntry } from './types.ts';
 
 const STATIC = (globalThis as { TENH_STATIC?: { db: string; size: number; vendor: string } }).TENH_STATIC;
 export const isStatic = !!STATIC;
@@ -55,6 +55,7 @@ export const api = STATIC ? {
   questions: async () => (await queries()).questions() as QuestionRow[],
   observations: async () => (await queries()).observations() as Observation[],
   laender: async () => (await queries()).laender() as LandStatus[],
+  bibliography: async () => (await queries()).bibliography() as BibEntry[],
   search: async (q: string, f: Record<string, string>) => (await queries()).search(q, f, 'keyword') as Promise<SearchResult>,
   entity: async (id: string) => notFound((await queries()).entity(id)) as EntityPage,
   similarDocs: async (doc: string) => (await queries()).similarDocs(doc) as SimilarDoc[],
@@ -69,6 +70,7 @@ export const api = STATIC ? {
   questions: () => get<QuestionRow[]>('api/questions'),
   observations: () => get<Observation[]>('api/observations'),
   laender: () => get<LandStatus[]>('api/laender'),
+  bibliography: () => get<BibEntry[]>('api/bibliography'),
   search: (q: string, f: Record<string, string>) => get<SearchResult>('api/search', { q, ...f }),
   entity: (id: string) => get<EntityPage>('api/entity', { id }),
   similarDocs: (doc: string) => get<SimilarDoc[]>('api/similar', { doc }),

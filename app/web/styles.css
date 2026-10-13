@@ -326,3 +326,18 @@ header.site nav .browse .menu a:hover, header.site nav .browse .menu a:focus { b
 /* static entity pages (e/<id>/) */
 .static-note { background: var(--accent-soft); border-radius: var(--radius); padding: 10px 14px; }
 footer.site { max-width: 1180px; margin: 0 auto; padding: 16px var(--gutter) 40px; border-top: 1px solid var(--line); font-size: 0.875rem; color: var(--muted); }
+
+/* bibliography */
+.bib-tools { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; margin: 4px 0 8px; }
+.bib-tools a[aria-current] { font-weight: 600; color: var(--text); text-decoration: none; }
+.bib-tools .filter { width: 240px; margin: 0; }
+.bib-group h2 { margin-bottom: 0.1em; }
+.bib-group > p { margin-top: 0; }
+.bib-entries { padding-left: 1.6em; }
+.bib-entry { padding: 5px 0; border-bottom: 1px dashed var(--line); }
+.bib-url { overflow-wrap: anywhere; }
+.bib-entry details { margin-top: 2px; }
+.bib-entry summary { cursor: pointer; color: var(--muted); }
+.bib-cites { margin: 4px 0; padding-left: 1.2em; font-size: 0.9rem; }
+.bib-cites li { padding: 2px 0; }
+.bib-cites .muted { font-family: var(--serif); }

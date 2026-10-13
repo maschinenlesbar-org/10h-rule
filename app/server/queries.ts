@@ -6,7 +6,7 @@ import { Dict } from '../build/lib/dict.ts';
 import { extractRefs, parliamentOf } from '../build/lib/refs.ts';
 import type {
   EntityPage, EntityRef, Evidence, Fact, SearchResult, SearchHit, PageView, PageSpan, ListRow, ReviewGroup, Meta, ExternalId, Facet,
-  Story, ProcedureView, RollCallView, RollCallMember, SimilarDoc, SimilarPassage, QuestionRow, Observation, LandStatus,
+  Story, ProcedureView, RollCallView, RollCallMember, SimilarDoc, SimilarPassage, QuestionRow, Observation, LandStatus, BibEntry, WorkCited,
 } from '../web/src/types.ts';
 import { fromBlob } from '../build/lib/vec.ts';
 
@@ -67,6 +67,7 @@ export class Queries {
       archived: 'SELECT count(*) n FROM document WHERE archived = 1', pages: 'SELECT count(*) n FROM page',
       statements: 'SELECT count(*) n FROM statement', citations: "SELECT count(*) n FROM statement WHERE pred = 'cites'",
       review: "SELECT count(*) n FROM mention WHERE status = 'auto'",
+      works: 'SELECT count(*) n FROM work', worksOnTopic: 'SELECT count(DISTINCT work_id) n FROM work_citation WHERE on_topic = 1',
     })) counts[k] = this.get(sql)!.n;
     const markers: Record<string, number> = {};
     for (const r of this.all("SELECT marker, count(*) n FROM statement WHERE method != 'regex' GROUP BY marker")) markers[r.marker] = r.n;
@@ -257,7 +258,16 @@ export class Queries {
       .map((r) => ({ doc: { id: r.doc_id, type: r.type, label: r.label }, n: r.n, status: r.confirmed ? 'confirmed' : 'auto' }));
     const mentionTotal = this.get("SELECT count(*) n FROM mention WHERE entity_id = ? AND status != 'rejected'", id)!.n;
 
+    // Works outside the archive this document cites that are not entities (those are "cites" facts above).
+    const works: WorkCited[] = e.type !== 'Document' ? [] : Object.values(this.all(`SELECT w.id, w.kind, w.label, w.url, c.file_id, c.page
+      FROM work_citation c JOIN work w ON w.id = c.work_id WHERE c.doc_id = ? AND w.entity_id IS NULL ORDER BY w.kind, c.page`, id)
+      .reduce((acc: Record<string, WorkCited>, r) => {
+        (acc[r.id] ??= { id: r.id, kind: r.kind, label: r.label, url: r.url, file_id: r.file_id, pages: [] }).pages.push(r.page);
+        return acc;
+      }, {}));
+
     return {
+      works,
       procedure: e.type === 'Procedure' ? this.procedure(id, JSON.parse(e.props)) : undefined,
       rollcall: e.type === 'VoteEvent' ? this.rollcall(id) : undefined,
       entity: { id: e.id, type: e.type, label: e.label, props: JSON.parse(e.props) },
@@ -268,6 +278,23 @@ export class Queries {
   }
 
   // ---------- story, procedures, roll calls ----------
+
+  // ---------- bibliography ----------
+
+  // Every work outside the archive with its citations (page and quote). Grouping and filtering happen in the view.
+  bibliography(): BibEntry[] {
+    const out = new Map<string, BibEntry>();
+    for (const r of this.all(`SELECT w.id, w.kind, w.label, w.entity_id, w.url, w.props, we.type etype, we.label elabel,
+        c.doc_id, de.type dtype, de.label dlabel, c.file_id, c.page, c.quote, c.on_topic
+      FROM work w JOIN work_citation c ON c.work_id = w.id JOIN entity de ON de.id = c.doc_id LEFT JOIN entity we ON we.id = w.entity_id
+      ORDER BY w.id, c.doc_id, c.page`)) {
+      let e = out.get(r.id);
+      if (!e) out.set(r.id, e = { id: r.id, kind: r.kind, label: r.label, url: r.url, detail: JSON.parse(r.props),
+        entity: r.entity_id ? { id: r.entity_id, type: r.etype, label: r.elabel } : null, citations: [] });
+      e.citations.push({ doc: { id: r.doc_id, type: r.dtype, label: r.dlabel }, file_id: r.file_id, page: r.page, quote: r.quote, on_topic: !!r.on_topic });
+    }
+    return [...out.values()];
+  }
 
   story(): Story {
     const ev = this.all(`SELECT e.id, e.label, json_extract(e.props, '$.date') date, json_extract(e.props, '$.end') end,

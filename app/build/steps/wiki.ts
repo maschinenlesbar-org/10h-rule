@@ -50,7 +50,9 @@ export function ensureDoc(db: DatabaseSync, id: string, url?: string): void {
   }
   const parl = id.match(/^doc\/(bt|br|by|sn|mv|ni|sh)-/)?.[1] ?? null;
   const { number, wp } = numberOf(id);
-  const label = number ? `${parl ? parl.toUpperCase() + ' ' : ''}${kindOf(id).replace('Drucksache', 'Drs')} ${number}` : id.replace(/^doc\//, '');
+  const vf = id.match(/^doc\/bayverfgh-vf-(\d+)-([ivx]+)-(\d{2})$/), wd = id.match(/^doc\/wd-(\d+)-(\d{3})-(\d{2})$/);
+  const label = number ? `${parl ? parl.toUpperCase() + ' ' : ''}${kindOf(id).replace('Drucksache', 'Drs')} ${number}`
+    : vf ? `BayVerfGH Vf. ${vf[1]}-${vf[2].toUpperCase()}-${vf[3]}` : wd ? `WD ${wd[1]}-${wd[2]}/${wd[3]}` : id.replace(/^doc\//, '');
   upsertEntity(db, id, 'Document', label, {});
   db.prepare('INSERT INTO document (id, kind, parliament, number, wp, source_url, archived) VALUES (?, ?, ?, ?, ?, ?, 0)')
     .run(id, kindOf(id), parl, number, wp, url ?? null);

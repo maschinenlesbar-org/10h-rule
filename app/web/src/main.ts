@@ -1,4 +1,4 @@
-// Hash router. Routes: #/ · #/search?q= · #/e/<entity id> · #/read?file=&n= · #/list/<kind> · #/about · #/review
+// Hash router. Routes: #/ · #/search?q= · #/e/<entity id> · #/read?file=&n= · #/list/<kind> · #/bibliography · #/about · #/review
 import { h, setTitle } from './dom.ts';
 import { isStatic, dbProgress, prefetchDb } from './api.ts';
 import { home } from './views/home.ts';
@@ -12,6 +12,7 @@ import { questionsView } from './views/questions.ts';
 import { effectsView } from './views/effects.ts';
 import { laenderView } from './views/laender.ts';
 import { aboutView } from './views/about.ts';
+import { bibliographyView } from './views/bibliography.ts';
 
 const main = document.querySelector('main')!;
 const searchForm = document.querySelector<HTMLFormElement>('#top-search')!;
@@ -40,6 +41,7 @@ const routes: Array<[RegExp, View]> = [
   [/^\/e\/(.+)$/, entityView],
   [/^\/read$/, readerView],
   [/^\/list\/([a-z]+)$/, listView],
+  [/^\/bibliography$/, bibliographyView],
   [/^\/about$/, aboutView],
   [/^\/review$/, reviewView],
 ];

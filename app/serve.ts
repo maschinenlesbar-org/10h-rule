@@ -89,6 +89,7 @@ createServer(async (req, res) => {
     if (p === '/api/questions') return json(res, q.questions());
     if (p === '/api/observations') return json(res, q.observations());
     if (p === '/api/laender') return json(res, q.laender());
+    if (p === '/api/bibliography') return json(res, q.bibliography());
     if (p === '/api/search') return json(res, await q.search(s.get('q') ?? '', { kind: s.get('kind') ?? '', parliament: s.get('parliament') ?? '', year: s.get('year') ?? '' },
       s.get('mode') === 'keyword' ? 'keyword' : 'hybrid'));
     if (p === '/api/similar' && s.get('doc')) return json(res, q.similarDocs(s.get('doc')!));

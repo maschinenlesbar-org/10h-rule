@@ -11,6 +11,7 @@ import { seed } from './steps/seed.ts';
 import { wiki } from './steps/wiki.ts';
 import { wikidata } from './steps/wikidata.ts';
 import { references } from './steps/references.ts';
+import { bibliography } from './steps/bibliography.ts';
 import { chunks } from './steps/chunks.ts';
 import { mentions } from './steps/mentions.ts';
 import { checks } from './steps/checks.ts';
@@ -41,6 +42,7 @@ const steps: Array<[string, (c: Ctx) => unknown]> = [
   ['8 procedures', procedures],
   ['8b observations', observations],
   ['5 references', references],
+  ['5b bibliography', bibliography],
   ['9 chunks', chunks],
   ['6 mentions', mentions],
   ['6b about', about],

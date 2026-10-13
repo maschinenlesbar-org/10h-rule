@@ -72,4 +72,17 @@ test('questions, effects and Länder (phase 4)', { skip: !existsSync(DB) && 'run
   }
   const used = q.laender().filter((l) => l.status === 'used').map((l) => l.land.id);
   assert.deepEqual(used, ['place/bayern'], 'only Bayern used § 249 Abs. 3 BauGB');
+
+  const bib = q.bibliography();
+  const byLabel = (l: string) => bib.find((b) => b.label === l);
+  const bverwg = byLabel('BVerwG, Urteil vom 29.08.2007, 4 C 2.07')!;
+  assert.equal(bverwg.kind, 'court');
+  assert.ok(new Set(bverwg.citations.map((c) => c.doc.id)).size >= 3, 'one decision, cited as 4 C 2/07 and 4 C 2.07');
+  assert.ok(bverwg.citations.every((c) => c.page > 0 && c.file_id), 'every citation has its page');
+  assert.ok(byLabel('BGBl. I 2004 S. 2414'), 'gazette year from the date before the citation');
+  assert.ok(!bib.some((b) => b.label === 'www.bayern.landtag.de'), 'footers are left out');
+  assert.ok(!bib.some((b) => b.label === 'GVBl. 2014 S. 478'), 'archived works are part of the record, not the bibliography');
+  assert.ok(bib.some((b) => b.kind === 'parliamentary' && b.entity && !b.citations.every((c) => c.on_topic)), 'unrelated pages are flagged');
+  const works = q.entity('doc/bb-pbd-2016-02-29-mindestabstand-windkraft')!.works!;
+  assert.ok(works.some((w) => w.label === bverwg.label && w.pages.length), 'a document lists the works it cites');
 });
