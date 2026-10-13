@@ -113,13 +113,19 @@ because the model is too large to ship. Review mode is local only.
 
 ### Deploying to GitHub Pages
 
-`.github/workflows/pages.yml` (in the repository root) builds the database, runs the tests, exports and deploys `dist/`
-on every push to `main` that touches the wiki or the app, and on demand (Actions → Deploy 10H Explorer → Run workflow).
-Enable it once under Settings → Pages → Build and deployment → Source: **GitHub Actions**.
+The build is too slow for CI (OCR and embeddings time out there), so it runs locally and the result is pushed to the
+`gh-pages` branch:
 
-The workflow runs on Ubuntu 24.04 with its poppler and tesseract. It builds offline, so Wikidata links come from
-`data/wikidata.csv` as reviewed. `app/.cache` is kept between runs: the first run OCRs the scans and embeds every
-chunk (about an hour), later runs take a few minutes. A failed build check or test stops the deployment.
+```sh
+./publish-pages.sh              # build offline, test, export, push dist/ to gh-pages
+./publish-pages.sh --no-build   # push the existing dist/ as it is
+```
+
+The build is offline, so Wikidata links come from `data/wikidata.csv` as reviewed. A failed build check or test stops
+the script before anything is pushed. `gh-pages` is replaced by a single commit on every run, so old PDFs and databases
+do not pile up in the history; the commit message names the `main` commit it was built from (`-dirty` if the working
+tree had changes). Pages is set to Settings → Pages → Build and deployment → Source: **Deploy from a branch**,
+`gh-pages`, `/ (root)`.
 
 ## Review status (13.10.2026)
 

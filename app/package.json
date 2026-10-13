@@ -14,7 +14,8 @@
     "typecheck": "tsc --noEmit",
     "export": "node --disable-warning=ExperimentalWarning export.ts",
     "build:fast": "node build/index.ts --offline --no-embed",
-    "serve:static": "node serve-static.ts"
+    "serve:static": "node serve-static.ts",
+    "deploy": "./publish-pages.sh"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
