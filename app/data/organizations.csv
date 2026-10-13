@@ -1,0 +1,45 @@
+id,label,classification,aliases
+org/csu,CSU,party,Christlich-Soziale Union
+org/cdu,CDU,party,Christlich Demokratische Union
+org/cdu-csu,CDU/CSU-Bundestagsfraktion,parliamentary_group,CDU/CSU|CDU/CSU-Fraktion|Fraktion der CDU/CSU
+org/spd,SPD,party,Sozialdemokratische Partei Deutschlands
+org/gruene,BÜNDNIS 90/DIE GRÜNEN,party,GRÜNE|Grüne|Bündnis 90/Die Grünen|BÜNDNIS 90/ DIE GRÜNEN
+org/linke,DIE LINKE,party,LINKE|Die Linke|DIE LINKE.
+org/fdp,FDP,party,Freie Demokratische Partei
+org/fw,FREIE WÄHLER,party,Freie Wähler|FW
+org/afd,AfD,party,Alternative für Deutschland
+org/npd,NPD,party,Nationaldemokratische Partei Deutschlands
+org/bundestag,Deutscher Bundestag,parliament,Bundestag|Deutschen Bundestag|Deutschen Bundestages
+org/bundesrat,Bundesrat,parliament,Bundesrates
+org/landtag-by,Bayerischer Landtag,parliament,Bayerischen Landtag|Bayerischen Landtags|Bayerischen Landtages
+org/landtag-sn,Sächsischer Landtag,parliament,Sächsischen Landtag|Sächsischen Landtages|Sächsischen Landtags
+org/landtag-mv,Landtag Mecklenburg-Vorpommern,parliament,
+org/landtag-ni,Niedersächsischer Landtag,parliament,Niedersächsischen Landtag
+org/landtag-sh,Schleswig-Holsteinischer Landtag,parliament,Schleswig-Holsteinischen Landtag
+org/landtag-he,Hessischer Landtag,parliament,Hessischen Landtag
+org/landtag-bb,Landtag Brandenburg,parliament,
+org/bundesregierung,Bundesregierung,government,
+org/staatsregierung-by,Bayerische Staatsregierung,government,Bayerischen Staatsregierung
+org/staatsregierung-sn,Sächsische Staatsregierung,government,Sächsischen Staatsregierung
+org/bmu,"Bundesministerium für Umwelt, Naturschutz und Reaktorsicherheit",ministry,BMU
+org/bmub,"Bundesministerium für Umwelt, Naturschutz, Bau und Reaktorsicherheit",ministry,BMUB
+org/bmwi,Bundesministerium für Wirtschaft und Energie,ministry,BMWi
+org/stmug,Bayerisches Staatsministerium für Umwelt und Gesundheit,ministry,StMUG|Staatsministerium für Umwelt und Gesundheit
+org/stmuv,Bayerisches Staatsministerium für Umwelt und Verbraucherschutz,ministry,StMUV|Staatsministerium für Umwelt und Verbraucherschutz
+org/stmwi,"Bayerisches Staatsministerium für Wirtschaft und Medien, Energie und Technologie",ministry,"StMWi|Staatsministerium für Wirtschaft und Medien, Energie und Technologie"
+org/stmwivt,"Bayerisches Staatsministerium für Wirtschaft, Infrastruktur, Verkehr und Technologie",ministry,"StMWIVT|Staatsministerium für Wirtschaft, Infrastruktur, Verkehr und Technologie"
+org/stmflh,"Bayerisches Staatsministerium der Finanzen, für Landesentwicklung und Heimat",ministry,"StMFLH|Staatsministerium der Finanzen, für Landesentwicklung und Heimat"
+org/stmelf,"Bayerisches Staatsministerium für Ernährung, Landwirtschaft und Forsten",ministry,"StMELF|Staatsministerium für Ernährung, Landwirtschaft und Forsten"
+org/stmi,"Bayerisches Staatsministerium des Innern, für Bau und Verkehr",ministry,"StMI|Staatsministerium des Innern, für Bau und Verkehr"
+org/staatskanzlei-by,Bayerische Staatskanzlei,ministry,Staatskanzlei
+org/smi,Sächsisches Staatsministerium des Innern,ministry,SMI
+org/smwa,"Sächsisches Staatsministerium für Wirtschaft, Arbeit und Verkehr",ministry,SMWA
+org/smul,Sächsisches Staatsministerium für Umwelt und Landwirtschaft,ministry,SMUL
+org/smjus,Sächsisches Staatsministerium der Justiz und für Europa,ministry,SMJus|SMJusE
+org/bayverfgh,Bayerischer Verfassungsgerichtshof,court,BayVerfGH|Verfassungsgerichtshof
+org/bt-wd,Wissenschaftliche Dienste des Deutschen Bundestages,research_service,Wissenschaftliche Dienste
+org/bbsr,"Bundesinstitut für Bau-, Stadt- und Raumforschung",agency,BBSR
+org/gegenwind-unterfranken,Allianz der Bürgerinitiativen Gegenwind Unterfranken,citizens_initiative,Gegenwind Unterfranken
+org/bund-naturschutz,Bund Naturschutz in Bayern,association,Bund Naturschutz
+org/vernunftkraft,Bundesinitiative Vernunftkraft,association,Vernunftkraft
+org/bwe,Bundesverband WindEnergie,association,BWE

@@ -1,0 +1,5 @@
+# Fraktion of Bavarian members as printed in the sources, where abgeordnetenwatch only has a later state. valid_from and
+# valid_until are the first and last dated documents that show it; the quote must be on the page (checked at build time).
+name,fraction,valid_from,valid_until,doc_id,page,quote,note
+Dr. Linus Förster,SPD,2014-02-05,2016-07-14,doc/by-plpr-17-10,74,"Dr. Linus Förster, Annette Karl u.a. und Fraktion (SPD)","Also 'Dr. Förster, Linus (SPD)' in BY Drs 17/5164 (05.02.2015) and 17/12583 (14.07.2016). abgeordnetenwatch lists only 'fraktionslos', his state after leaving the SPD Fraktion in 2016."
+Alexander Muthmann,FREIE WÄHLER,2014-01-30,2016-07-14,doc/by-drs-17-4159,1,"Muthmann, Alexander (FREIE WÄHLER)","Register of the Anfragen zum Plenum of 06.11.2014; also in BY Drs 17/516 (30.01.2014) and 17/12583 (14.07.2016). abgeordnetenwatch lists only FDP from 05.10.2018."

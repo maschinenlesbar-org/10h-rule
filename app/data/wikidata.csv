@@ -1,0 +1,177 @@
+entity_id,qid,status,method,wikidata_label,wikidata_description
+law/baugb,Q811351,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Baugesetzbuch,deutsches Bundesgesetz
+law/baybo,Q18616607,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Bayerische Bauordnung,
+law/bimschg,Q1005380,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Bundes-Immissionsschutzgesetz,Gesetz
+law/eeg,Q314496,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Erneuerbare-Energien-Gesetz,Gesetz zur Unterstützung von Strom aus regenerativen Quellen
+law/rog,Q1657119,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Raumordnungsgesetz,
+org/afd,Q6721203,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Alternative für Deutschland,politische Partei in Deutschland
+org/bayverfgh,Q812389,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Bayerischer Verfassungsgerichtshof,Landesverfassungsgericht des Freistaats Bayern
+org/bbsr,Q111431906,confirmed,label search; confirmed in review 13.10.2026 (Claude): the only item with this exact name; the description is a location,"Bundesinstitut für Bau-, Stadt- und Raumforschung","government organization in Cologne Bonn Airport, Germany"
+org/bmu,Q66779317,rejected,label search; rejected in review 13.10.2026: matches a Bundesarchiv collection; the ministry is the BMUB item,"Bundesministerium für Umwelt, Naturschutz und Reaktorsicherheit",Bestand im Bundesarchiv
+org/bmub,Q493344,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)","Bundesministerium für Umwelt, Klimaschutz, Naturschutz und nukleare Sicherheit",Oberste Bundesbehörde der Bundesrepublik Deutschland
+org/bmwi,Q488589,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Bundesministerium für Wirtschaft und Energie,Ministerium der Bundesrepublik Deutschland
+org/bt-wd,Q2586210,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Wissenschaftliche Dienste des Deutschen Bundestages,Abteilung des deutschen Parlaments
+org/bund-naturschutz,Q1005110,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Bund Naturschutz in Bayern,Umweltschutzverband in Bayern und heute der bayerische Landesverband des BUND
+org/bundesrat,Q146138,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Bundesrat,Vertretung der Gliedstaaten in der Bundesrepublik Deutschland
+org/bundesregierung,Q695599,rejected,label search; rejected in review 13.10.2026: matches the Austrian federal government,Bundesregierung,Regierung Österreichs
+org/bundestag,Q154797,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Deutscher Bundestag,Volksvertretung und gesetzgebendes Organ der Bundesrepublik Deutschland
+org/bwe,Q1008980,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Bundesverband WindEnergie,deutscher Windenergieverband
+org/cdu,Q49762,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Christlich Demokratische Union Deutschlands,politische Partei in Deutschland
+org/cdu-csu,Q1023134,confirmed,label search; confirmed in review 13.10.2026 (Claude),CDU/CSU-Bundestagsfraktion,Fraktion von CDU und CSU im Deutschen Bundestag
+org/csu,Q49763,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Christlich-Soziale Union in Bayern,politische Partei in Bayern
+org/fdp,Q13124,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Freie Demokratische Partei,politische Partei in Deutschland
+org/fw,Q1231839,confirmed,"label search; corrected in review 13.10.2026 (Claude): the alias occurs only in Bavarian documents, where it means the Landesvereinigung Freie Wähler Bayern",Landesvereinigung Freie Wähler Bayern,Landesverband der Freien Wähler
+org/gegenwind-unterfranken,,not_found,label search,,
+org/gruene,Q49766,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Bündnis 90/Die Grünen,politische Partei in Deutschland
+org/landtag-bb,Q521764,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Landtag Brandenburg,Landesparlament des Landes Brandenburg
+org/landtag-by,Q641439,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Bayerischer Landtag,Landesparlament des Freistaates Bayern
+org/landtag-he,Q510511,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Hessischer Landtag,Landesparlament des Landes Hessen
+org/landtag-mv,Q882738,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Landtag Mecklenburg-Vorpommern,Landesparlament des Landes Mecklenburg-Vorpommern
+org/landtag-ni,Q319994,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Niedersächsischer Landtag,Landesparlament des Landes Niedersachsen
+org/landtag-sh,Q449304,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Schleswig-Holsteinischer Landtag,Landesparlament des Landes Schleswig-Holstein
+org/landtag-sn,Q884824,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Sächsischer Landtag,Landesparlament des Freistaates Sachsen
+org/linke,Q49764,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Die Linke,politische Partei in Deutschland
+org/npd,Q156019,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Die Heimat,politische Partei in Deutschland
+org/smi,Q1238625,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Sächsisches Staatsministerium des Innern,Landesbehörde des Freistaates Sachsen
+org/smjus,,not_found,label search,,
+org/smul,Q2802518,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Sächsisches Staatsministerium für Umwelt und Landwirtschaft,Landesbehörde des Freistaates Sachsen
+org/smwa,Q2378819,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)","Sächsisches Staatsministerium für Wirtschaft, Arbeit, Energie und Klimaschutz",Landesbehörde des Freistaates Sachsen
+org/spd,Q49768,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Sozialdemokratische Partei Deutschlands,politische Partei in Deutschland
+org/staatskanzlei-by,Q83019910,rejected,"label search; rejected in review 13.10.2026: matches the building, not the authority",Bayerische Staatskanzlei,"Gebäude, in der die Bayerische Staatskanzlei untergebracht ist"
+org/staatsregierung-by,Q812290,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Bayerische Staatsregierung,Landesregierung von Bayern
+org/staatsregierung-sn,Q2378571,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Sächsische Staatsregierung,Regierung des Freistaates Sachsen
+org/stmug,Q812441,confirmed,label search; confirmed in review 13.10.2026 (Claude): searching the StMUG name returns this item; Wikidata treats StMUG as an earlier name of the StMUV,Bayerisches Staatsministerium für Umwelt und Verbraucherschutz,Staatsministerium des Freistaates Bayern
+org/stmuv,Q812441,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Bayerisches Staatsministerium für Umwelt und Verbraucherschutz,Staatsministerium des Freistaates Bayern
+org/stmwi,Q812443,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)","Bayerisches Staatsministerium für Wirtschaft, Landesentwicklung und Energie",Staatsministerium des Freistaates Bayern
+org/vernunftkraft,,not_found,label search,,
+person/andreas-storr,Q500830,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Andreas Storr,"deutscher Politiker, MdL"
+person/antje-hermenau,Q584723,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Antje Hermenau,"deutsche Politikerin (ehem. MdB, ehem. MdL)"
+person/arnold-vaatz,Q696432,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Arnold Vaatz,"deutscher Politiker (CDU), MdL Sachsen, MdB (geb. 1955)"
+person/baerbel-hoehn,Q123504,confirmed,P5355 abgeordnetenwatch id,Bärbel Höhn,"deutsche Politikerin (Bündnis 90/Die Grünen), MdL, MdB, Landesministerin"
+person/baerbel-kofler,Q1019029,confirmed,P5355 abgeordnetenwatch id,Bärbel Kofler,"deutsche Politikerin (SPD), MdB"
+person/barbara-hendricks,Q97332,confirmed,P5355 abgeordnetenwatch id,Barbara Hendricks,"deutsche Politikerin (SPD), MdB, Bundesministerin"
+person/bernhard-roos,Q825811,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Bernhard Roos,"deutscher Politiker (SPD), MdL und Gewerkschafter"
+person/caren-lay,Q1035894,confirmed,P5355 abgeordnetenwatch id,Caren Lay,"deutsche Politikerin (Die Linke), MdB"
+person/christa-stewens,Q1078204,confirmed,P5355 abgeordnetenwatch id,Christa Stewens,"deutsche Politikerin (CSU), MdL, bayerische Staatsministerin"
+person/christian-kuehn,Q106938,confirmed,P5355 abgeordnetenwatch id,Christian Kühn,deutscher Politiker (Bündnis 90/Die Grünen)
+person/christian-magerl,Q1080977,confirmed,P5355 abgeordnetenwatch id,Christian Magerl,"deutscher Politiker, MdL und Biologe"
+person/christine-haderthauer,Q95373,confirmed,P5355 abgeordnetenwatch id,Christine Haderthauer,deutsche Rechtsanwältin und Politikerin
+person/christine-kamm,Q1083619,confirmed,P5355 abgeordnetenwatch id,Christine Kamm,"deutsche Politikerin, MdL"
+person/christoph-rabenstein,Q1085679,confirmed,P5355 abgeordnetenwatch id,Christoph Rabenstein,"deutscher Politiker (SPD), MdL"
+person/dirk-panter,Q1228011,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Dirk Panter,"deutscher Politiker (SPD), MdL"
+person/doris-rauscher,Q15806460,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Doris Rauscher,deutsche Politikerin (SPD)
+person/egon-juettner,Q1298700,confirmed,P5355 abgeordnetenwatch id,Egon Jüttner,"deutscher Politiker, MdB"
+person/emilia-mueller,Q537761,confirmed,P5355 abgeordnetenwatch id,Emilia Müller,"deutsche Politikerin (CSU), MdL Bayern, MdEP (geb. 1951)"
+person/erwin-huber,Q65920,confirmed,P5355 abgeordnetenwatch id,Erwin Huber,"deutscher Politiker (CSU), MdL, Volkswirt"
+person/eva-bulling-schroeter,Q104774,confirmed,P5355 abgeordnetenwatch id,Eva Bulling-Schröter,deutsche Politikerin
+person/eva-gottstein,Q1379185,confirmed,P5355 abgeordnetenwatch id,Eva Gottstein,"deutsche Kommunal- und Landespolitikerin (Freie Wähler), MdL"
+person/eva-jaehnigen,Q1379247,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Eva Jähnigen,deutsche Politikerin
+person/ewald-schurer,Q1382932,confirmed,P5355 abgeordnetenwatch id,Ewald Schurer,"deutscher Politiker, MdB"
+person/florian-pronold,Q100797,confirmed,P5355 abgeordnetenwatch id,Florian Pronold,"deutscher Politiker (SPD), MdB"
+person/florian-streibl,Q1429922,confirmed,P5355 abgeordnetenwatch id,Florian Streibl,"deutscher Politiker (Freie Wähler), MdL"
+person/florian-von-brunn,Q15434915,confirmed,P5355 abgeordnetenwatch id,Florian von Brunn,"deutscher Politiker (SPD), MdL"
+person/franz-schindler,Q1448903,confirmed,P5355 abgeordnetenwatch id,Franz Schindler,"deutscher Rechtsanwalt und Politiker, MdL"
+person/gabi-schmidt,Q15811200,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Gabi Schmidt,deutsche Kommunal- und Landespolitikerin (Freie Wähler)
+person/georg-nuesslein,Q1505506,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Georg Nüßlein,"deutscher Politiker (ehem. CSU), MdB"
+person/guenther-felbinger,Q1561429,confirmed,P5355 abgeordnetenwatch id,Günther Felbinger,"deutscher Kommunal- und Landespolitiker, MdL"
+person/gunter-wild,Q18335002,confirmed,P5355 abgeordnetenwatch id,Gunter Wild,"deutscher Politiker (Die blaue Partei, zuvor AfD), MdL"
+person/hans-josef-fell,Q90931,confirmed,P5355 abgeordnetenwatch id,Hans-Josef Fell,"deutscher Politiker (Grüne), MdB"
+person/hans-juergen-fahn,Q1506591,confirmed,P5355 abgeordnetenwatch id,Hans Jürgen Fahn,"deutscher Politiker, MdL"
+person/harry-scheuenstuhl,Q15814377,confirmed,P5355 abgeordnetenwatch id,Harry Scheuenstuhl,"deutscher Politiker (SPD), Bürgermeister und MdL Bayern"
+person/holger-apfel,Q25766,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Holger Apfel,deutscher Politiker
+person/holger-zastrow,Q111924,confirmed,P5355 abgeordnetenwatch id,Holger Zastrow,"deutscher Politiker (ehem. FDP), MdL"
+person/horst-seehofer,Q44612,confirmed,P5355 abgeordnetenwatch id,Horst Seehofer,"deutscher Politiker (CSU), Ministerpräsident a. D. von Bayern"
+person/hubertus-heil,Q71534,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Hubertus Heil,"deutscher Politiker (SPD), MdB, Bundesminister a. D."
+person/ilse-aigner,Q153460,confirmed,P5355 abgeordnetenwatch id,Ilse Aigner,"deutsche Politikerin (CSU), MdL, MdB, Bundesministerin"
+person/inge-aures,Q1662747,confirmed,P5355 abgeordnetenwatch id,Inge Aures,"deutsche Politikerin (SPD), MdL"
+person/jana-pinka,Q1386806,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Jana Pinka,"deutsche Politikerin, MdL"
+person/joachim-herrmann,Q1690169,confirmed,P5355 abgeordnetenwatch id,Joachim Herrmann,"deutscher Politiker (CSU), Bayerischer Innenminister, MdL"
+person/joachim-pfeiffer,Q103666,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Joachim Pfeiffer,deutscher Politiker (CDU)
+person/joerg-urban,Q18334590,confirmed,P5355 abgeordnetenwatch id,Jörg Urban,"deutscher rechtsextremer Politiker (AfD), MdL"
+person/johann-georg-jaeger,Q1268341,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Johann-Georg Jaeger,"deutscher Politiker, MdL"
+person/josef-goeppel,Q1556850,confirmed,P5355 abgeordnetenwatch id,Josef Göppel,"deutscher Politiker, MdL, MdB"
+person/juergen-martens,Q99663,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Jürgen Martens,"deutscher Politiker (FDP), MdB, sächsischer Justizminister, MdL"
+person/julia-verlinden,Q15805255,confirmed,P5355 abgeordnetenwatch id,Julia Verlinden,"deutsche Politikerin (Grüne), MdB"
+person/kai-wegner,Q1721361,confirmed,P5355 abgeordnetenwatch id,Kai Wegner,"deutscher Politiker (CDU), Regierender Bürgermeister von Berlin, MdA"
+person/karl-freller,Q97937,confirmed,P5355 abgeordnetenwatch id,Karl Freller,"deutscher Politiker (CSU), MdL, 1. Vizepräsident des bayrischen Landtags"
+person/katharina-schulze,Q14949131,confirmed,P5355 abgeordnetenwatch id,Katharina Schulze,"deutsche Politikerin (Bündnis 90/Die Grünen), MdL"
+person/katherina-reiche,Q108126,confirmed,P5355 abgeordnetenwatch id,Katherina Reiche,"deutsche Politikerin (CDU), ehem. MdB, Bundesministerin für Wirtschaft und Energie"
+person/kerstin-celina,Q14920406,confirmed,P5355 abgeordnetenwatch id,Kerstin Celina,"deutsche Politikerin (Bündnis 90/Die Grünen), MdL"
+person/kirsten-tackmann,Q1743644,confirmed,P5355 abgeordnetenwatch id,Kirsten Tackmann,"deutsche Politikerin (Linke), MdB"
+person/leopold-herz,Q125257,confirmed,P5355 abgeordnetenwatch id,Leopold Herz,"deutscher Politiker (Freie Wähler), MdL"
+person/ludwig-hartmann,Q1874499,confirmed,P5355 abgeordnetenwatch id,Ludwig Hartmann,"deutscher Politiker (Bündnis 90/Die Grünen), MdL"
+person/marcel-huber,Q1893046,confirmed,P5355 abgeordnetenwatch id,Marcel Huber,"deutscher Politiker (CSU), MdL"
+person/marco-boehme,Q18024817,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Marco Böhme,"deutscher Politiker (Die Linke), MdL Sachsen"
+person/marco-buelow,Q108771,confirmed,P5355 abgeordnetenwatch id,Q108771,deutscher Politiker und Autor (1971–2026)
+person/mario-beger,Q18025117,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Mario Beger,"deutscher Politiker (AfD), MdL"
+person/markus-ulbig,Q108416,confirmed,P5355 abgeordnetenwatch id,Markus Ulbig,"deutscher Politiker (CDU), Staatsminister in Sachsen"
+person/martin-dulig,Q1330449,confirmed,P5355 abgeordnetenwatch id,Martin Dulig,"deutscher Politiker (SPD), Wirtschaftsminister des Freistaates Sachsen, MdL"
+person/martin-stuempfig,Q15434940,confirmed,P5355 abgeordnetenwatch id,Martin Stümpfig,"deutscher Politiker, Mitglied des bayrischen Landtags"
+person/martin-zeil,Q109933,confirmed,P5355 abgeordnetenwatch id,Martin Zeil,"deutscher Politiker, MdL, MdB, bayerischer Staatsminister"
+person/martina-stamm-fibich,Q15813133,confirmed,P5355 abgeordnetenwatch id,Martina Stamm-Fibich,"deutsche Politikerin (SPD), MdB"
+person/matthias-miersch,Q1910150,confirmed,P5355 abgeordnetenwatch id,Matthias Miersch,deutscher Politiker (SPD)
+person/michael-fuchs,Q107816,confirmed,P5355 abgeordnetenwatch id,Michael Fuchs,"deutscher Politiker (CDU, Koblenz, 1949–2022), MdB"
+person/natascha-kohnen,Q1247208,confirmed,P5355 abgeordnetenwatch id,Natascha Kohnen,"deutsche Politikerin (SPD), MdL"
+person/nina-scheer,Q2789935,confirmed,P5355 abgeordnetenwatch id,Nina Scheer,"deutsche Juristin, Violinistin und Politikerin (SPD), MdB"
+person/oliver-krischer,Q103710,confirmed,P5355 abgeordnetenwatch id,Oliver Krischer,"deutscher Politiker (Grüne), MdB, Umweltminister Nordrhein-Westfalen"
+person/otmar-bernhard,Q100290,confirmed,P5355 abgeordnetenwatch id,Otmar Bernhard,"deutscher Politiker (CSU), MdL, Landesminister"
+person/otto-huennerkopf,Q2039279,confirmed,P5355 abgeordnetenwatch id,Otto Hünnerkopf,"deutscher Ingenieur und Politiker (CSU), MdL"
+person/otto-lederer,Q14916844,confirmed,P5355 abgeordnetenwatch id,Otto Lederer,"deutscher Lehrer und Politiker (CSU), MdL (geb. 1970)"
+person/patrick-friedl,Q57316838,confirmed,P5355 abgeordnetenwatch id,Patrick Friedl,"deutscher Politiker (Bündnis 90/Die Grünen), MdL"
+person/paul-wengert,Q100389,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Paul Wengert,"deutscher Politiker, MdL"
+person/peter-meiwald,Q15840112,confirmed,P5355 abgeordnetenwatch id,Peter Meiwald,"deutscher Politiker (Grüne), MdB"
+person/peter-stein,Q2078469,confirmed,P5355 abgeordnetenwatch id,Peter Stein,deutscher CDU-Politiker (* 1968)
+person/philipp-lengsfeld,Q15439343,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Philipp Lengsfeld,"deutscher Politiker, MdB"
+person/ralph-lenkert,Q1759589,confirmed,P5355 abgeordnetenwatch id,Ralph Lenkert,"deutscher Maschinenbautechniker und Politiker (Die Linke), MdB"
+person/reinhold-strobl,Q2141558,confirmed,P5355 abgeordnetenwatch id,Reinhold Strobl,"deutscher Politiker, MdB, MdL"
+person/robert-habeck,Q109943,confirmed,P5355 abgeordnetenwatch id,Robert Habeck,"deutscher Politiker (Bündnis 90/Die Grünen), MdL (2009–2018), MdB (2021–2025), Bundesminister a. D., Schriftsteller"
+person/sigmar-gabriel,Q160902,confirmed,P5355 abgeordnetenwatch id,Sigmar Gabriel,"deutscher Politiker (SPD), ehem. Bundesminister und Vizekanzler, Ministerpräsident Niedersachsens"
+person/simone-raatz,Q2288151,confirmed,P5355 abgeordnetenwatch id,Simone Raatz,"deutsche Politikerin, MdB, MdL"
+person/simone-strohmayr,Q1751905,confirmed,P5355 abgeordnetenwatch id,Simone Strohmayr,"deutsche Politikerin, MdL"
+person/stanislaw-tillich,Q77391,confirmed,P5355 abgeordnetenwatch id,Stanislaw Tillich,"deutscher Politiker (CDU), Ministerpräsident a.D. Sachsen"
+person/susann-biedefeld,Q2369001,confirmed,P5355 abgeordnetenwatch id,Susann Biedefeld,"deutsche Politikerin, MdL"
+person/sven-morlok,Q103450,confirmed,P5355 abgeordnetenwatch id,Sven Morlok,"deutscher Politiker (FDP), MdL, Landesminister"
+person/tanja-schweiger,Q1712132,confirmed,P5355 abgeordnetenwatch id,Tanja Schweiger,deutsche Politikerin (Freie Wähler)
+person/thomas-gambke,Q1395221,confirmed,P5355 abgeordnetenwatch id,Thomas Gambke,"deutscher Manager, Unternehmer und Politiker (Bündnis 90/Die Grünen), MdB"
+person/thomas-kreuzer,Q1751695,confirmed,P5355 abgeordnetenwatch id,Thomas Kreuzer,"deutscher Richter und Politiker (CSU), MdL"
+person/thomas-muetze,Q2426234,confirmed,P5355 abgeordnetenwatch id,Thomas Mütze,"deutscher Politiker, MdL"
+person/thorsten-glauber,Q1598112,confirmed,P5355 abgeordnetenwatch id,Thorsten Glauber,"deutscher Politiker (Freie Wähler), MdL, bayerischer Umweltminister"
+person/ulrike-gote,Q2477293,confirmed,P5355 abgeordnetenwatch id,Ulrike Gote,deutsche Politikerin
+person/ulrike-mueller,Q2477402,confirmed,P5355 abgeordnetenwatch id,Ulrike Müller,"deutsche Politikerin (Freie Wähler), MdEP, MdL"
+person/ulrike-scharf,Q1525807,confirmed,P5355 abgeordnetenwatch id,Ulrike Scharf,"deutsche Politikerin (CSU), MdL, Landesministerin"
+person/ursula-heinen-esser,Q2501653,confirmed,P5355 abgeordnetenwatch id,Ursula Heinen-Esser,"deutsche Politikerin (CDU), Umweltministerin a. D. Nordrhein-Westfalen"
+person/uwe-beckmeyer,Q105117,confirmed,P5355 abgeordnetenwatch id,Uwe Beckmeyer,"deutscher Politiker (SPD), MdBB, MdB, Senator"
+person/veronika-bellmann,Q110576,confirmed,P5355 abgeordnetenwatch id,Veronika Bellmann,"deutsche Politikerin (CDU), MdB"
+person/volkmar-halbleib,Q2531476,confirmed,P5355 abgeordnetenwatch id,Volkmar Halbleib,"deutscher Politiker (SPD), MdL"
+person/winfried-kretschmann,Q61051,confirmed,P5355 abgeordnetenwatch id,Winfried Kretschmann,"deutscher Politiker (Bündnis 90/Die Grünen), ehemaliger Ministerpräsident von Baden-Württemberg (geb. 1948)"
+place/allgaeu,Q169276,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Allgäu,Landschaft und Großraum im südlichen Schwaben und Württemberg
+place/baden-wuerttemberg,Q985,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Baden-Württemberg,Land im Südwesten der Bundesrepublik Deutschland
+place/bayern,Q980,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Bayern,Land der Bundesrepublik Deutschland
+place/berlin,Q64,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Berlin,Hauptstadt und bevölkerungsreichste Stadt der Bundesrepublik Deutschland
+place/brandenburg,Q1208,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Brandenburg,Land der Bundesrepublik Deutschland
+place/bremen,Q24879,rejected,"label search; rejected in review 13.10.2026: matches the city, not the Land",Bremen,"an der Weser gelegene Hauptstadt des Landes Bremen, Deutschland"
+place/grossbardau,Q1548027,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Großbardau,"Ortsteil von Grimma, Sachsen"
+place/hamburg,Q1055,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Hamburg,Stadt und Land der Bundesrepublik Deutschland
+place/hessen,Q1199,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Hessen,Land der Bundesrepublik Deutschland
+place/landkreis-meissen,Q6313,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Landkreis Meißen,Landkreis in Sachsen (2008–)
+place/leipzig-westsachsen,,not_found,label search,,
+place/main-rhoen,Q2098395,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Planungsregion Main-Rhön,"Planungsregion in Bayern, Deutschland"
+place/mecklenburg-vorpommern,Q1196,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Mecklenburg-Vorpommern,Land der Bundesrepublik Deutschland
+place/mittelfranken,Q10551,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Mittelfranken,"Bezirk und Regierungsbezirk in Bayern, Deutschland"
+place/niederbayern,Q10559,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Niederbayern,"Bezirk und Regierungsbezirk in Bayern, Deutschland"
+place/niedersachsen,Q1197,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Niedersachsen,Land der Bundesrepublik Deutschland
+place/nordrhein-westfalen,Q1198,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Nordrhein-Westfalen,Land der Bundesrepublik Deutschland
+place/oberbayern,Q10562,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Oberbayern,"Bezirk und Regierungsbezirk in Bayern, Deutschland"
+place/oberfranken,Q10554,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Oberfranken,"Bezirk und Regierungsbezirk in Bayern, Deutschland"
+place/oberpfalz,Q10555,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Oberpfalz,"Bezirk und einer von sieben Regierungsbezirken in Bayern, Deutschland"
+place/radeburg,Q8770,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Radeburg,"Stadt im Landkreis Meißen, Sachsen, Deutschland"
+place/region-chemnitz,,not_found,label search,,
+place/rheinland-pfalz,Q1200,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Rheinland-Pfalz,Land der Bundesrepublik Deutschland
+place/saarland,Q1201,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Saarland,Land der Bundesrepublik Deutschland
+place/sachsen,Q1202,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Sachsen,Land der Bundesrepublik Deutschland
+place/sachsen-anhalt,Q1206,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Sachsen-Anhalt,Land der Bundesrepublik Deutschland
+place/schleswig-holstein,Q1194,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Schleswig-Holstein,Land der Bundesrepublik Deutschland
+place/schwaben,Q11812551,rejected,"label search; rejected in review 13.10.2026: matches historical Swabia, not the Regierungsbezirk",Schwaben,historischer politischer Raum in Südwestdeutschland
+place/thueringen,Q1205,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Thüringen,Land der Bundesrepublik Deutschland
+place/unterfranken,Q10547,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Unterfranken,"Bezirk und Regierungsbezirk in Bayern, Deutschland"
+place/vogtlandkreis,Q6337,confirmed,"label search; confirmed in review 13.10.2026 (Claude, description fits)",Vogtlandkreis,"Landkreis in Sachsen, Deutschland"

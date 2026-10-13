@@ -1,0 +1,20 @@
+id,label_de,label_en,inverse_en,domain,range,interpretive,description
+member_of,Mitglied von,member of,has member,Person,Organization,0,Party or group membership in the period of the story
+holds_post,hat Amt inne,holds post,post held by,Person,Organization,0,Office in an organisation; the post title is in value
+asked,fragte,asked,asked by,Person,Document,0,Person is an asker of a parliamentary question
+answered,beantwortete,answered,answered by,Person,Document,0,Person signed or gave the answer
+answered_for,beantwortet für,answered on behalf of,answered through,Document,Organization,0,Ministry or government that answered
+authored,verfasste,authored,authored by,Person|Organization,Document,0,Author or co-author
+signed,unterzeichnete,signed,signed by,Person,Document,0,Signatory
+spoke_in,sprach in,spoke in,speaker,Person,Event|Document,0,Speech in a debate or hearing
+part_of,Teil von,part of,has part,Document|Event,Document|Procedure,0,Document or event belongs to a procedure or a larger document
+responds_to,antwortet auf,responds to,responded to by,Document,Document,0,Answer to a question; Gegenäußerung to a Stellungnahme
+cites,zitiert,cites,cited by,Document,Document,0,Document text refers to another document or law (extracted)
+enacts,verkündet,enacts,enacted by,Document,Law,0,Promulgation of a law
+implements,setzt um,implements,implemented by,Law,Law,0,A Land law that uses a federal opening clause
+about,handelt von,about,subject of,Document,Concept,0,Confirmed subject of a document
+involves,betrifft,involves,involved in,Event,Person,0,Actor named in a timeline event
+documented_in,belegt in,documented in,documents,Event,Document,0,Source document for a timeline event
+led_to,führte zu,led to,resulted from,Event,Event,1,Interpretive causal link; always with a rationale
+broader,Oberbegriff,broader,narrower,Concept,Concept,0,SKOS broader
+located_in,liegt in,located in,contains,Place,Place,0,Administrative hierarchy

@@ -33,7 +33,7 @@ Markers:
 | [FragDenStaat](fragdenstaat.md) | Freedom-of-information requests on the topic |
 | [People and groups](people.md) | Who acted, in what role; a profile page per politician (mandates, votes, DIP activities) |
 | [Source index](sources.md) | All primary sources by issuer |
-| [PDF archive](pdfs/README.md) | Local copies of the 59 other referenced PDFs |
+| [PDF archive](pdfs/README.md) | Local copies of the 60 other referenced PDFs |
 | [Anfragen archive](anfragen/README.md) | Local copies of 82 parliamentary questions and answers (Bundestag, Bayern, Sachsen, other Länder) |
 | [Open questions](open-questions.md) | Gaps and next steps |
 

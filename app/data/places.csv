@@ -1,0 +1,32 @@
+id,label,classification,parent,aliases
+place/bayern,Bayern,land,,Freistaat Bayern|Freistaates Bayern
+place/sachsen,Sachsen,land,,Freistaat Sachsen|Freistaates Sachsen
+place/baden-wuerttemberg,Baden-Württemberg,land,,
+place/berlin,Berlin,land,,
+place/brandenburg,Brandenburg,land,,
+place/bremen,Bremen,land,,
+place/hamburg,Hamburg,land,,
+place/hessen,Hessen,land,,
+place/mecklenburg-vorpommern,Mecklenburg-Vorpommern,land,,
+place/niedersachsen,Niedersachsen,land,,
+place/nordrhein-westfalen,Nordrhein-Westfalen,land,,NRW
+place/rheinland-pfalz,Rheinland-Pfalz,land,,
+place/saarland,Saarland,land,,
+place/sachsen-anhalt,Sachsen-Anhalt,land,,
+place/schleswig-holstein,Schleswig-Holstein,land,,
+place/thueringen,Thüringen,land,,
+place/oberbayern,Oberbayern,regierungsbezirk,place/bayern,
+place/niederbayern,Niederbayern,regierungsbezirk,place/bayern,
+place/oberpfalz,Oberpfalz,regierungsbezirk,place/bayern,
+place/oberfranken,Oberfranken,regierungsbezirk,place/bayern,
+place/mittelfranken,Mittelfranken,regierungsbezirk,place/bayern,
+place/unterfranken,Unterfranken,regierungsbezirk,place/bayern,
+place/schwaben,Schwaben,regierungsbezirk,place/bayern,
+place/main-rhoen,Planungsregion Main-Rhön,planungsregion,place/unterfranken,Main-Rhön|Region Main-Rhön
+place/allgaeu,Allgäu,region,place/schwaben,
+place/vogtlandkreis,Vogtlandkreis,landkreis,place/sachsen,
+place/landkreis-meissen,Landkreis Meißen,landkreis,place/sachsen,Kreistag Meißen
+place/radeburg,Radeburg,gemeinde,place/landkreis-meissen,Stausee Radeburg
+place/grossbardau,Großbardau,ortsteil,place/sachsen,
+place/leipzig-westsachsen,Planungsregion Leipzig-Westsachsen,planungsregion,place/sachsen,Leipzig-Westsachsen|RPV Leipzig-Westsachsen
+place/region-chemnitz,Planungsregion Chemnitz,planungsregion,place/sachsen,RPV Chemnitz

@@ -1,0 +1,9 @@
+# Curated statements. led_to links are interpretations of the research and always carry a rationale.
+# subj/obj: entity ids, or event:YYYY-MM-DD for the timeline event of that date. evidence: document id plus a quote to locate the page.
+subj,pred,obj,rationale,evidence_doc,evidence_quote,source
+event:2013-03-05,led_to,procedure/br-569-13,"The review of height-based, Bavaria-wide distances ordered on 05.03.2013 is the earliest documented step; the joint Bayern–Sachsen bill of 02.07.2013 proposed height-based distances.",doc/by-drs-16-16465,abhängig von der Höhe,origin-bayern-2013.md
+event:2013-11-27,led_to,procedure/bund-laenderoeffnungsklausel,"The clause came through the CDU/CSU–SPD coalition agreement, not through BR-Drs 569/13, which was never voted on. The government's answers cite the agreement.",doc/bt-drs-18-268,Koalitionsvertrag,README.md
+event:2014-02-04,led_to,procedure/by-10h-law,"The Bavarian cabinet decided on 04.02.2014 to use the clause with 10H and approved the draft on 08.04.2014.",doc/by-drs-17-2350,Das Bayerische Kabinett hat am 4. Februar 2014 beschlossen,bayern-10h.md
+procedure/bund-laenderoeffnungsklausel,led_to,procedure/by-10h-law,"Bayern was the only Land that used § 249 Abs. 3 BauGB before the deadline of 31.12.2015.",doc/wd-7-042-19,Bayern,other-laender.md
+procedure/by-10h-law,led_to,procedure/bayverfgh-10h,"The Popularklage against Art. 82 BayBO was received on 20.11.2014, the day before the law came into force.",doc/bayverfgh-vf-14-vii-14,Popularklage,bayern-10h.md
+law/baybo-82,implements,law/baugb-249-3,"Art. 82 BayBO is the Landesgesetz under § 249 Abs. 3 BauGB.",doc/by-drs-17-2137,249 Abs. 3,bayern-10h.md

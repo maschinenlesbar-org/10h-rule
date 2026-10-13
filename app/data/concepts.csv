@@ -1,0 +1,22 @@
+id,label,broader,aliases,description
+concept/10h,10H,concept/mindestabstand,10 H|10-H|10H-Regelung|10-H-Regelung|10 H-Regelung|zehnfache Höhe|zehnfachen Höhe|zehnfachen Gesamthöhe|zehnmal so weit,Distance of ten times the total height of a turbine
+concept/laenderoeffnungsklausel,Länderöffnungsklausel,,Länder-Öffnungsklausel|Öffnungsklausel,"§ 249 Abs. 3 BauGB: Länder may set distances by Landesgesetz"
+concept/mindestabstand,Mindestabstand,,Mindestabstände|Mindestabständen|Mindestabstandes|Mindestabstands|Abstandsregelung|Abstandsregelungen|Mindestabstandsregelung|Mindestabstandsregelungen,Distance between wind turbines and housing
+concept/privilegierung,Privilegierung im Außenbereich,,Privilegierung|privilegiert,§ 35 Abs. 1 Nr. 5 BauGB
+concept/vertrauensschutz,Vertrauensschutz,,,Protection of applications filed before the cut-off date
+concept/konzentrationsflaeche,Konzentrationsfläche,concept/bauleitplanung,Konzentrationsflächen|Konzentrationszone|Konzentrationszonen|Konzentrationsflächennutzungsplan|Konzentrationsflächennutzungspläne,Zones where wind turbines are concentrated by planning
+concept/vorranggebiet,Vorrang- und Eignungsgebiet,concept/regionalplanung,Vorranggebiet|Vorranggebiete|Eignungsgebiet|Eignungsgebiete|Vorrang- und Eignungsgebiete|Windvorranggebiet|Windvorranggebiete|Vorranggebieten,Priority and suitability areas in regional plans
+concept/regionalplanung,Regionalplanung,,Regionalplan|Regionalpläne|Regionalplänen|Planungsverband|Planungsverbände|Regionaler Planungsverband|Regionalen Planungsverbände,Regional planning
+concept/bauleitplanung,Bauleitplanung,,Bebauungsplan|Bebauungspläne|Flächennutzungsplan|Flächennutzungspläne,Municipal land-use planning
+concept/planungshoheit,Planungshoheit,,kommunale Planungshoheit,Municipal planning sovereignty
+concept/tabuzonen,Tabuzonen,concept/regionalplanung,harte Tabuzonen|weiche Tabuzonen|Tabuzone,Hard and soft exclusion zones in wind planning
+concept/substanziell-raum,Substanziell Raum verschaffen,concept/regionalplanung,substanziell Raum|substantiell Raum,Planning must give wind energy substantial room
+concept/repowering,Repowering,,,Replacing old turbines with new ones
+concept/infraschall,Infraschall,,,Infrasound
+concept/ta-laerm,TA Lärm,,Technische Anleitung zum Schutz gegen Lärm,Noise protection rules
+concept/kernbereich,Kernbereich exekutiver Eigenverantwortung,,,Constitutional ground for refusing to answer
+concept/gebietskulisse,Gebietskulisse Windkraft,,,Bavarian wind suitability map
+concept/windenergieerlass,Windenergie-Erlass,,Windenergieerlass|Windkrafterlass|Windkraft-Erlass,Administrative guidance on wind turbine siting
+concept/windpotenzialstudie,Windpotenzialstudie,,Windpotentialstudie,Saxon study of the wind potential
+concept/akzeptanz,Akzeptanz,,,Public acceptance of wind energy
+concept/ausbauziel,Ausbauziel,,Ausbauziele|Ausbauzielen,Expansion target for renewable energy

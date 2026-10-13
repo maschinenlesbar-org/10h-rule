@@ -2,7 +2,7 @@
 
 # PDF archive
 
-Local copies of the 59 PDF documents referenced in this wiki. Downloaded on 2026-10-12.
+Local copies of the 60 PDF documents referenced in this wiki. Downloaded on 2026-10-12.
 
 Parliamentary questions and their answers are kept in the [Anfragen archive](../anfragen/README.md).
 
@@ -74,6 +74,7 @@ Not included:
 
 | File | Document | Size | Source |
 | --- | --- | ---: | --- |
+| [BY-PlPr_17-10.pdf](BY-PlPr_17-10.pdf) | Plenarprotokoll 17/10, 05.02.2014: debate and roll call on Dringlichkeitsantrag 17/554 (96 : 66 : 1, p. 435; list in Anlage 3) | 1.3 MB | [bayern.landtag.de](https://www.bayern.landtag.de/www/ElanTextAblage_WP17/Protokolle/17%20Wahlperiode%20Kopie/17%20WP%20Plenum%20Kopie/010%20PL%20050214%20ges%20endg%20Kopie.pdf) |
 | [BY-Anhoerung-Wirtschaftsausschuss_2017-11-16_10H.pdf](BY-Anhoerung-Wirtschaftsausschuss_2017-11-16_10H.pdf) | Second hearing on 10H, 16.11.2017 | 1.5 MB | [www.bayern.landtag.de](https://www.bayern.landtag.de/fileadmin/Internet_Dokumente/Sonstiges_P/Protokoll_WI_10H_Regelung.pdf) |
 | [BY-Drs_16-17350_Antrag.pdf](BY-Drs_16-17350_Antrag.pdf) | Dringlichkeitsantrag CSU/FDP, Ausbau der Windkraft (adopted) | 103 KB | [www.bayern.landtag.de](https://www.bayern.landtag.de/www/ElanTextAblage_WP16/Drucksachen/Basisdrucksachen/0000011000/0000011252.pdf) |
 | [BY-Drs_17-554_Antrag.pdf](BY-Drs_17-554_Antrag.pdf) | Dringlichkeitsantrag CSU, "grundsätzlich 10 h" | 212 KB | [www.bayern.landtag.de](https://www.bayern.landtag.de/www/ElanTextAblage_WP17/Drucksachen/Basisdrucksachen/0000000001/0000000491.pdf) |

@@ -1,0 +1,9 @@
+id,label,broader,aliases
+law/baugb,Baugesetzbuch,,BauGB
+law/baybo,Bayerische Bauordnung,,BayBO
+law/eeg,Erneuerbare-Energien-Gesetz,,EEG|EEG 2014
+law/bimschg,Bundes-Immissionsschutzgesetz,,BImSchG
+law/rog,Raumordnungsgesetz,,ROG
+law/baugb-249-3,§ 249 Abs. 3 BauGB,law/baugb,
+law/baugb-35-1-5,§ 35 Abs. 1 Nr. 5 BauGB,law/baugb,
+law/baybo-82,Art. 82 BayBO,law/baybo,

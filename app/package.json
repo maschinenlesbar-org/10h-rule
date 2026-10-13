@@ -1,0 +1,27 @@
+{
+  "name": "10h-explorer",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "node build/index.ts",
+    "build:offline": "node build/index.ts --offline",
+    "serve": "node --disable-warning=ExperimentalWarning serve.ts",
+    "serve:review": "node --disable-warning=ExperimentalWarning serve.ts --review",
+    "test": "node --test \"test/**/*.test.ts\"",
+    "typecheck": "tsc --noEmit",
+    "export": "node --disable-warning=ExperimentalWarning export.ts",
+    "build:fast": "node build/index.ts --offline --no-embed",
+    "serve:static": "node serve-static.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^4.3.1",
+    "@sqlite.org/sqlite-wasm": "^3.53.4-build2"
+  }
+}

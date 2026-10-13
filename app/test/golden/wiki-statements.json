@@ -1,0 +1,3370 @@
+[
+ {
+  "subj": "doc/bt-drs-17-10925",
+  "pred": "answered_for",
+  "obj": "org/bmu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/bt-drs-17-10968",
+  "pred": "answered_for",
+  "obj": "org/bmu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/bt-drs-17-14803",
+  "pred": "answered_for",
+  "obj": "org/bmu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/bt-drs-17-14821",
+  "pred": "answered_for",
+  "obj": "org/bmu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/bt-drs-18-1590",
+  "pred": "answered_for",
+  "obj": "org/bmub",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/bt-drs-18-1684",
+  "pred": "answered_for",
+  "obj": "org/bmub",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/bt-drs-18-268",
+  "pred": "answered_for",
+  "obj": "org/bmub",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/bt-drs-18-5898",
+  "pred": "answered_for",
+  "obj": "org/bmwi",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/bt-drs-18-5898",
+  "pred": "answered_for",
+  "obj": "org/bundesregierung",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/bt-drs-18-5898",
+  "pred": "responds_to",
+  "obj": "doc/bt-drs-18-5774",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/bt-drs-18-6527",
+  "pred": "answered_for",
+  "obj": "org/bmwi",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/bt-drs-18-6527",
+  "pred": "answered_for",
+  "obj": "org/bundesregierung",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/bt-drs-18-6527",
+  "pred": "responds_to",
+  "obj": "doc/bt-drs-18-6350",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/bt-drs-18-680",
+  "pred": "answered_for",
+  "obj": "org/bmub",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/bt-drs-18-7274",
+  "pred": "answered_for",
+  "obj": "org/bmwi",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/sn-drs-5-10587",
+  "pred": "answered_for",
+  "obj": "org/smi",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/sn-drs-5-12460",
+  "pred": "answered_for",
+  "obj": "org/smwa",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/sn-drs-5-13711",
+  "pred": "answered_for",
+  "obj": "org/smwa",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/sn-drs-5-13784",
+  "pred": "answered_for",
+  "obj": "org/smi",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/sn-drs-5-14103",
+  "pred": "answered_for",
+  "obj": "org/smul",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/sn-drs-5-14687",
+  "pred": "answered_for",
+  "obj": "org/smi",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/sn-drs-5-14898",
+  "pred": "answered_for",
+  "obj": "org/smjus",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/sn-drs-5-9018",
+  "pred": "answered_for",
+  "obj": "org/smi",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/sn-drs-6-2391",
+  "pred": "answered_for",
+  "obj": "org/smi",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/sn-drs-6-2491",
+  "pred": "answered_for",
+  "obj": "org/smwa",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "doc/sn-drs-6-4062",
+  "pred": "answered_for",
+  "obj": "org/smwa",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-03-05-seehofer-and-umweltminister-marcel-huber",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-16-16465",
+  "value": null,
+  "start": "2013-03-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-03-05-seehofer-and-umweltminister-marcel-huber",
+  "pred": "involves",
+  "obj": "org/gegenwind-unterfranken",
+  "value": null,
+  "start": "2013-03-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-03-05-seehofer-and-umweltminister-marcel-huber",
+  "pred": "involves",
+  "obj": "person/horst-seehofer",
+  "value": null,
+  "start": "2013-03-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-03-05-seehofer-and-umweltminister-marcel-huber",
+  "pred": "involves",
+  "obj": "person/marcel-huber",
+  "value": null,
+  "start": "2013-03-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-03-20-sachsen-alone-bundesrat-bill-to",
+  "pred": "documented_in",
+  "obj": "doc/br-drs-206-13",
+  "value": null,
+  "start": "2013-03-20",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-03-20-sachsen-alone-bundesrat-bill-to",
+  "pred": "involves",
+  "obj": "org/bundesrat",
+  "value": null,
+  "start": "2013-03-20",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-03-28-working-level-meeting-at-the-bavarian",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-16-16465",
+  "value": null,
+  "start": "2013-03-28",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-05-03-the-bundesrat-refuses-to-introduce",
+  "pred": "documented_in",
+  "obj": "doc/br-drs-206-13-b",
+  "value": null,
+  "start": "2013-05-03",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-05-03-the-bundesrat-refuses-to-introduce",
+  "pred": "involves",
+  "obj": "org/bundesrat",
+  "value": null,
+  "start": "2013-05-03",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-06-20-the-bayerischer-landtag-adopts-the",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-16-17350",
+  "value": null,
+  "start": "2013-06-20",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-06-20-the-bayerischer-landtag-adopts-the",
+  "pred": "involves",
+  "obj": "org/csu",
+  "value": null,
+  "start": "2013-06-20",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-06-20-the-bayerischer-landtag-adopts-the",
+  "pred": "involves",
+  "obj": "org/fdp",
+  "value": null,
+  "start": "2013-06-20",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-06-20-the-bayerischer-landtag-adopts-the",
+  "pred": "involves",
+  "obj": "org/landtag-by",
+  "value": null,
+  "start": "2013-06-20",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-07-02-joint-cabinet-meeting-of-bayern",
+  "pred": "documented_in",
+  "obj": "doc/br-drs-569-13",
+  "value": null,
+  "start": "2013-07-02",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-07-02-joint-cabinet-meeting-of-bayern",
+  "pred": "involves",
+  "obj": "org/bundesrat",
+  "value": null,
+  "start": "2013-07-02",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-07-02-joint-cabinet-meeting-of-bayern",
+  "pred": "involves",
+  "obj": "person/horst-seehofer",
+  "value": null,
+  "start": "2013-07-02",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-07-05-bundesrat-912th-session-top-88",
+  "pred": "documented_in",
+  "obj": "doc/br-plpr-912",
+  "value": null,
+  "start": "2013-07-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-07-05-bundesrat-912th-session-top-88",
+  "pred": "involves",
+  "obj": "org/bundesrat",
+  "value": null,
+  "start": "2013-07-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-07-12-joint-decree-of-the-economics",
+  "pred": "involves",
+  "obj": "org/fdp",
+  "value": null,
+  "start": "2013-07-12",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-07-12-joint-decree-of-the-economics",
+  "pred": "involves",
+  "obj": "person/sven-morlok",
+  "value": null,
+  "start": "2013-07-12",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-08-bavarian-ministries-tell-permitting-authorities",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-17-542",
+  "value": null,
+  "start": "2013-08",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-11-27-the-federal-coalition-agreement-cdu-csu-spd",
+  "pred": "involves",
+  "obj": "org/cdu-csu",
+  "value": null,
+  "start": "2013-11-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2013-11-27-the-federal-coalition-agreement-cdu-csu-spd",
+  "pred": "involves",
+  "obj": "org/spd",
+  "value": null,
+  "start": "2013-11-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-01-22-federal-cabinet-retreat-in-meseberg",
+  "pred": "documented_in",
+  "obj": "doc/bt-drs-18-680",
+  "value": null,
+  "start": "2014-01-22",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-02-04-the-bavarian-cabinet-decides-to",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-17-2350",
+  "value": null,
+  "start": "2014-02-04",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-02-04-the-bavarian-cabinet-decides-to",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-17-554",
+  "value": null,
+  "start": "2014-02-04",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-02-04-the-bavarian-cabinet-decides-to",
+  "pred": "involves",
+  "obj": "org/csu",
+  "value": null,
+  "start": "2014-02-04",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-02-05-the-bayerischer-landtag-adopts-csu",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-17-554",
+  "value": null,
+  "start": "2014-02-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-02-05-the-bayerischer-landtag-adopts-csu",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-17-556",
+  "value": null,
+  "start": "2014-02-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-02-05-the-bayerischer-landtag-adopts-csu",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-17-559",
+  "value": null,
+  "start": "2014-02-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-02-05-the-bayerischer-landtag-adopts-csu",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-17-561",
+  "value": null,
+  "start": "2014-02-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-02-05-the-bayerischer-landtag-adopts-csu",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-17-565",
+  "value": null,
+  "start": "2014-02-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-02-05-the-bayerischer-landtag-adopts-csu",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-17-594",
+  "value": null,
+  "start": "2014-02-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-02-05-the-bayerischer-landtag-adopts-csu",
+  "pred": "documented_in",
+  "obj": "doc/by-plpr-17-10",
+  "value": null,
+  "start": "2014-02-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-02-05-the-bayerischer-landtag-adopts-csu",
+  "pred": "involves",
+  "obj": "org/csu",
+  "value": null,
+  "start": "2014-02-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-02-05-the-bayerischer-landtag-adopts-csu",
+  "pred": "involves",
+  "obj": "org/fw",
+  "value": null,
+  "start": "2014-02-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-02-05-the-bayerischer-landtag-adopts-csu",
+  "pred": "involves",
+  "obj": "org/landtag-by",
+  "value": null,
+  "start": "2014-02-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-02-05-the-bayerischer-landtag-adopts-csu",
+  "pred": "involves",
+  "obj": "person/horst-seehofer",
+  "value": null,
+  "start": "2014-02-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-02-05-the-bayerischer-landtag-adopts-csu",
+  "pred": "involves",
+  "obj": "person/thorsten-glauber",
+  "value": null,
+  "start": "2014-02-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-04-08-cabinet-approves-the-draft",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-17-2350",
+  "value": null,
+  "start": "2014-04-08",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-04-08-the-federal-cabinet-adopts-the",
+  "pred": "documented_in",
+  "obj": "doc/bt-drs-18-1590",
+  "value": null,
+  "start": "2014-04-08",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-04-11-government-bill-besonders-eilbeduerftig",
+  "pred": "documented_in",
+  "obj": "doc/br-drs-155-14",
+  "value": null,
+  "start": "2014-04-11",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-05-05-gesetzentwurf",
+  "pred": "documented_in",
+  "obj": "doc/bt-drs-18-1310",
+  "value": null,
+  "start": "2014-05-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-05-08-1st-reading-without-debate-batch",
+  "pred": "documented_in",
+  "obj": "doc/bt-plpr-18-33",
+  "value": null,
+  "start": "2014-05-08",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-05-21-public-hearing-in-the-bundestag",
+  "pred": "involves",
+  "obj": "org/bundestag",
+  "value": null,
+  "start": "2014-05-21",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-05-23-morlok-defends-the-federal-clause",
+  "pred": "documented_in",
+  "obj": "doc/br-plpr-922",
+  "value": null,
+  "start": "2014-05-23",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-05-23-morlok-defends-the-federal-clause",
+  "pred": "involves",
+  "obj": "org/bundesrat",
+  "value": null,
+  "start": "2014-05-23",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-05-23-morlok-defends-the-federal-clause",
+  "pred": "involves",
+  "obj": "person/sven-morlok",
+  "value": null,
+  "start": "2014-05-23",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-05-23-the-bundesrat-recommends-rejecting-the",
+  "pred": "documented_in",
+  "obj": "doc/br-drs-155-14-b",
+  "value": null,
+  "start": "2014-05-23",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-05-23-the-bundesrat-recommends-rejecting-the",
+  "pred": "involves",
+  "obj": "org/bundesrat",
+  "value": null,
+  "start": "2014-05-23",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-05-23-the-bundesrat-recommends-rejecting-the",
+  "pred": "involves",
+  "obj": "person/christine-haderthauer",
+  "value": null,
+  "start": "2014-05-23",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-05-23-the-bundesrat-recommends-rejecting-the",
+  "pred": "involves",
+  "obj": "person/robert-habeck",
+  "value": null,
+  "start": "2014-05-23",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-05-23-the-bundesrat-recommends-rejecting-the",
+  "pred": "involves",
+  "obj": "person/sven-morlok",
+  "value": null,
+  "start": "2014-05-23",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-05-27-gesetzentwurf-der-staatsregierung",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-17-2137",
+  "value": null,
+  "start": "2014-05-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-05-28-bundesrat-statement-and-government-reply",
+  "pred": "documented_in",
+  "obj": "doc/bt-drs-18-1580",
+  "value": null,
+  "start": "2014-05-28",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-05-28-bundesrat-statement-and-government-reply",
+  "pred": "involves",
+  "obj": "org/bundesrat",
+  "value": null,
+  "start": "2014-05-28",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-04-1st-reading-plpr-17-19-pp",
+  "pred": "documented_in",
+  "obj": "doc/by-plpr-17-19",
+  "value": null,
+  "start": "2014-06-04",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-04-1st-reading-plpr-17-19-pp",
+  "pred": "involves",
+  "obj": "org/csu",
+  "value": null,
+  "start": "2014-06-04",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-04-1st-reading-plpr-17-19-pp",
+  "pred": "involves",
+  "obj": "org/fw",
+  "value": null,
+  "start": "2014-06-04",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-04-1st-reading-plpr-17-19-pp",
+  "pred": "involves",
+  "obj": "org/gruene",
+  "value": null,
+  "start": "2014-06-04",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-04-1st-reading-plpr-17-19-pp",
+  "pred": "involves",
+  "obj": "org/spd",
+  "value": null,
+  "start": "2014-06-04",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-04-1st-reading-plpr-17-19-pp",
+  "pred": "involves",
+  "obj": "person/christine-kamm",
+  "value": null,
+  "start": "2014-06-04",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-04-1st-reading-plpr-17-19-pp",
+  "pred": "involves",
+  "obj": "person/erwin-huber",
+  "value": null,
+  "start": "2014-06-04",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-04-1st-reading-plpr-17-19-pp",
+  "pred": "involves",
+  "obj": "person/eva-gottstein",
+  "value": null,
+  "start": "2014-06-04",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-04-1st-reading-plpr-17-19-pp",
+  "pred": "involves",
+  "obj": "person/joachim-herrmann",
+  "value": null,
+  "start": "2014-06-04",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-04-1st-reading-plpr-17-19-pp",
+  "pred": "involves",
+  "obj": "person/martin-stuempfig",
+  "value": null,
+  "start": "2014-06-04",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-04-1st-reading-plpr-17-19-pp",
+  "pred": "involves",
+  "obj": "person/natascha-kohnen",
+  "value": null,
+  "start": "2014-06-04",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-04-1st-reading-plpr-17-19-pp",
+  "pred": "involves",
+  "obj": "person/otmar-bernhard",
+  "value": null,
+  "start": "2014-06-04",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-04-1st-reading-plpr-17-19-pp",
+  "pred": "involves",
+  "obj": "person/otto-lederer",
+  "value": null,
+  "start": "2014-06-04",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-06-later-referral-under-80",
+  "pred": "documented_in",
+  "obj": "doc/bt-drs-18-1702",
+  "value": null,
+  "start": "2014-06-06",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-25-committee-recommends-adoption-for-cdu-csu",
+  "pred": "documented_in",
+  "obj": "doc/bt-drs-18-1900",
+  "value": null,
+  "start": "2014-06-25",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-25-committee-recommends-adoption-for-cdu-csu",
+  "pred": "involves",
+  "obj": "org/cdu-csu",
+  "value": null,
+  "start": "2014-06-25",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-25-committee-recommends-adoption-for-cdu-csu",
+  "pred": "involves",
+  "obj": "org/gruene",
+  "value": null,
+  "start": "2014-06-25",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-25-committee-recommends-adoption-for-cdu-csu",
+  "pred": "involves",
+  "obj": "org/linke",
+  "value": null,
+  "start": "2014-06-25",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-25-committee-recommends-adoption-for-cdu-csu",
+  "pred": "involves",
+  "obj": "org/spd",
+  "value": null,
+  "start": "2014-06-25",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-25-committee-recommends-adoption-for-cdu-csu",
+  "pred": "involves",
+  "obj": "person/kai-wegner",
+  "value": null,
+  "start": "2014-06-25",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-25-committee-recommends-adoption-for-cdu-csu",
+  "pred": "involves",
+  "obj": "person/matthias-miersch",
+  "value": null,
+  "start": "2014-06-25",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-25-committee-recommends-adoption-for-cdu-csu",
+  "pred": "involves",
+  "obj": "person/peter-meiwald",
+  "value": null,
+  "start": "2014-06-25",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-25-committee-recommends-adoption-for-cdu-csu",
+  "pred": "involves",
+  "obj": "person/ralph-lenkert",
+  "value": null,
+  "start": "2014-06-25",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-27-fdp-group-leader-holger-zastrow",
+  "pred": "involves",
+  "obj": "org/cdu",
+  "value": null,
+  "start": "2014-06-27",
+  "marker": "secondary"
+ },
+ {
+  "subj": "event/2014-06-27-fdp-group-leader-holger-zastrow",
+  "pred": "involves",
+  "obj": "org/fdp",
+  "value": null,
+  "start": "2014-06-27",
+  "marker": "secondary"
+ },
+ {
+  "subj": "event/2014-06-27-fdp-group-leader-holger-zastrow",
+  "pred": "involves",
+  "obj": "person/holger-zastrow",
+  "value": null,
+  "start": "2014-06-27",
+  "marker": "secondary"
+ },
+ {
+  "subj": "event/2014-06-27-the-bundestag-passes-the-bill",
+  "pred": "documented_in",
+  "obj": "doc/bt-drs-18-1903",
+  "value": null,
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-27-the-bundestag-passes-the-bill",
+  "pred": "documented_in",
+  "obj": "doc/bt-plpr-18-44",
+  "value": null,
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-27-the-bundestag-passes-the-bill",
+  "pred": "involves",
+  "obj": "org/bundestag",
+  "value": null,
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-27-the-bundestag-passes-the-bill",
+  "pred": "involves",
+  "obj": "org/linke",
+  "value": null,
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-27-the-bundestag-passes-the-bill",
+  "pred": "involves",
+  "obj": "person/caren-lay",
+  "value": null,
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-06-27-the-bundestag-passes-the-bill",
+  "pred": "involves",
+  "obj": "person/eva-bulling-schroeter",
+  "value": null,
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-03-bundestag-s-decision-sent-to-the",
+  "pred": "documented_in",
+  "obj": "doc/br-drs-294-14",
+  "value": null,
+  "start": "2014-07-03",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-03-bundestag-s-decision-sent-to-the",
+  "pred": "involves",
+  "obj": "org/bundesrat",
+  "value": null,
+  "start": "2014-07-03",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-03-bundestag-s-decision-sent-to-the",
+  "pred": "involves",
+  "obj": "org/bundestag",
+  "value": null,
+  "start": "2014-07-03",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-03-hearing-in-the-wirtschaftsausschuss-chair",
+  "pred": "involves",
+  "obj": "person/erwin-huber",
+  "value": null,
+  "start": "2014-07-03",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-10-committees-for-wirtschaft-lead-kommunales-inneres",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-17-3415",
+  "value": null,
+  "start": "2014-07-10",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-10-committees-for-wirtschaft-lead-kommunales-inneres",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-17-3416",
+  "value": null,
+  "start": "2014-07-10",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-10-committees-for-wirtschaft-lead-kommunales-inneres",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-17-3417",
+  "value": null,
+  "start": "2014-07-10",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-10-committees-for-wirtschaft-lead-kommunales-inneres",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-17-4099",
+  "value": null,
+  "start": "2014-07-10",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-10-committees-for-wirtschaft-lead-kommunales-inneres",
+  "pred": "involves",
+  "obj": "org/csu",
+  "value": null,
+  "start": "2014-07-10",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-10-committees-for-wirtschaft-lead-kommunales-inneres",
+  "pred": "involves",
+  "obj": "org/fw",
+  "value": null,
+  "start": "2014-07-10",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-10-committees-for-wirtschaft-lead-kommunales-inneres",
+  "pred": "involves",
+  "obj": "org/gruene",
+  "value": null,
+  "start": "2014-07-10",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-10-committees-for-wirtschaft-lead-kommunales-inneres",
+  "pred": "involves",
+  "obj": "org/spd",
+  "value": null,
+  "start": "2014-07-10",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-10-committees-for-wirtschaft-lead-kommunales-inneres",
+  "pred": "involves",
+  "obj": "person/karl-freller",
+  "value": null,
+  "start": "2014-07-10",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-10-committees-for-wirtschaft-lead-kommunales-inneres",
+  "pred": "involves",
+  "obj": "person/martin-stuempfig",
+  "value": null,
+  "start": "2014-07-10",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-10-committees-for-wirtschaft-lead-kommunales-inneres",
+  "pred": "involves",
+  "obj": "person/otmar-bernhard",
+  "value": null,
+  "start": "2014-07-10",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-10-committees-for-wirtschaft-lead-kommunales-inneres",
+  "pred": "involves",
+  "obj": "person/thomas-kreuzer",
+  "value": null,
+  "start": "2014-07-10",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-11-morlok-sachsen-favours-10h-and",
+  "pred": "involves",
+  "obj": "person/sven-morlok",
+  "value": null,
+  "start": "2014-07-11",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-11-the-bundesrat-does-not-call",
+  "pred": "documented_in",
+  "obj": "doc/br-drs-294-14-b",
+  "value": null,
+  "start": "2014-07-11",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-11-the-bundesrat-does-not-call",
+  "pred": "involves",
+  "obj": "org/bundesrat",
+  "value": null,
+  "start": "2014-07-11",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-11-the-bundesrat-does-not-call",
+  "pred": "involves",
+  "obj": "person/joachim-herrmann",
+  "value": null,
+  "start": "2014-07-11",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-07-11-the-bundesrat-does-not-call",
+  "pred": "involves",
+  "obj": "person/sven-morlok",
+  "value": null,
+  "start": "2014-07-11",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-08-31-landtag-election-in-sachsen-the",
+  "pred": "involves",
+  "obj": "org/cdu",
+  "value": null,
+  "start": "2014-08-31",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-08-31-landtag-election-in-sachsen-the",
+  "pred": "involves",
+  "obj": "org/spd",
+  "value": null,
+  "start": "2014-08-31",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-08-31-landtag-election-the-cdu-spd-coalition",
+  "pred": "involves",
+  "obj": "org/cdu",
+  "value": null,
+  "start": "2014-08-31",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-08-31-landtag-election-the-cdu-spd-coalition",
+  "pred": "involves",
+  "obj": "org/spd",
+  "value": null,
+  "start": "2014-08-31",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-11-12-the-bayerischer-landtag-passes-10h",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-17-4198",
+  "value": null,
+  "start": "2014-11-12",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-11-12-the-bayerischer-landtag-passes-10h",
+  "pred": "documented_in",
+  "obj": "doc/by-drs-17-4199",
+  "value": null,
+  "start": "2014-11-12",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-11-12-the-bayerischer-landtag-passes-10h",
+  "pred": "documented_in",
+  "obj": "doc/by-plpr-17-29",
+  "value": null,
+  "start": "2014-11-12",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-11-12-the-bayerischer-landtag-passes-10h",
+  "pred": "involves",
+  "obj": "org/csu",
+  "value": null,
+  "start": "2014-11-12",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-11-12-the-bayerischer-landtag-passes-10h",
+  "pred": "involves",
+  "obj": "org/fw",
+  "value": null,
+  "start": "2014-11-12",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-11-12-the-bayerischer-landtag-passes-10h",
+  "pred": "involves",
+  "obj": "org/gruene",
+  "value": null,
+  "start": "2014-11-12",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-11-12-the-bayerischer-landtag-passes-10h",
+  "pred": "involves",
+  "obj": "org/landtag-by",
+  "value": null,
+  "start": "2014-11-12",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-11-12-the-bayerischer-landtag-passes-10h",
+  "pred": "involves",
+  "obj": "org/spd",
+  "value": null,
+  "start": "2014-11-12",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-11-12-the-bayerischer-landtag-passes-10h",
+  "pred": "involves",
+  "obj": "person/christian-magerl",
+  "value": null,
+  "start": "2014-11-12",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-11-12-the-bayerischer-landtag-passes-10h",
+  "pred": "involves",
+  "obj": "person/erwin-huber",
+  "value": null,
+  "start": "2014-11-12",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-11-12-the-bayerischer-landtag-passes-10h",
+  "pred": "involves",
+  "obj": "person/florian-streibl",
+  "value": null,
+  "start": "2014-11-12",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-11-12-the-bayerischer-landtag-passes-10h",
+  "pred": "involves",
+  "obj": "person/franz-schindler",
+  "value": null,
+  "start": "2014-11-12",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-11-12-the-bayerischer-landtag-passes-10h",
+  "pred": "involves",
+  "obj": "person/ludwig-hartmann",
+  "value": null,
+  "start": "2014-11-12",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-11-12-the-bayerischer-landtag-passes-10h",
+  "pred": "involves",
+  "obj": "person/volkmar-halbleib",
+  "value": null,
+  "start": "2014-11-12",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-11-17-law-signed-by-seehofer-in",
+  "pred": "involves",
+  "obj": "person/horst-seehofer",
+  "value": null,
+  "start": "2014-11-17",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-12-10-sachsen-die-linke-tables-antrag",
+  "pred": "documented_in",
+  "obj": "doc/sn-drs-5-14898",
+  "value": null,
+  "start": "2014-12-10",
+  "marker": "secondary"
+ },
+ {
+  "subj": "event/2014-12-10-sachsen-die-linke-tables-antrag",
+  "pred": "documented_in",
+  "obj": "doc/sn-drs-6-466",
+  "value": null,
+  "start": "2014-12-10",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-12-10-sachsen-die-linke-tables-antrag",
+  "pred": "involves",
+  "obj": "org/linke",
+  "value": null,
+  "start": "2014-12-10",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2014-12-10-sachsen-die-linke-tables-antrag",
+  "pred": "involves",
+  "obj": "org/smi",
+  "value": null,
+  "start": "2014-12-10",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2015-01-stellungnahme-of-the-smi-signed",
+  "pred": "involves",
+  "obj": "org/smi",
+  "value": null,
+  "start": "2015-01",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2015-01-stellungnahme-of-the-smi-signed",
+  "pred": "involves",
+  "obj": "person/markus-ulbig",
+  "value": null,
+  "start": "2015-01",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2015-02-27-public-hearing-on-antrag-6-466",
+  "pred": "documented_in",
+  "obj": "doc/sn-drs-6-466",
+  "value": null,
+  "start": "2015-02-27",
+  "marker": "secondary"
+ },
+ {
+  "subj": "event/2015-02-27-public-hearing-on-antrag-6-466",
+  "pred": "involves",
+  "obj": "org/bwe",
+  "value": null,
+  "start": "2015-02-27",
+  "marker": "secondary"
+ },
+ {
+  "subj": "event/2015-02-27-public-hearing-on-antrag-6-466",
+  "pred": "involves",
+  "obj": "org/linke",
+  "value": null,
+  "start": "2015-02-27",
+  "marker": "secondary"
+ },
+ {
+  "subj": "event/2015-11-05-the-parlamentsspiegel-lists-sessions-of",
+  "pred": "documented_in",
+  "obj": "doc/sn-drs-6-1392",
+  "value": null,
+  "start": "2015-11-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2015-11-05-the-parlamentsspiegel-lists-sessions-of",
+  "pred": "documented_in",
+  "obj": "doc/sn-drs-6-1756",
+  "value": null,
+  "start": "2015-11-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2015-11-05-the-parlamentsspiegel-lists-sessions-of",
+  "pred": "documented_in",
+  "obj": "doc/sn-drs-6-2773",
+  "value": null,
+  "start": "2015-11-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2015-11-05-the-parlamentsspiegel-lists-sessions-of",
+  "pred": "documented_in",
+  "obj": "doc/sn-drs-6-466",
+  "value": null,
+  "start": "2015-11-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2015-11-20-new-joint-decree-replaces-the",
+  "pred": "documented_in",
+  "obj": "doc/sn-drs-6-4062",
+  "value": null,
+  "start": "2015-11-20",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2015-11-20-new-joint-decree-replaces-the",
+  "pred": "involves",
+  "obj": "org/fdp",
+  "value": null,
+  "start": "2015-11-20",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2015-12-31-deadline-of-the-federal-clause",
+  "pred": "documented_in",
+  "obj": "doc/wd-7-042-19",
+  "value": null,
+  "start": "2015-12-31",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2015-12-31-the-deadline-passes-without-a",
+  "pred": "involves",
+  "obj": "person/holger-zastrow",
+  "value": null,
+  "start": "2015-12-31",
+  "marker": "secondary"
+ },
+ {
+  "subj": "event/2016-05-09-the-bavarian-constitutional-court-upholds",
+  "pred": "documented_in",
+  "obj": "doc/bayverfgh-vf-14-vii-14",
+  "value": null,
+  "start": "2016-05-09",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2017-11-16-second-hearing-demanded-by-the",
+  "pred": "involves",
+  "obj": "org/bwe",
+  "value": null,
+  "start": "2017-11-16",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2018-04-27-the-bundesrat-declares-br-drs-569-13",
+  "pred": "documented_in",
+  "obj": "doc/br-drs-569-13",
+  "value": null,
+  "start": "2018-04-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2018-04-27-the-bundesrat-declares-br-drs-569-13",
+  "pred": "documented_in",
+  "obj": "doc/br-plpr-967",
+  "value": null,
+  "start": "2018-04-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "event/2018-04-27-the-bundesrat-declares-br-drs-569-13",
+  "pred": "involves",
+  "obj": "org/bundesrat",
+  "value": null,
+  "start": "2018-04-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "org/csu",
+  "pred": "authored",
+  "obj": "doc/by-drs-16-17350",
+  "value": null,
+  "start": "2013-06-20",
+  "marker": "primary"
+ },
+ {
+  "subj": "org/csu",
+  "pred": "authored",
+  "obj": "doc/by-drs-17-554",
+  "value": null,
+  "start": "2014-02-04",
+  "marker": "primary"
+ },
+ {
+  "subj": "org/fdp",
+  "pred": "authored",
+  "obj": "doc/by-drs-16-17350",
+  "value": null,
+  "start": "2013-06-20",
+  "marker": "primary"
+ },
+ {
+  "subj": "org/fw",
+  "pred": "authored",
+  "obj": "doc/by-drs-17-27",
+  "value": null,
+  "start": "2013-10-24",
+  "marker": "primary"
+ },
+ {
+  "subj": "org/gruene",
+  "pred": "authored",
+  "obj": "doc/by-drs-17-1466",
+  "value": null,
+  "start": "2014-04-03",
+  "marker": "primary"
+ },
+ {
+  "subj": "org/gruene",
+  "pred": "authored",
+  "obj": "doc/by-drs-17-17",
+  "value": null,
+  "start": "2013-10-23",
+  "marker": "primary"
+ },
+ {
+  "subj": "org/gruene",
+  "pred": "authored",
+  "obj": "doc/by-drs-17-565",
+  "value": null,
+  "start": "2014-02-04",
+  "marker": "primary"
+ },
+ {
+  "subj": "org/gruene",
+  "pred": "authored",
+  "obj": "doc/by-drs-17-9157",
+  "value": null,
+  "start": "2015-11-25",
+  "marker": "primary"
+ },
+ {
+  "subj": "org/spd",
+  "pred": "authored",
+  "obj": "doc/by-drs-16-17301",
+  "value": null,
+  "start": "2013-06-14",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/andreas-storr",
+  "pred": "asked",
+  "obj": "doc/sn-drs-5-9018",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/andreas-storr",
+  "pred": "member_of",
+  "obj": "org/npd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/antje-hermenau",
+  "pred": "asked",
+  "obj": "doc/sn-drs-5-14103",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/antje-hermenau",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/arnold-vaatz",
+  "pred": "authored",
+  "obj": "doc/bt-plpr-18-44",
+  "value": "Erklärung nach § 31 GO-BT, Anlage 26, S. 4030 A",
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/arnold-vaatz",
+  "pred": "member_of",
+  "obj": "org/cdu-csu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/baerbel-hoehn",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/baerbel-kofler",
+  "pred": "asked",
+  "obj": "doc/bt-drs-17-14803",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/baerbel-kofler",
+  "pred": "asked",
+  "obj": "doc/bt-drs-17-14803",
+  "value": "SF 48",
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/baerbel-kofler",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/barbara-hendricks",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/bernhard-roos",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-12693",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/bernhard-roos",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/caren-lay",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-6350",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/caren-lay",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-6350",
+  "value": "KA",
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/caren-lay",
+  "pred": "member_of",
+  "obj": "org/linke",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/caren-lay",
+  "pred": "spoke_in",
+  "obj": "doc/bt-plpr-18-44",
+  "value": "Rede, S. 3934 B",
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/christa-stewens",
+  "pred": "member_of",
+  "obj": "org/csu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/christian-kuehn",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-1684",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/christian-kuehn",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-1684",
+  "value": "SF 72–74",
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/christian-kuehn",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-5774",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/christian-kuehn",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-5774",
+  "value": "KA",
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/christian-kuehn",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/christian-magerl",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/christine-haderthauer",
+  "pred": "member_of",
+  "obj": "org/csu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/christine-kamm",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-4159",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/christine-kamm",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/christoph-rabenstein",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-516",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/christoph-rabenstein",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-542",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/christoph-rabenstein",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/dirk-panter",
+  "pred": "asked",
+  "obj": "doc/sn-drs-5-13711",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/dirk-panter",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/doris-rauscher",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-1700",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/doris-rauscher",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/egon-juettner",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-1590",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/egon-juettner",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-1590",
+  "value": "SF 47",
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/egon-juettner",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-268",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/egon-juettner",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-268",
+  "value": "SF 55/56",
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/egon-juettner",
+  "pred": "member_of",
+  "obj": "org/cdu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/emilia-mueller",
+  "pred": "member_of",
+  "obj": "org/csu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/erwin-huber",
+  "pred": "member_of",
+  "obj": "org/csu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/eva-bulling-schroeter",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-6350",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/eva-bulling-schroeter",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-6350",
+  "value": "KA",
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/eva-bulling-schroeter",
+  "pred": "member_of",
+  "obj": "org/linke",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/eva-bulling-schroeter",
+  "pred": "spoke_in",
+  "obj": "doc/bt-plpr-18-44",
+  "value": "Rede, S. 3940 D, spricht die Länderöffnungsklausel an",
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/eva-gottstein",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-16472",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/eva-gottstein",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-17321",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/eva-gottstein",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-2350",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/eva-gottstein",
+  "pred": "member_of",
+  "obj": "org/fw",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/eva-jaehnigen",
+  "pred": "asked",
+  "obj": "doc/sn-drs-5-12460",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/eva-jaehnigen",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ewald-schurer",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/florian-pronold",
+  "pred": "answered",
+  "obj": "doc/bt-drs-18-1590",
+  "value": "SF 47",
+  "start": "2014-05-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/florian-pronold",
+  "pred": "answered",
+  "obj": "doc/bt-drs-18-1684",
+  "value": "SF 72–74",
+  "start": "2014-05-30",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/florian-pronold",
+  "pred": "answered",
+  "obj": "doc/bt-drs-18-268",
+  "value": "SF 55/56",
+  "start": "2014-01-08",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/florian-pronold",
+  "pred": "answered",
+  "obj": "doc/bt-drs-18-680",
+  "value": "SF 38",
+  "start": "2014-02-24",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/florian-pronold",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/florian-streibl",
+  "pred": "member_of",
+  "obj": "org/fw",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/florian-von-brunn",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-1700",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/florian-von-brunn",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-2559",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/florian-von-brunn",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/franz-schindler",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/gabi-schmidt",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-12583",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/gabi-schmidt",
+  "pred": "member_of",
+  "obj": "org/fw",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/georg-nuesslein",
+  "pred": "spoke_in",
+  "obj": "doc/bt-plpr-18-44",
+  "value": "Rede, S. 3943 B, spricht die Länderöffnungsklausel an",
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/guenther-felbinger",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-5998",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/guenther-felbinger",
+  "pred": "member_of",
+  "obj": "org/fw",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/gunter-wild",
+  "pred": "member_of",
+  "obj": "org/afd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/hans-josef-fell",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/hans-juergen-fahn",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-15655",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/hans-juergen-fahn",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-15881",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/hans-juergen-fahn",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-16465",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/hans-juergen-fahn",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-18270",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/hans-juergen-fahn",
+  "pred": "member_of",
+  "obj": "org/fw",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/harry-scheuenstuhl",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-1700",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/harry-scheuenstuhl",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-2207",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/harry-scheuenstuhl",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-516",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/harry-scheuenstuhl",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/holger-apfel",
+  "pred": "asked",
+  "obj": "doc/sn-drs-5-10587",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/holger-apfel",
+  "pred": "member_of",
+  "obj": "org/npd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/holger-zastrow",
+  "pred": "member_of",
+  "obj": "org/fdp",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/horst-seehofer",
+  "pred": "member_of",
+  "obj": "org/csu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/hubertus-heil",
+  "pred": "spoke_in",
+  "obj": "doc/bt-plpr-18-44",
+  "value": "Rede, S. 3939 A",
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ilse-aigner",
+  "pred": "member_of",
+  "obj": "org/csu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/inge-aures",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-16668",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/inge-aures",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-18376",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/inge-aures",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/jana-pinka",
+  "pred": "asked",
+  "obj": "doc/sn-drs-5-13784",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/jana-pinka",
+  "pred": "asked",
+  "obj": "doc/sn-drs-5-14687",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/jana-pinka",
+  "pred": "asked",
+  "obj": "doc/sn-drs-5-14898",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/jana-pinka",
+  "pred": "member_of",
+  "obj": "org/linke",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/joachim-herrmann",
+  "pred": "member_of",
+  "obj": "org/csu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/joachim-pfeiffer",
+  "pred": "spoke_in",
+  "obj": "doc/bt-plpr-18-44",
+  "value": "Rede, S. 3941 C",
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/joerg-urban",
+  "pred": "asked",
+  "obj": "doc/sn-drs-6-2491",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/joerg-urban",
+  "pred": "member_of",
+  "obj": "org/afd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/johann-georg-jaeger",
+  "pred": "asked",
+  "obj": "doc/mv-drs-6-4411",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/johann-georg-jaeger",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/josef-goeppel",
+  "pred": "authored",
+  "obj": "doc/bt-plpr-18-44",
+  "value": "Erklärung nach § 31 GO-BT, Anlage 27, S. 4030 D",
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/josef-goeppel",
+  "pred": "member_of",
+  "obj": "org/cdu-csu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/josef-goeppel",
+  "pred": "member_of",
+  "obj": "org/csu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/juergen-martens",
+  "pred": "answered",
+  "obj": "doc/sn-drs-5-14898",
+  "value": null,
+  "start": "2014-08-18",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/julia-verlinden",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-5774",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/julia-verlinden",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-5774",
+  "value": "KA",
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/julia-verlinden",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/kai-wegner",
+  "pred": "member_of",
+  "obj": "org/cdu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/karl-freller",
+  "pred": "member_of",
+  "obj": "org/csu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/katharina-schulze",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-4159",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/katharina-schulze",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/katherina-reiche",
+  "pred": "answered",
+  "obj": "doc/bt-drs-17-10925",
+  "value": "SF 94",
+  "start": "2012-10-04",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/katherina-reiche",
+  "pred": "answered",
+  "obj": "doc/bt-drs-17-10968",
+  "value": "SF 129",
+  "start": "2012-10-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/katherina-reiche",
+  "pred": "answered",
+  "obj": "doc/bt-drs-17-10968",
+  "value": "SF 142",
+  "start": "2012-10-09",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/katherina-reiche",
+  "pred": "answered",
+  "obj": "doc/bt-drs-17-14821",
+  "value": "SF 82",
+  "start": "2013-10-07",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/katherina-reiche",
+  "pred": "member_of",
+  "obj": "org/cdu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/kerstin-celina",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-4159",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/kerstin-celina",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/kirsten-tackmann",
+  "pred": "asked",
+  "obj": "doc/bt-drs-17-10925",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/kirsten-tackmann",
+  "pred": "asked",
+  "obj": "doc/bt-drs-17-10925",
+  "value": "SF 94",
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/kirsten-tackmann",
+  "pred": "asked",
+  "obj": "doc/bt-drs-17-10968",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/kirsten-tackmann",
+  "pred": "asked",
+  "obj": "doc/bt-drs-17-10968",
+  "value": "SF 142",
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/kirsten-tackmann",
+  "pred": "member_of",
+  "obj": "org/linke",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/leopold-herz",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-16607",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/leopold-herz",
+  "pred": "member_of",
+  "obj": "org/fw",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ludwig-hartmann",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-17341",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ludwig-hartmann",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-17511",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ludwig-hartmann",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-17527",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ludwig-hartmann",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-17537",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ludwig-hartmann",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-17646",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ludwig-hartmann",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-17648",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ludwig-hartmann",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-18215",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ludwig-hartmann",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-1197",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ludwig-hartmann",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-2351",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ludwig-hartmann",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-2835",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ludwig-hartmann",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-6960",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ludwig-hartmann",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-951",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ludwig-hartmann",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/marcel-huber",
+  "pred": "member_of",
+  "obj": "org/csu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/marco-boehme",
+  "pred": "asked",
+  "obj": "doc/sn-drs-6-4062",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/marco-boehme",
+  "pred": "member_of",
+  "obj": "org/linke",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/marco-buelow",
+  "pred": "authored",
+  "obj": "doc/bt-plpr-18-44",
+  "value": "Erklärung nach § 31 GO-BT, Anlage 25, S. 4028 C",
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/marco-buelow",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/mario-beger",
+  "pred": "asked",
+  "obj": "doc/sn-drs-6-2391",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/mario-beger",
+  "pred": "member_of",
+  "obj": "org/afd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/markus-ulbig",
+  "pred": "answered",
+  "obj": "doc/sn-drs-5-13784",
+  "value": null,
+  "start": "2014-03-10",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/markus-ulbig",
+  "pred": "answered",
+  "obj": "doc/sn-drs-5-14687",
+  "value": null,
+  "start": "2014-07-17",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/markus-ulbig",
+  "pred": "answered",
+  "obj": "doc/sn-drs-6-2391",
+  "value": null,
+  "start": "2015-09-07",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/markus-ulbig",
+  "pred": "member_of",
+  "obj": "org/cdu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/martin-dulig",
+  "pred": "answered",
+  "obj": "doc/sn-drs-6-2491",
+  "value": null,
+  "start": "2015-09-08",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/martin-dulig",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/martin-stuempfig",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-10125",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/martin-stuempfig",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-11109",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/martin-stuempfig",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-12258",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/martin-stuempfig",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-12706",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/martin-stuempfig",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-2835",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/martin-stuempfig",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-4159",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/martin-stuempfig",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-5164",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/martin-stuempfig",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-6610",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/martin-stuempfig",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-9570",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/martin-stuempfig",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/martin-zeil",
+  "pred": "member_of",
+  "obj": "org/fdp",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/martina-stamm-fibich",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/matthias-miersch",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/michael-fuchs",
+  "pred": "member_of",
+  "obj": "org/cdu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/michael-fuchs",
+  "pred": "spoke_in",
+  "obj": "doc/bt-plpr-18-44",
+  "value": "Rede, S. 3935 B",
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/natascha-kohnen",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-18215",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/natascha-kohnen",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-1700",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/natascha-kohnen",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-6381",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/natascha-kohnen",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/nina-scheer",
+  "pred": "authored",
+  "obj": "doc/bt-plpr-18-44",
+  "value": "Erklärung nach § 31 GO-BT, Anlage 29, S. 4031 B",
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/nina-scheer",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/oliver-krischer",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-5774",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/oliver-krischer",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-5774",
+  "value": "KA",
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/oliver-krischer",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/oliver-krischer",
+  "pred": "spoke_in",
+  "obj": "doc/bt-plpr-18-44",
+  "value": "Rede, S. 3936 D, spricht die Länderöffnungsklausel an",
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/otmar-bernhard",
+  "pred": "member_of",
+  "obj": "org/csu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/otto-huennerkopf",
+  "pred": "member_of",
+  "obj": "org/csu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/otto-lederer",
+  "pred": "member_of",
+  "obj": "org/csu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/patrick-friedl",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/paul-wengert",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-4581",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/paul-wengert",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-5414",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/paul-wengert",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/peter-meiwald",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/peter-stein",
+  "pred": "member_of",
+  "obj": "org/cdu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/philipp-lengsfeld",
+  "pred": "spoke_in",
+  "obj": "doc/bt-plpr-18-44",
+  "value": "Zwischenfrage, S. 3938 A",
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ralph-lenkert",
+  "pred": "member_of",
+  "obj": "org/linke",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/reinhold-strobl",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-10125",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/reinhold-strobl",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/robert-habeck",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/sigmar-gabriel",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/sigmar-gabriel",
+  "pred": "spoke_in",
+  "obj": "doc/bt-plpr-18-44",
+  "value": "Erklärung nach § 30 GO-BT, S. 3944 C",
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/sigmar-gabriel",
+  "pred": "spoke_in",
+  "obj": "doc/bt-plpr-18-44",
+  "value": "Rede, S. 3932 A",
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/simone-raatz",
+  "pred": "authored",
+  "obj": "doc/bt-plpr-18-44",
+  "value": "Erklärung nach § 31 GO-BT, Anlage 28, S. 4031 A",
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/simone-raatz",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/simone-strohmayr",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-15409",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/simone-strohmayr",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/stanislaw-tillich",
+  "pred": "member_of",
+  "obj": "org/cdu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/susann-biedefeld",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-17662",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/susann-biedefeld",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-10739",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/susann-biedefeld",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-1700",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/susann-biedefeld",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-4159",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/susann-biedefeld",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/sven-morlok",
+  "pred": "member_of",
+  "obj": "org/fdp",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/tanja-schweiger",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-17662",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/tanja-schweiger",
+  "pred": "member_of",
+  "obj": "org/fw",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/thomas-gambke",
+  "pred": "asked",
+  "obj": "doc/bt-drs-17-14821",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/thomas-gambke",
+  "pred": "asked",
+  "obj": "doc/bt-drs-17-14821",
+  "value": "SF 82",
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/thomas-gambke",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-7274",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/thomas-gambke",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-7274",
+  "value": "SF 3",
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/thomas-gambke",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/thomas-kreuzer",
+  "pred": "member_of",
+  "obj": "org/csu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/thomas-muetze",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-11109",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/thomas-muetze",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-2930",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/thomas-muetze",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/thorsten-glauber",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-6191",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/thorsten-glauber",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-6600",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/thorsten-glauber",
+  "pred": "member_of",
+  "obj": "org/fw",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ulrike-gote",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-4159",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ulrike-gote",
+  "pred": "asked",
+  "obj": "doc/by-drs-17-516",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ulrike-gote",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ulrike-mueller",
+  "pred": "asked",
+  "obj": "doc/by-drs-16-17667",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ulrike-mueller",
+  "pred": "member_of",
+  "obj": "org/fw",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ulrike-scharf",
+  "pred": "member_of",
+  "obj": "org/csu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ursula-heinen-esser",
+  "pred": "answered",
+  "obj": "doc/bt-drs-17-14803",
+  "value": "SF 48",
+  "start": "2013-09-25",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/ursula-heinen-esser",
+  "pred": "member_of",
+  "obj": "org/cdu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/uwe-beckmeyer",
+  "pred": "answered",
+  "obj": "doc/bt-drs-18-7274",
+  "value": "SF 3",
+  "start": "2016-01-11",
+  "marker": "primary"
+ },
+ {
+  "subj": "person/uwe-beckmeyer",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/veronika-bellmann",
+  "pred": "asked",
+  "obj": "doc/bt-drs-17-10968",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/veronika-bellmann",
+  "pred": "asked",
+  "obj": "doc/bt-drs-17-10968",
+  "value": "SF 129",
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/veronika-bellmann",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-680",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/veronika-bellmann",
+  "pred": "asked",
+  "obj": "doc/bt-drs-18-680",
+  "value": "SF 38",
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/veronika-bellmann",
+  "pred": "member_of",
+  "obj": "org/cdu",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/volkmar-halbleib",
+  "pred": "member_of",
+  "obj": "org/spd",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "person/winfried-kretschmann",
+  "pred": "member_of",
+  "obj": "org/gruene",
+  "value": null,
+  "start": null,
+  "marker": "primary"
+ },
+ {
+  "subj": "vote/2014-02-05-bayerischer-landtag-96-66",
+  "pred": "documented_in",
+  "obj": "doc/by-plpr-17-10",
+  "value": null,
+  "start": "2014-02-05",
+  "marker": "primary"
+ },
+ {
+  "subj": "vote/2014-06-27-bundestag-108-467",
+  "pred": "documented_in",
+  "obj": "doc/bt-plpr-18-44",
+  "value": null,
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "vote/2014-06-27-bundestag-465-114",
+  "pred": "documented_in",
+  "obj": "doc/bt-plpr-18-44",
+  "value": null,
+  "start": "2014-06-27",
+  "marker": "primary"
+ },
+ {
+  "subj": "vote/2014-11-12-bayerischer-landtag-92-63",
+  "pred": "documented_in",
+  "obj": "doc/by-plpr-17-29",
+  "value": null,
+  "start": "2014-11-12",
+  "marker": "primary"
+ }
+]

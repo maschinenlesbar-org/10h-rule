@@ -30,7 +30,7 @@ court rulings and freedom-of-information releases. Local copies of these documen
 | [10h-wiki/](10h-wiki/README.md) | The wiki, by topic: origin in Bayern, Bundesrat bills, the federal clause, Art. 82 BayBO, Sachsen, other Länder, parliamentary questions, research services, FragDenStaat, sources. |
 | [10h-wiki/people/](10h-wiki/people.md) | 81 profiles of the politicians involved: offices, roles, votes and parliamentary activity. Built from the Bundestag DIP API and abgeordnetenwatch.de, checked against the protocols. |
 | [10h-wiki/anfragen/](10h-wiki/anfragen/README.md) | 82 PDFs of parliamentary questions with their answers, from the Bundestag, Bayern, Sachsen and Mecklenburg-Vorpommern. |
-| [10h-wiki/pdfs/](10h-wiki/pdfs/README.md) | 59 other source PDFs: bills, protocols, research-service papers, the court ruling, coalition agreements and FragDenStaat releases. |
+| [10h-wiki/pdfs/](10h-wiki/pdfs/README.md) | 60 other source PDFs: bills, protocols, research-service papers, the court ruling, coalition agreements and FragDenStaat releases. |
 | [10h-wiki/request-stmuv-2013.md](10h-wiki/request-stmuv-2013.md) | Draft information request to the Bavarian environment ministry for the 2013 review order (not sent). |
 | [10h-windkraft-2013-2014.md](10h-windkraft-2013-2014.md) | The initial research report of 11.10.2026. It is a frozen snapshot: corrections and new findings go into the wiki only. |
 

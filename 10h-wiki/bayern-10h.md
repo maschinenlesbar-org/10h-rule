@@ -85,7 +85,7 @@ Result:
 From answers to written questions (details on [Bavarian questions](anfragen-bayern.md) and
 [Bundestag questions](anfragen-bundestag.md)):
 
-- **04.02.2014–30.09.2015:** only 10 new applications for wind turbines (BY Drs 17/9570).
+- **01.04.2015–30.09.2015:** applications for only 10 wind turbines, and 27 turbines (70.13 MW) approved (BY Drs 17/9570).
 - **21.11.2014–30.11.2015:** 73 turbines (200 MW) approved, 135 (337 MW) commissioned, mostly from applications filed
   before the cut-off date (BT-Drs 18/7274).
 - **11/2014–03/2016:** 100 turbines (281.6 MW) approved. Municipalities planning below 10H: Oerlenbach, Altertheim,
