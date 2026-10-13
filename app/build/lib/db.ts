@@ -69,6 +69,9 @@ CREATE TABLE work_citation (work_id TEXT NOT NULL REFERENCES work(id), doc_id TE
 CREATE INDEX work_citation_work ON work_citation(work_id);
 CREATE INDEX work_citation_doc  ON work_citation(doc_id);
 
+-- Person data from abgeordnetenwatch.de and DIP (data/profiles.json, fetched by build/fetch-profiles.ts), as JSON.
+CREATE TABLE person_profile (entity_id TEXT PRIMARY KEY REFERENCES entity(id), data TEXT NOT NULL);
+
 CREATE TABLE meta (key TEXT PRIMARY KEY, value TEXT);
 
 CREATE INDEX statement_subj ON statement(subj);

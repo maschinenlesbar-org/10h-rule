@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { docIdFromFilename, slug } from '../build/lib/ids.ts';
 import { extractWorks, isoDate, onTopic } from '../build/lib/biblio.ts';
+import { wpList, electedText, fractionText, roleLabel } from '../web/src/profile.ts';
 import { extractRefs, lawLabel } from '../build/lib/refs.ts';
 import { mdTables, parseDate, markerOf, parseCsv } from '../build/lib/text.ts';
 
@@ -122,4 +123,15 @@ test('bibliography patterns stay linear on hostile text', () => {
     extractWorks(t);
     assert.ok(performance.now() - t0 < 500, `${t.slice(0, 12)}…: ${(performance.now() - t0).toFixed(0)} ms`);
   }
+});
+
+test('person profile text: Wahlperioden, election, committee roles', () => {
+  assert.equal(wpList([18, 15, 16, 17, 20]), '15–18, 20');
+  assert.equal(wpList([16, 18]), '16, 18');
+  const m = { period: 'Bundestag 2013 - 2017', start: null, end: null, fractions: [{ label: 'SPD', from: null, until: null }], won: 'list',
+    constituency: '230 - Rottal-Inn', constituency_result: 16.2, list: 'Landesliste Bayern', list_position: 1, committees: [] };
+  assert.equal(electedText(m), 'By list; constituency 230 - Rottal-Inn (16.2 %); Landesliste Bayern, place 1');
+  assert.equal(fractionText({ ...m, fractions: [{ label: 'CSU', from: '2013-10-22', until: '2016-03-01' }] }), 'CSU (22.10.2013–01.03.2016)');
+  assert.equal(roleLabel('alternate_member'), 'alternate');
+  assert.equal(roleLabel(null), 'member');
 });

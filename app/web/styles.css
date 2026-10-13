@@ -341,3 +341,19 @@ footer.site { max-width: 1180px; margin: 0 auto; padding: 16px var(--gutter) 40p
 .bib-cites { margin: 4px 0; padding-left: 1.2em; font-size: 0.9rem; }
 .bib-cites li { padding: 2px 0; }
 .bib-cites .muted { font-family: var(--serif); }
+
+/* person profile (abgeordnetenwatch, DIP) */
+.profile { margin: 16px 0; }
+.profile .meta-grid { max-width: 820px; }
+.plain-list { list-style: none; padding: 0; margin: 0; }
+.plain-list li { padding: 2px 0; }
+table.mandates td, table.mandates th { font-size: 0.9rem; }
+table.mandates th[scope="row"] { white-space: nowrap; }
+.source-note { margin-top: 10px; }
+@media (max-width: 760px) {
+  /* Mandates as blocks: four columns do not fit a phone. */
+  table.mandates thead { display: none; }
+  table.mandates tr { display: block; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  table.mandates th, table.mandates td { display: block; border: 0; padding: 2px 0; }
+  table.mandates td::before { content: attr(data-label) ": "; color: var(--muted); }
+}

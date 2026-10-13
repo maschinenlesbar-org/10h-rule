@@ -7,6 +7,7 @@ import { join } from 'node:path';
 import type { Queries } from './server/queries.ts';
 import type { EntityPage, Fact, Evidence, BibEntry } from './web/src/types.ts';
 import { groupFacts } from './web/src/facts.ts';
+import { personFacts, dipRoles, activityText, questionsText, electedText, fractionText, roleLabel, storyYears } from './web/src/profile.ts';
 
 const TYPE_LABEL: Record<string, string> = { Person: 'Person', Organization: 'Organisation', Document: 'Document', Law: 'Law', Concept: 'Concept',
   Place: 'Place', Event: 'Event', VoteEvent: 'Roll call', Procedure: 'Procedure' };
@@ -63,6 +64,7 @@ function entityPage(p: EntityPage, ctx: Ctx): string {
     p.external.filter((x) => x.url).length
       ? `<p class="ids">${p.external.filter((x) => x.url).map((x) => extLink(x.url, `${x.scheme} ${x.value}`, 'id-chip')).join('')}</p>` : '',
     `<p class="static-note">This is the plain page of this entry. <a href="${rel}#/e/${esc(e.id)}">Open it in the explorer</a> for search, the document reader and the charts.</p>`,
+    profilePanel(p),
     documentPanel(p, rel),
     eventPanel(p),
     procedurePanel(p, link),
@@ -75,6 +77,26 @@ function entityPage(p: EntityPage, ctx: Ctx): string {
     rel, ctx, title: e.label, url: `${ctx.site}${pagePath(e.id)}`, description: describe(p), body,
     jsonld: node ? { '@context': ctx.context, ...(node as object) } : null, ogType: 'article',
   });
+}
+
+function profilePanel(p: EntityPage): string {
+  const pr = p.profile;
+  if (!pr) return '';
+  const a = pr.abgeordnetenwatch, facts = personFacts(pr), roles = dipRoles(pr), activity = activityText(pr), questions = questionsText(pr);
+  const years = storyYears(pr);
+  const dipUrl = pr.dip ? `https://dip.bundestag.de/person/${p.entity.id.replace(/^person\//, '')}/${pr.dip.id}` : null;
+  return '<section class="profile">'
+    + (facts.length ? `<dl class="meta-grid">${facts.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl>` : '')
+    + (roles.length ? `<h2>Offices and roles (DIP)</h2><ul class="plain-list">${roles.map((r) => `<li>${esc(r)}</li>`).join('')}</ul>` : '')
+    + (a?.mandates.length ? `<h2>Mandates<span class="count">${a.mandates.length}</span></h2><div class="table-wrap"><table class="mandates"><thead><tr>`
+      + `<th scope="col">Parliament</th><th scope="col">Fraktion</th><th scope="col">Elected</th><th scope="col">Committees (periods ${years})</th></tr></thead><tbody>`
+      + a.mandates.map((m) => `<tr><th scope="row">${esc(m.period)}</th><td data-label="Fraktion">${esc(fractionText(m))}</td><td data-label="Elected">${esc(electedText(m))}</td><td data-label="Committees">`
+        + (m.committees === null ? '<span class="muted">–</span>' : m.committees.length
+          ? `<ul class="plain-list">${m.committees.map((c) => `<li>${esc(c.committee)}<span class="muted small"> · ${esc(roleLabel(c.role))}</span></li>`).join('')}</ul>`
+          : '<span class="muted">none</span>') + '</td></tr>').join('') + '</tbody></table></div>' : '')
+    + (activity || questions ? `<h2>Activity</h2><ul class="plain-list">${activity ? `<li>In DIP, ${years}: ${esc(activity)}.</li>` : ''}${questions ? `<li>${esc(questions)}.</li>` : ''}</ul>` : '')
+    + `<p class="muted small source-note">From ${extLink(a?.url, 'abgeordnetenwatch.de')} (CC0)${dipUrl ? ` and ${extLink(dipUrl, 'DIP')} (Deutscher Bundestag)` : ''}`
+    + `${pr.fetched ? `, as of ${pr.fetched.split('-').reverse().join('.')}` : ''}. Committees only for parliament periods that overlap the story.</p></section>`;
 }
 
 function documentPanel(p: EntityPage, rel: string): string {

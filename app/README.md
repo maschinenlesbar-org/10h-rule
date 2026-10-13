@@ -27,6 +27,7 @@ npm run serve:review     # same, but review decisions are saved (database + data
 npm run build            # out/10h.db and out/report.md
 npm run build:offline    # no Wikidata requests; uses data/wikidata.csv as it is
 npm run build:fast       # offline and without embeddings: keyword search only, no "more like this"
+DIP_API_KEY=$(dip obtain-key | tail -1) npm run fetch:profiles   # refresh data/profiles.json (abgeordnetenwatch, DIP)
 node build/index.ts --no-ocr   # skip OCR (pages without a text layer stay empty)
 node serve.ts --no-semantic    # serve without loading the embedding model
 npm run export           # dist/: the static site (add -- --no-files to leave out the PDFs)
@@ -70,6 +71,7 @@ there is no compile step. Routes:
 | 3 seed | `steps/seed.ts` | predicates, organisations, places, concepts and laws from `data/*.csv` |
 | 4 wiki | `steps/wiki.ts` | people, events, questions and answers, speeches, roll-call totals, Anträge |
 | 3a wikidata | `steps/wikidata.ts` | `external_id` (wikidata): people via abgeordnetenwatch id (P5355), everything else by label search |
+| 4c profiles | `steps/profiles.ts` | `person_profile`: abgeordnetenwatch and DIP data per person from the snapshot `data/profiles.json` |
 | 4b answers | `steps/answers.ts` | `answered_for` statements: the ministry that answered each Bavarian Schriftliche Anfrage (from the answer's heading) and each wind question in the Anfragen zum Plenum (per asker, from the numbered question block) |
 | 8b observations | `steps/observations.ts` | `observation` (figures from `data/observations.csv`) and `land_status` (`data/laender-status.csv`). Each figure's quote is looked up on its page; only found figures are charted |
 | 5 references | `steps/references.ts` | `cites` statements from the full text, with page evidence |
@@ -182,6 +184,7 @@ tree had changes). Pages is set to Settings → Pages → Build and deployment �
 | `data/observations.csv` | 357 figures (applications, approvals, turbines commissioned and in operation, …) with period, place, document and the quote they come from | Answers of the Bavarian Staatsregierung and the Bundesregierung. Where two answers disagree (e.g. 64 or 62 approvals in 2015), both are kept and the note says so |
 | `data/laender-status.csv` | Use of the Länderöffnungsklausel by each Land | Wiki pages named in the `source` column |
 | `data/fraktion-documented.csv` | The Fraktion of members for whom abgeordnetenwatch only has a later state (Förster: "fraktionslos" after 2016; Muthmann: FDP from 2018), with the dated documents that show it | Plenarprotokolle and Drucksachen of the Landtag; the quote is checked on the page at build time |
+| `data/profiles.json` | For the 81 people with an abgeordnetenwatch or DIP id: year of birth, party, education, occupation; every mandate with Fraktion, election (constituency and result, list and place) and, for periods that overlap 2012–2016, committees; DIP title, offices and roles by Wahlperiode, and the number of DIP activities 2012–2016 by kind. Shown on the person pages | abgeordnetenwatch.de API v2 (CC0) and the Bundestag's DIP API, fetched by `build/fetch-profiles.ts` (needs `DIP_API_KEY`, never stored; raw responses cached in `.cache/profiles/`). Snapshot of 14.10.2026 |
 | `data/members-by-17.csv` | Bayerischer Landtag WP 17 mandates and Fraktion, used for the Bavarian roll calls | abgeordnetenwatch.de API v2 (CC0), fetched 13.10.2026. The Fraktion on the vote date comes from the wiki profile first, then from `data/fraktion-documented.csv`, then from abgeordnetenwatch if valid on that date; otherwise it is "unknown". Every member of both Bavarian roll calls has a Fraktion |
 
 ## Querying

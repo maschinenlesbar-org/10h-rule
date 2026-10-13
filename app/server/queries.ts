@@ -6,7 +6,7 @@ import { Dict } from '../build/lib/dict.ts';
 import { extractRefs, parliamentOf } from '../build/lib/refs.ts';
 import type {
   EntityPage, EntityRef, Evidence, Fact, SearchResult, SearchHit, PageView, PageSpan, ListRow, ReviewGroup, Meta, ExternalId, Facet,
-  Story, ProcedureView, RollCallView, RollCallMember, SimilarDoc, SimilarPassage, QuestionRow, Observation, LandStatus, BibEntry, WorkCited,
+  Story, ProcedureView, RollCallView, RollCallMember, SimilarDoc, SimilarPassage, QuestionRow, Observation, LandStatus, BibEntry, WorkCited, PersonProfile,
 } from '../web/src/types.ts';
 import { fromBlob } from '../build/lib/vec.ts';
 
@@ -266,13 +266,21 @@ export class Queries {
         return acc;
       }, {}));
 
+    // abgeordnetenwatch and DIP data (people only); the profile links replace the API addresses of the external ids.
+    const pr = e.type === 'Person' ? this.get('SELECT data FROM person_profile WHERE entity_id = ?', id) : undefined;
+    const profile: PersonProfile | undefined = pr
+      ? { fetched: this.get("SELECT value FROM meta WHERE key = 'profiles_fetched'")?.value ?? '', ...JSON.parse(pr.data) } : undefined;
+    const external = (this.all('SELECT scheme, value, status FROM external_id WHERE entity_id = ? ORDER BY scheme', id) as ExternalId[])
+      .map((r) => ({ ...r, url: r.scheme === 'abgeordnetenwatch' && profile?.abgeordnetenwatch?.url ? profile.abgeordnetenwatch.url
+        : r.scheme === 'dip_person' ? `https://dip.bundestag.de/person/${id.replace(/^person\//, '')}/${r.value}` : externalUrl(r.scheme, r.value) }));
+
     return {
-      works,
+      works, profile,
       procedure: e.type === 'Procedure' ? this.procedure(id, JSON.parse(e.props)) : undefined,
       rollcall: e.type === 'VoteEvent' ? this.rollcall(id) : undefined,
       entity: { id: e.id, type: e.type, label: e.label, props: JSON.parse(e.props) },
       aliases: this.all("SELECT alias FROM alias WHERE entity_id = ? AND kind != 'label' ORDER BY alias", id).map((r) => r.alias),
-      external: this.all('SELECT scheme, value, status FROM external_id WHERE entity_id = ? ORDER BY scheme', id).map((r) => ({ ...r, url: externalUrl(r.scheme, r.value) })) as ExternalId[],
+      external,
       facts, document, mentionedIn, mentionTotal,
     };
   }
@@ -446,9 +454,10 @@ export class Queries {
           (SELECT count(*) FROM statement s WHERE s.subj = e.id AND s.pred = 'answered') answered,
           (SELECT count(*) FROM statement s WHERE s.subj = e.id AND s.pred IN ('spoke_in','authored','signed')) spoke,
           (SELECT count(*) FROM mention m WHERE m.entity_id = e.id) mentions,
-          json_extract(e.props, '$.profile') IS NOT NULL profile
+          json_extract(e.props, '$.profile') IS NOT NULL profile,
+          (SELECT json_extract(pp.data, '$.abgeordnetenwatch.year_of_birth') FROM person_profile pp WHERE pp.entity_id = e.id) born
         FROM entity e WHERE e.type = 'Person' ORDER BY e.label`)
-        .map((r) => ({ id: r.id, label: r.label, type: r.type, cols: { party: r.party, asked: r.asked, answered: r.answered, spoke: r.spoke, mentions: r.mentions, profile: r.profile } }));
+        .map((r) => ({ id: r.id, label: r.label, type: r.type, cols: { party: r.party, born: r.born, asked: r.asked, answered: r.answered, spoke: r.spoke, mentions: r.mentions, profile: r.profile } }));
     }
     if (kind === 'documents') {
       return this.all(`SELECT e.id, e.label, e.type, d.kind, d.parliament, d.date, d.title, d.archived,

@@ -83,6 +83,17 @@ test('questions, effects and Länder (phase 4)', { skip: !existsSync(DB) && 'run
   assert.ok(!bib.some((b) => b.label === 'www.bayern.landtag.de'), 'footers are left out');
   assert.ok(!bib.some((b) => b.label === 'GVBl. 2014 S. 478'), 'archived works are part of the record, not the bibliography');
   assert.ok(bib.some((b) => b.kind === 'parliamentary' && b.entity && !b.citations.every((c) => c.on_topic)), 'unrelated pages are flagged');
+  // Person data from abgeordnetenwatch and DIP (data/profiles.json).
+  const pr = q.entity('person/florian-pronold')!;
+  assert.equal(pr.profile?.abgeordnetenwatch?.year_of_birth, 1972);
+  const bt18 = pr.profile!.abgeordnetenwatch!.mandates.find((m) => m.period === 'Bundestag 2013 - 2017')!;
+  assert.equal(bt18.list_position, 1);
+  assert.ok(bt18.committees, 'committees fetched for periods that overlap the story');
+  assert.ok(pr.profile!.dip!.roles.some((r) => /Umwelt, Naturschutz, Bau und Reaktorsicherheit/.test(r.ressort ?? '')), 'ministry from DIP');
+  assert.ok(pr.profile!.dip!.activities.total > 400, 'DIP activities 2012–2016');
+  assert.equal(pr.external.find((x) => x.scheme === 'abgeordnetenwatch')?.url, 'https://www.abgeordnetenwatch.de/profile/florian-pronold', 'profile page, not the API');
+  assert.ok(q.list('people').some((r) => r.id === 'person/florian-pronold' && r.cols.born === 1972));
+
   const works = q.entity('doc/bb-pbd-2016-02-29-mindestabstand-windkraft')!.works!;
   assert.ok(works.some((w) => w.label === bverwg.label && w.pages.length), 'a document lists the works it cites');
 });

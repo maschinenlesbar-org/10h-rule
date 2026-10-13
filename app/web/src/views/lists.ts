@@ -9,7 +9,7 @@ const PARL: Record<string, string> = { bt: 'BT', br: 'BR', by: 'BY', sn: 'SN', m
 
 const LISTS: Record<string, { title: string; cols: Col[] }> = {
   people: { title: 'People', cols: [
-    { key: 'party', label: 'Party' }, { key: 'asked', label: 'Asked', num: true }, { key: 'answered', label: 'Answered', num: true },
+    { key: 'party', label: 'Party' }, { key: 'born', label: 'Born', num: true }, { key: 'asked', label: 'Asked', num: true }, { key: 'answered', label: 'Answered', num: true },
     { key: 'spoke', label: 'Speeches, statements', num: true }, { key: 'mentions', label: 'Mentions', num: true },
     { key: 'profile', label: 'Wiki profile', fmt: (v) => (v ? 'yes' : '') }] },
   documents: { title: 'Documents', cols: [

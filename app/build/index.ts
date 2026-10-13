@@ -21,6 +21,7 @@ import { embedChunks } from './steps/embed.ts';
 import { answers } from './steps/answers.ts';
 import { observations } from './steps/observations.ts';
 import { about } from './steps/about.ts';
+import { profiles } from './steps/profiles.ts';
 
 const args = new Set(process.argv.slice(2));
 mkdirSync(OUT, { recursive: true });
@@ -38,6 +39,7 @@ const steps: Array<[string, (c: Ctx) => unknown]> = [
   ['4 wiki', wiki],
   ['3a wikidata', wikidata],
   ['4b answers', answers],
+  ['4c profiles', profiles],
   ['7 votes', votes],
   ['8 procedures', procedures],
   ['8b observations', observations],

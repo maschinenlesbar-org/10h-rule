@@ -2,6 +2,7 @@ import { api } from '../api.ts';
 import { h, setTitle, entityLink, fmtDate, readerHref, typeLabel, badge, markerBadge, entityHref, fileUrl, fmtBytes, safeUrl, EXTERNAL_REL } from '../dom.ts';
 import { isStatic } from '../api.ts';
 import { groupFacts } from '../facts.ts';
+import { personFacts, dipRoles, activityText, questionsText, electedText, fractionText, roleLabel, storyYears } from '../profile.ts';
 import type { Fact, EntityPage, Evidence } from '../types.ts';
 import { rollcallSection } from '../charts/rollcall.ts';
 
@@ -13,6 +14,7 @@ export async function entityView(_p: URLSearchParams, id: string): Promise<Node>
   setTitle(e.entity.label);
   return h('div', { class: 'entity' },
     header(e),
+    e.profile ? profilePanel(e) : null,
     e.document ? documentPanel(e) : null,
     e.entity.type === 'Event' ? eventPanel(e) : null,
     e.procedure ? procedurePanel(e) : null,
@@ -50,6 +52,33 @@ function header(e: EntityPage): Node {
       props.profile ? h('span', { class: 'id-chip' }, `wiki: ${props.profile}`) : null) : null,
     // The static page of this entity: a plain URL that search engines index and link previews can read.
     isStatic ? h('p', { class: 'small' }, h('a', { href: `e/${e.entity.id}/`, class: 'permalink' }, 'Permanent link')) : null);
+}
+
+// abgeordnetenwatch.de and DIP: personal data, mandates with Fraktion, election and committees, offices, activity.
+function profilePanel(e: EntityPage): Node {
+  const p = e.profile!, a = p.abgeordnetenwatch;
+  const facts = personFacts(p), roles = dipRoles(p), activity = activityText(p), questions = questionsText(p);
+  const years = storyYears(p);
+  return h('section', { class: 'profile' },
+    facts.length ? h('dl', { class: 'meta-grid' }, ...facts.flatMap(([k, v]) => [h('dt', {}, k), h('dd', {}, v)])) : null,
+    roles.length ? [h('h2', {}, 'Offices and roles (DIP)'), h('ul', { class: 'plain-list' }, ...roles.map((r) => h('li', {}, r)))] : null,
+    a?.mandates.length ? [
+      h('h2', {}, 'Mandates', h('span', { class: 'count' }, String(a.mandates.length))),
+      h('div', { class: 'table-wrap' }, h('table', { class: 'mandates' },
+        h('thead', {}, h('tr', {}, h('th', { scope: 'col' }, 'Parliament'), h('th', { scope: 'col' }, 'Fraktion'), h('th', { scope: 'col' }, 'Elected'),
+          h('th', { scope: 'col' }, `Committees (periods ${years})`))),
+        h('tbody', {}, ...a.mandates.map((m) => h('tr', {},
+          h('th', { scope: 'row' }, m.period), h('td', { 'data-label': 'Fraktion' }, fractionText(m)), h('td', { 'data-label': 'Elected' }, electedText(m)),
+          h('td', { 'data-label': 'Committees' }, m.committees === null ? h('span', { class: 'muted' }, '–')
+            : m.committees.length ? h('ul', { class: 'plain-list' }, ...m.committees.map((c) => h('li', {}, c.committee, h('span', { class: 'muted small' }, ` · ${roleLabel(c.role)}`))))
+            : h('span', { class: 'muted' }, 'none')))))))] : null,
+    activity || questions ? [h('h2', {}, 'Activity'), h('ul', { class: 'plain-list' },
+      activity ? h('li', {}, `In DIP, ${years}: ${activity}.`) : null,
+      questions ? h('li', {}, `${questions}.`) : null)] : null,
+    h('p', { class: 'muted small source-note' }, 'From ',
+      a?.url ? h('a', { href: a.url, target: '_blank', rel: 'noopener noreferrer' }, 'abgeordnetenwatch.de') : 'abgeordnetenwatch.de', ' (CC0)',
+      p.dip ? [' and ', h('a', { href: `https://dip.bundestag.de/person/${e.entity.id.replace(/^person\//, '')}/${p.dip.id}`, target: '_blank', rel: 'noopener noreferrer' }, 'DIP'), ' (Deutscher Bundestag)'] : null,
+      p.fetched ? `, as of ${p.fetched.split('-').reverse().join('.')}` : '', '. Committees only for parliament periods that overlap the story.'));
 }
 
 function documentPanel(e: EntityPage): Node {

@@ -15,7 +15,8 @@
     "export": "node --disable-warning=ExperimentalWarning export.ts",
     "build:fast": "node build/index.ts --offline --no-embed",
     "serve:static": "node serve-static.ts",
-    "deploy": "./publish-pages.sh"
+    "deploy": "./publish-pages.sh",
+    "fetch:profiles": "node build/fetch-profiles.ts"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

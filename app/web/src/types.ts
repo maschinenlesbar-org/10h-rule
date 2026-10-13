@@ -39,6 +39,7 @@ export interface EntityPage {
   mentionedIn: Array<{ doc: EntityRef; n: number; status: string }>;
   mentionTotal: number;
   works?: WorkCited[];
+  profile?: PersonProfile;
   procedure?: ProcedureView;
   rollcall?: RollCallView;
 }
@@ -112,3 +113,25 @@ export interface BibEntry {
   citations: BibCitation[];
 }
 export interface WorkCited { id: string; kind: WorkKind; label: string; url: string | null; file_id: string; pages: number[] }
+
+// Person data from abgeordnetenwatch.de and DIP (build/fetch-profiles.ts), as of `fetched`.
+export interface AwMandate {
+  period: string; start: string | null; end: string | null;
+  fractions: Array<{ label: string; from: string | null; until: string | null }>;
+  won: string | null; constituency: string | null; constituency_result: number | null; list: string | null; list_position: number | null;
+  committees: Array<{ committee: string; role: string | null }> | null; // null: not fetched (outside the story period)
+}
+export interface PersonProfile {
+  fetched: string;
+  abgeordnetenwatch: {
+    id: string; url: string | null; year_of_birth: number | null; sex: string | null; party: string | null; party_past: string | null;
+    education: string | null; occupation: string | null; residence: string | null; questions: number | null; questions_answered: number | null;
+    mandates: AwMandate[];
+  } | null;
+  dip: {
+    id: string; title: string | null; functions: string[]; ministries: string[]; wahlperioden: number[];
+    roles: Array<{ fraktion: string | null; funktion: string | null; ressort: string | null; bundesland: string | null; wahlperioden: number[] }>;
+    first: string | null; last: string | null;
+    activities: { from: string; to: string; total: number; kinds: Record<string, number> };
+  } | null;
+}
