@@ -69,3 +69,9 @@ export function setTitle(t: string): void { document.title = t ? `${t} · 10H Ex
 
 // Archived file URL, relative to the page; each path segment encoded so static hosts see real folders.
 export const fileUrl = (id: string): string => `files/${id.split('/').map(encodeURIComponent).join('/')}`;
+
+export const fmtBytes = (n: number | null | undefined): string =>
+  !n ? '' : n < 1e6 ? `${Math.max(1, Math.round(n / 1e3))} KB` : `${(n / 1e6).toFixed(n < 1e7 ? 1 : 0)} MB`;
+
+// Phones and narrow windows: embedded PDFs render badly or not at all in mobile browsers.
+export const narrow = (): boolean => window.matchMedia('(max-width: 760px)').matches;

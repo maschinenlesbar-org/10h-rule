@@ -1,5 +1,7 @@
 import { api } from '../api.ts';
-import { h, setTitle, entityLink, fmtDate, readerHref, typeLabel, badge, markerBadge, entityHref, fileUrl } from '../dom.ts';
+import { h, setTitle, entityLink, fmtDate, readerHref, typeLabel, badge, markerBadge, entityHref, fileUrl, fmtBytes } from '../dom.ts';
+import { isStatic } from '../api.ts';
+import { groupFacts } from '../facts.ts';
 import type { Fact, EntityPage, Evidence } from '../types.ts';
 import { rollcallSection } from '../charts/rollcall.ts';
 
@@ -44,7 +46,9 @@ function header(e: EntityPage): Node {
       ...e.external.map((x) => x.url
         ? h('a', { href: x.url, target: '_blank', rel: 'noopener', class: 'id-chip' }, `${x.scheme} ${x.value}`, x.status !== 'confirmed' ? ' (unverified)' : '')
         : h('span', { class: 'id-chip' }, `${x.scheme} ${x.value}`)),
-      props.profile ? h('span', { class: 'id-chip' }, `wiki: ${props.profile}`) : null) : null);
+      props.profile ? h('span', { class: 'id-chip' }, `wiki: ${props.profile}`) : null) : null,
+    // The static page of this entity: a plain URL that search engines index and link previews can read.
+    isStatic ? h('p', { class: 'small' }, h('a', { href: `e/${e.entity.id}/`, class: 'permalink' }, 'Permanent link')) : null);
 }
 
 function documentPanel(e: EntityPage): Node {
@@ -59,7 +63,7 @@ function documentPanel(e: EntityPage): Node {
       ? h('ul', { class: 'files' }, ...d.files.map((f) => h('li', {},
           h('a', { href: readerHref(f.id, 1), class: 'button' }, `Read${f.part ? ` (${f.part})` : ''}`), ' ',
           h('a', { href: `${fileUrl(f.id)}`, target: '_blank' }, 'PDF'),
-          h('span', { class: 'muted small' }, ` ${f.pages} pages · ${f.id}`))))
+          h('span', { class: 'muted small' }, ` ${[`${f.pages} pages`, fmtBytes(f.bytes), f.id].filter(Boolean).join(' · ')}`))))
       : h('p', { class: 'muted' }, 'Not in the archive. Cited by archived documents; the source link opens the original.'));
 }
 
@@ -120,17 +124,9 @@ function factsSection(e: EntityPage): Node | null {
   // On a procedure page, its parts are already shown as steps and documents.
   const facts = e.procedure ? e.facts.filter((f) => !(f.pred === 'part_of' && f.direction === 'in')) : e.facts;
   if (!facts.length) return null;
-  const groups = new Map<string, Fact[]>();
-  for (const f of facts) {
-    const key = `${f.direction}|${f.label}`;
-    groups.set(key, [...(groups.get(key) ?? []), f]);
-  }
-  const ordered = [...groups].sort(([a], [b]) => groupRank(a) - groupRank(b));
   return h('section', { class: 'facts' },
     h('h2', {}, 'Facts and links'),
-    ...ordered.map(([key, facts]) => {
-      const label = key.split('|')[1];
-      facts.sort((a, b) => (a.start ?? '').localeCompare(b.start ?? '') || (a.other?.label ?? '').localeCompare(b.other?.label ?? ''));
+    ...groupFacts(facts).map(({ label, facts }) => {
       const list = h('ul', { class: 'fact-list' }, ...facts.slice(0, COLLAPSE_AT).map(factRow));
       const more = facts.length > COLLAPSE_AT ? h('button', { type: 'button', class: 'link-button', onclick: (ev: Event) => {
         for (const f of facts.slice(COLLAPSE_AT)) list.appendChild(factRow(f));
@@ -138,15 +134,6 @@ function factsSection(e: EntityPage): Node | null {
       } }, `Show all ${facts.length}`) : null;
       return h('div', { class: 'fact-group' }, h('h3', {}, label, h('span', { class: 'count' }, String(facts.length))), list, more);
     }));
-}
-
-// People and events first, citation lists last.
-function groupRank(key: string): number {
-  const order = ['member of', 'asked', 'answered', 'spoke in', 'authored', 'signed', 'involved in', 'involves', 'documented in', 'documents',
-    'asked by', 'answered by', 'speaker', 'authored by', 'responds to', 'responded to by', 'answered on behalf of', 'answered through',
-    'located in', 'contains', 'broader', 'narrower', 'cites', 'cited by'];
-  const i = order.indexOf(key.split('|')[1]);
-  return i < 0 ? 50 : i;
 }
 
 function mentionsSection(e: EntityPage): Node | null {

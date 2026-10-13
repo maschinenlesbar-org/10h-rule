@@ -248,7 +248,7 @@ export class Queries {
       const d = this.get('SELECT * FROM document WHERE id = ?', id);
       if (d) document = { kind: d.kind, issuer: d.issuer, parliament: d.parliament, number: d.number, wp: d.wp, date: d.date, title: d.title,
         source_url: d.source_url, archived: !!d.archived,
-        files: this.all('SELECT id, part, pages, source_url, sha256 FROM file WHERE doc_id = ? ORDER BY id', id) as any };
+        files: this.all('SELECT id, part, pages, bytes, source_url, sha256 FROM file WHERE doc_id = ? ORDER BY id', id) as any };
     }
 
     const mentionedIn = this.all(`SELECT c.doc_id, de.type, de.label, count(*) n, max(m.status = 'confirmed') confirmed
@@ -403,7 +403,7 @@ export class Queries {
     for (const s of spans) if (!nonOverlapping.length || s.start >= nonOverlapping.at(-1)!.end) nonOverlapping.push(s);
     return {
       doc, file_id: fileId, page_no: pageNo, pages: p.pages, read_via: p.read_via, text: p.text, spans: nonOverlapping,
-      files: this.all('SELECT id, part, pages FROM file WHERE doc_id = ? ORDER BY id', p.doc_id) as any,
+      files: this.all('SELECT id, part, pages, bytes FROM file WHERE doc_id = ? ORDER BY id', p.doc_id) as any,
     };
   }
 

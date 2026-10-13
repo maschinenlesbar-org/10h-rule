@@ -5,7 +5,7 @@ proves it, and how the pieces connect. SQLite holds the data, the front end is p
 and it runs as a static site (GitHub Pages) or with a local server. Semantic search is available only with the
 local server.
 
-Status: phases 1–6 built (database and pipeline; read-only app; story timeline, procedures, roll calls; questions, effects, Länder; local semantic search; static export and JSON-LD). Lighthouse has not been run. See [README.md](README.md). Decisions of 12.10.2026 are in section 10.
+Status: phases 1–6 built (database and pipeline; read-only app; story timeline, procedures, roll calls; questions, effects, Länder; local semantic search; static export and JSON-LD). Lighthouse was run on 13.10.2026 (see README.md, Static site). See [README.md](README.md). Decisions of 12.10.2026 are in section 10.
 
 ## 1. What the app is for
 

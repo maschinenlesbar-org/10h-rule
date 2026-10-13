@@ -1,5 +1,5 @@
 import { api } from '../api.ts';
-import { h, setTitle, entityLink, readerHref, entityHref, typeLabel, fileUrl } from '../dom.ts';
+import { h, setTitle, entityLink, readerHref, entityHref, typeLabel, fileUrl, fmtBytes, narrow } from '../dom.ts';
 import type { PageView } from '../types.ts';
 
 export async function readerView(params: URLSearchParams): Promise<Node> {
@@ -9,6 +9,8 @@ export async function readerView(params: URLSearchParams): Promise<Node> {
   const v = await api.page(file, n);
   setTitle(`${v.doc.label}, p. ${n}`);
   const go = (page: number) => readerHref(file, page, q ? { q } : {});
+  const size = fmtBytes(v.files.find((f) => f.id === file)?.bytes);
+  const pdfAt = `${fileUrl(file)}#page=${n}`;
 
   const nav = h('nav', { class: 'pager', 'aria-label': 'Pages' },
     n > 1 ? h('a', { href: go(n - 1), rel: 'prev' }, '← Previous') : h('span', { class: 'muted' }, '← Previous'),
@@ -27,11 +29,13 @@ export async function readerView(params: URLSearchParams): Promise<Node> {
         h('a', { href: readerHref(f.id, 1), 'aria-current': f.id === file ? 'page' : null }, f.part ?? f.id.split('/').pop()!)))) : null,
       h('div', { class: 'reader-bar' }, nav,
         v.read_via === 'ocr' ? h('span', { class: 'badge marker-unverified', title: 'This page has no text layer; the text was read by OCR and can contain errors.' }, 'OCR text') : null,
-        h('a', { href: `${fileUrl(file)}#page=${n}`, target: '_blank' }, 'Open PDF at this page'))),
+        h('a', { href: pdfAt, target: '_blank' }, 'Open PDF at this page', size ? ` (${size})` : ''))),
     h('div', { class: 'reader-body' },
       h('section', { class: 'page-text', 'aria-label': 'Extracted text' }, renderText(v, q)),
       h('section', { class: 'page-pdf', 'aria-label': 'Original PDF' },
-        h('iframe', { src: `${fileUrl(file)}#page=${n}&view=FitH`, title: `PDF ${v.doc.label}, page ${n}`, loading: 'lazy' }))),
+        narrow()
+          ? h('p', { class: 'pdf-link' }, h('a', { href: pdfAt, target: '_blank', class: 'button' }, `Open the PDF at page ${n}`), size ? h('span', { class: 'muted small' }, ` ${size}`) : null)
+          : h('iframe', { src: `${pdfAt}&view=FitH`, title: `PDF ${v.doc.label}, page ${n}`, loading: 'lazy' }))),
     legend(v),
     similarPassages(file, n));
 }

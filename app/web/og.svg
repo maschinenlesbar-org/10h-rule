@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Link preview image (og:image). Rendered to og.png with: rsvg-convert web/og.svg -o web/og.png -->
+  <rect width="1200" height="630" fill="#fbfaf7"/>
+  <rect width="1200" height="14" fill="#1f5f8b"/>
+  <g transform="translate(985 190)" fill="none" stroke="#1f5f8b" stroke-width="10" stroke-linecap="round">
+    <line x1="80" y1="120" x2="80" y2="400"/>
+    <line x1="80" y1="120" x2="80" y2="20"/>
+    <line x1="80" y1="120" x2="160" y2="170"/>
+    <line x1="80" y1="120" x2="0" y2="170"/>
+    <line x1="-70" y1="400" x2="150" y2="400" stroke="#c3c2b7"/>
+  </g>
+  <text x="80" y="200" font-family="Georgia, serif" font-size="76" font-weight="700" fill="#1d1c1a">How Bayern got 10H</text>
+  <text x="80" y="290" font-family="Helvetica, Arial, sans-serif" font-size="34" fill="#3d3a35">The record behind the ten-times-height rule</text>
+  <text x="80" y="338" font-family="Helvetica, Arial, sans-serif" font-size="34" fill="#3d3a35">for wind turbines, 2013–2016</text>
+  <text x="80" y="430" font-family="Helvetica, Arial, sans-serif" font-size="28" fill="#6b6760">Documents, people, events and votes,</text>
+  <text x="80" y="470" font-family="Helvetica, Arial, sans-serif" font-size="28" fill="#6b6760">each fact linked to its primary source</text>
+  <text x="80" y="570" font-family="Georgia, serif" font-size="30" font-weight="700" fill="#1f5f8b">10H Explorer · maschinenlesbar.org</text>
+</svg>

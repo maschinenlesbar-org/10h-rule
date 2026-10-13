@@ -1,5 +1,6 @@
-// Hash router. Routes: #/ · #/search?q= · #/e/<entity id> · #/read?file=&n= · #/list/<kind> · #/review
+// Hash router. Routes: #/ · #/search?q= · #/e/<entity id> · #/read?file=&n= · #/list/<kind> · #/about · #/review
 import { h, setTitle } from './dom.ts';
+import { isStatic, dbProgress, prefetchDb } from './api.ts';
 import { home } from './views/home.ts';
 import { searchView } from './views/search.ts';
 import { entityView } from './views/entity.ts';
@@ -10,10 +11,17 @@ import { storyView } from './views/story.ts';
 import { questionsView } from './views/questions.ts';
 import { effectsView } from './views/effects.ts';
 import { laenderView } from './views/laender.ts';
+import { aboutView } from './views/about.ts';
 
 const main = document.querySelector('main')!;
 const searchForm = document.querySelector<HTMLFormElement>('#top-search')!;
 const searchInput = searchForm.querySelector('input')!;
+const browse = document.querySelector<HTMLDetailsElement>('details.browse')!;
+
+// The published site is read-only: the review list is a local tool.
+if (isStatic) for (const a of document.querySelectorAll('[data-local-only]')) a.remove();
+document.addEventListener('click', (e) => { if (!browse.contains(e.target as Node)) browse.open = false; });
+browse.addEventListener('keydown', (e) => { if (e.key === 'Escape') { browse.open = false; browse.querySelector('summary')!.focus(); } });
 
 searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -32,10 +40,11 @@ const routes: Array<[RegExp, View]> = [
   [/^\/e\/(.+)$/, entityView],
   [/^\/read$/, readerView],
   [/^\/list\/([a-z]+)$/, listView],
+  [/^\/about$/, aboutView],
   [/^\/review$/, reviewView],
 ];
 
-let seq = 0;
+let seq = 0, first = true;
 async function render(): Promise<void> {
   const my = ++seq;
   const raw = location.hash.replace(/^#/, '') || '/';
@@ -45,8 +54,12 @@ async function render(): Promise<void> {
   for (const a of document.querySelectorAll<HTMLAnchorElement>('nav a')) {
     a.toggleAttribute('aria-current', raw.startsWith(a.getAttribute('href')!.slice(1)));
   }
+  browse.open = false;
+  browse.querySelector('summary')!.toggleAttribute('aria-current', !!browse.querySelector('a[aria-current]'));
   const route = routes.find(([re]) => re.test(path));
   main.setAttribute('aria-busy', 'true');
+  // A view that waits for the database on the first visit says so, with the download progress.
+  const slow = window.setTimeout(() => { if (my === seq) main.replaceChildren(loading()); }, 250);
   let node: Node;
   try {
     node = route ? await route[1](params, decodeURIComponent(path.match(route[0])![1] ?? '')) : notFound();
@@ -54,10 +67,31 @@ async function render(): Promise<void> {
     const msg = String((err as Error).message ?? err);
     node = msg === 'Not found' ? notFound() : h('div', { class: 'error' }, h('h1', {}, 'Something went wrong'), h('p', {}, msg));
   }
+  clearTimeout(slow);
   if (my !== seq) return; // a newer navigation won
   main.replaceChildren(node);
   main.removeAttribute('aria-busy');
   if (!params.has('keep-scroll')) window.scrollTo(0, 0);
+  if (first) { first = false; prefetchDb(); }
+}
+
+function loading(): Node {
+  if (!isStatic || dbProgress.done) return h('p', { class: 'loading' }, 'Loading…');
+  const mb = (n: number) => (n / 1e6).toFixed(0);
+  const bar = h('progress', { max: dbProgress.total || 1, value: dbProgress.loaded, 'aria-label': 'Database download' });
+  const text = h('p', { class: 'muted small' });
+  const update = () => {
+    bar.value = dbProgress.loaded;
+    text.textContent = dbProgress.loaded >= dbProgress.total
+      ? 'Opening the database…'
+      : `${mb(dbProgress.loaded)} of ${mb(dbProgress.total)} MB. Only on the first visit; later visits use the browser cache.`;
+  };
+  dbProgress.listeners.add(update);
+  update();
+  return h('div', { class: 'loading' },
+    h('h1', {}, 'Loading the archive'),
+    h('p', {}, 'The whole database runs in your browser: every page of text, every fact and its source.'),
+    bar, text);
 }
 
 function notFound(): Node {

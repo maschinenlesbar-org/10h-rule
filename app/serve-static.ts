@@ -7,10 +7,11 @@ import { APP } from './build/lib/ctx.ts';
 const DIST = join(APP, 'dist');
 const port = Number(process.argv[process.argv.indexOf('--port') + 1]) || 8720;
 const TYPES: Record<string, string> = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css',
-  '.wasm': 'application/wasm', '.pdf': 'application/pdf', '.json': 'application/json', '.jsonld': 'application/ld+json', '.db': 'application/octet-stream' };
+  '.wasm': 'application/wasm', '.pdf': 'application/pdf', '.json': 'application/json', '.jsonld': 'application/ld+json', '.db': 'application/octet-stream',
+  '.png': 'image/png', '.xml': 'application/xml' };
 createServer((req, res) => {
   const p = decodeURIComponent(new URL(req.url ?? '/', 'http://x').pathname);
-  const file = normalize(join(DIST, p === '/' ? 'index.html' : p));
+  const file = normalize(join(DIST, p.endsWith('/') ? `${p}index.html` : p)); // folders serve their index.html, as on GitHub Pages
   if (!(file + sep).startsWith(DIST + sep) && file !== join(DIST, 'index.html') || !existsSync(file) || !statSync(file).isFile()) { res.writeHead(404); res.end('not found'); return; }
   res.writeHead(200, { 'Content-Type': TYPES[extname(file)] ?? 'application/octet-stream' });
   createReadStream(file).pipe(res);

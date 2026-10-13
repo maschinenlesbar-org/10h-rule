@@ -25,7 +25,7 @@ export interface Fact {
 export interface DocumentInfo {
   kind: string | null; issuer: string | null; parliament: string | null; number: string | null; wp: number | null;
   date: string | null; title: string | null; source_url: string | null; archived: boolean;
-  files: Array<{ id: string; part: string | null; pages: number; source_url: string | null; sha256: string }>;
+  files: Array<{ id: string; part: string | null; pages: number; bytes: number; source_url: string | null; sha256: string }>;
 }
 
 export interface ExternalId { scheme: string; value: string; status: string; url: string | null }
@@ -61,7 +61,7 @@ export interface PageSpan { start: number; end: number; entity: EntityRef; kind:
 
 export interface PageView {
   doc: EntityRef; file_id: string; page_no: number; pages: number; read_via: string; text: string; spans: PageSpan[];
-  files: Array<{ id: string; part: string | null; pages: number }>;
+  files: Array<{ id: string; part: string | null; pages: number; bytes: number }>;
 }
 
 export interface ListRow { id: string; label: string; type: string; cols: Record<string, string | number | null> }

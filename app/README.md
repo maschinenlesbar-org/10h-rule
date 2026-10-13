@@ -55,8 +55,9 @@ there is no compile step. Routes:
 | `#/search?q=` | Search, hybrid by default: full text (BM25) and semantic similarity, merged by reciprocal rank fusion. Each hit says whether it matched by words, by meaning or both. Concept aliases are expanded ("10H" also finds "10-H-Regelung"); facets for document type, parliament and year; matching entities first. A switch turns it into keyword-only search |
 | `#/e/<id>` | Entity page: facts in both directions with marker, date and evidence chips; documents with files; "mentioned in". Procedures show their steps; roll calls show a stacked bar per Fraktion, the deviators and all names. Documents list similar documents |
 | `#/read?file=&n=` | Document reader: page text with linked entities and references, the PDF at the same page, OCR warning, similar passages in other documents |
-| `#/list/<kind>` | people, documents, events, concepts, organizations, places, laws |
-| `#/review` | Mentions of organisations, places and concepts by surface form, with sample contexts; confirm or reject in review mode |
+| `#/list/<kind>` | people, documents, events, concepts, organizations, places, laws (in the menu under Browse) |
+| `#/about` | Who made the site, how the record was built, sources, rights, downloads and limits |
+| `#/review` | Mentions of organisations, places and concepts by surface form, with sample contexts; confirm or reject in review mode. Local only: the published site leaves it out of the menu |
 
 ## What the build does
 
@@ -103,13 +104,30 @@ The server loads the model in the background at start; until it is ready, search
 `npm run export` writes `dist/`, which any static host can serve (GitHub Pages included, `.nojekyll` is there):
 
 - the app as plain JavaScript, sharing the query code with the server (`server/queries.ts`);
-- `10h-web.db`, the database without vectors (about 41 MB, budget 60 MB), opened in the browser with sqlite-wasm;
+- `10h-web.db`, the database without vectors (about 41 MB, 13 MB gzipped; budget 60 MB), opened in the browser with
+  sqlite-wasm;
+- `meta.json`: the start page's numbers, so the start page and About appear at once, without the database;
 - the archived PDFs in `files/` (about 104 MB);
 - `10h.jsonld`: every entity with its statements and evidence (schema.org types, SKOS for concepts, `owl:sameAs` for
-  Wikidata).
+  Wikidata);
+- `e/<id>/`: a plain HTML page per entity (`export-pages.ts`, about 9 MB in all), with `e/` listing every entry and
+  `sitemap.xml` listing every page. The app lives behind `#/` routes that search engines and link previews do not
+  see; these pages carry the same facts at real URLs, with a description, Open Graph tags, `og.png` and the entity's
+  JSON-LD, and work without JavaScript. Entity pages in the app link to them ("Permanent link");
+- `og.png`, the link preview image, rendered from `web/og.svg` (`rsvg-convert web/og.svg -o web/og.png`).
+
+`SITE_URL` (default `https://maschinenlesbar.org/10h-rule/`) sets the address used in canonical links, Open Graph tags
+and the sitemap.
+
+On the first visit the database is downloaded once the start page is shown and the browser is idle (not with
+Save-Data). It is opened only when a view needs it, because opening blocks the page; a view that waits shows the
+download progress. On phones the reader offers a button for the PDF instead of embedding it.
 
 The static site has keyword search and the precomputed "more like this"; semantic search needs the local server,
 because the model is too large to ship. Review mode is local only.
+
+Lighthouse 12.6 (mobile, 13.10.2026, local preview): start page 99 / 100 / 100 / 100 (performance, accessibility,
+best practices, SEO); a static entity page 98 / 100 / 100 / 100.
 
 ### Deploying to GitHub Pages
 

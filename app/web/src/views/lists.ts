@@ -66,7 +66,7 @@ async function eventsView(): Promise<Node> {
   }
   return h('div', { class: 'events' },
     h('h1', {}, 'Events'),
-    h('p', { class: 'muted' }, 'From the wiki’s timeline, Sachsen, Bayern and federal pages. The story timeline with lanes per arena comes in phase 3.'),
+    h('p', { class: 'muted' }, 'From the wiki’s timeline, Sachsen, Bayern and federal pages. ', h('a', { href: '#/story' }, 'The story timeline'), ' shows them in lanes per arena.'),
     ...[...years].map(([y, rs]) => h('section', {},
       h('h2', {}, y),
       h('ol', { class: 'event-list' }, ...rs.map((r) => h('li', {},

@@ -1,9 +1,13 @@
 // Data access. With the local server the views call the JSON API. In the static export (window.TENH_STATIC set by the
 // exported index.html) the same query code runs in the browser on sqlite-wasm; semantic search and review writes are
-// then unavailable.
+// then unavailable. The start page needs only meta.json, so it appears before the database has loaded.
 import type { EntityPage, SearchResult, PageView, ListRow, ReviewGroup, Meta, Story, SimilarDoc, SimilarPassage, QuestionRow, Observation, LandStatus } from './types.ts';
 
-const STATIC = (globalThis as { TENH_STATIC?: { db: string; vendor: string } }).TENH_STATIC;
+const STATIC = (globalThis as { TENH_STATIC?: { db: string; size: number; vendor: string } }).TENH_STATIC;
+export const isStatic = !!STATIC;
+
+// Download progress of the database, for the loading message (static export only).
+export const dbProgress = { loaded: 0, total: STATIC?.size ?? 0, done: false, listeners: new Set<() => void>() };
 
 async function get<T>(path: string, params: Record<string, string> = {}): Promise<T> {
   const res = await fetch(`${path}?${new URLSearchParams(params)}`);
@@ -11,21 +15,42 @@ async function get<T>(path: string, params: Record<string, string> = {}): Promis
   return res.json() as Promise<T>;
 }
 
+let bytes: Promise<Uint8Array> | null = null;
+function dbBytes(): Promise<Uint8Array> {
+  if (!bytes) bytes = import('./static-db.ts').then(({ download }) => download(STATIC!.db, STATIC!.size, (loaded, total) => {
+    Object.assign(dbProgress, { loaded, total });
+    for (const f of dbProgress.listeners) f();
+  })).catch((err) => { bytes = null; throw err; });
+  return bytes;
+}
+
 let local: Promise<any> | null = null;
 function queries(): Promise<any> {
   if (!local) local = (async () => {
     const { openStaticDb } = await import('./static-db.ts');
-    const db = await openStaticDb(STATIC!.db, STATIC!.vendor);
+    const db = await openStaticDb(dbBytes(), STATIC!.vendor);
+    dbProgress.done = true;
+    dbProgress.listeners.clear();
     const queriesUrl = '../../server/queries.ts'; // rewritten to .js by the export
     const { Queries } = await import(queriesUrl);
     return new Queries(db);
-  })();
+  })().catch((err) => { local = null; throw err; });
   return local;
 }
+
+// Downloads the database once the start page is shown and the browser is idle, unless the visitor asked to save data.
+// Only the download: opening it would block the page, so that waits until a view asks for it.
+export function prefetchDb(): void {
+  if (!STATIC || (navigator as { connection?: { saveData?: boolean } }).connection?.saveData) return;
+  const start = () => (globalThis.requestIdleCallback ?? setTimeout)(() => { dbBytes().catch(() => {}); }, { timeout: 3000 });
+  if (document.readyState === 'complete') setTimeout(start, 1500); else addEventListener('load', () => setTimeout(start, 1500), { once: true });
+}
+
+let metaJson: Promise<Meta> | null = null;
 const notFound = <T>(x: T | null | undefined): T => { if (x === null || x === undefined) throw new Error('Not found'); return x; };
 
 export const api = STATIC ? {
-  meta: async () => (await queries()).meta() as Meta,
+  meta: () => (metaJson ??= get<Meta>('meta.json').catch((err) => { metaJson = null; throw err; })),
   story: async () => (await queries()).story() as Story,
   questions: async () => (await queries()).questions() as QuestionRow[],
   observations: async () => (await queries()).observations() as Observation[],
