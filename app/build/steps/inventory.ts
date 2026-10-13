@@ -76,9 +76,14 @@ export function inventory(ctx: Ctx): void {
       const rel = `${dir}/${name}`;
       listed.add(rel);
       const path = join(WIKI, rel);
-      if (!existsSync(path)) { report.add('Missing files', rel); continue; }
+      // The archive promises that every file is the one listed with its checksum: a missing or changed file fails the
+      // build, so it cannot be published as a verified source.
+      if (!existsSync(path)) { report.add('FAIL: files listed in a manifest but missing', rel); ctx.failures = (ctx.failures ?? 0) + 1; continue; }
       const actual = createHash('sha256').update(readFileSync(path)).digest('hex');
-      if (actual !== sha) report.add('Checksum mismatches', `${rel}: manifest ${sha.slice(0, 12)}…, file ${actual.slice(0, 12)}…`);
+      if (actual !== sha) {
+        report.add('FAIL: checksum mismatches', `${rel}: manifest ${sha.slice(0, 12)}…, file ${actual.slice(0, 12)}…`);
+        ctx.failures = (ctx.failures ?? 0) + 1;
+      }
       const docId = docIdFromFilename(name);
       const m = meta.get(name) ?? {};
       const parl = parliamentOf(docId);
