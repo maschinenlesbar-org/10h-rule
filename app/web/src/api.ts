@@ -3,7 +3,7 @@
 // then unavailable. The start page needs only meta.json, so it appears before the database has loaded.
 import type { EntityPage, SearchResult, PageView, ListRow, ReviewGroup, Meta, Story, SimilarDoc, SimilarPassage, QuestionRow, Observation, LandStatus, BibEntry } from './types.ts';
 
-const STATIC = (globalThis as { TENH_STATIC?: { db: string; size: number; vendor: string } }).TENH_STATIC;
+const STATIC = (globalThis as { TENH_STATIC?: { db: string; size: number; vendor: string; v?: string } }).TENH_STATIC;
 export const isStatic = !!STATIC;
 
 // Download progress of the database, for the loading message (static export only).
@@ -50,7 +50,7 @@ let metaJson: Promise<Meta> | null = null;
 const notFound = <T>(x: T | null | undefined): T => { if (x === null || x === undefined) throw new Error('Not found'); return x; };
 
 export const api = STATIC ? {
-  meta: () => (metaJson ??= get<Meta>('meta.json').catch((err) => { metaJson = null; throw err; })),
+  meta: () => (metaJson ??= get<Meta>('meta.json', STATIC?.v ? { v: STATIC.v } : {}).catch((err) => { metaJson = null; throw err; })),
   story: async () => (await queries()).story() as Story,
   questions: async () => (await queries()).questions() as QuestionRow[],
   observations: async () => (await queries()).observations() as Observation[],

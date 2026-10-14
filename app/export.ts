@@ -5,6 +5,7 @@
 // has loaded), and a plain HTML page per entity with sitemap.xml (export-pages.ts). Serve dist/ from any static host,
 // e.g. GitHub Pages. SITE_URL sets the public address used in canonical links, Open Graph tags and the sitemap.
 
+import { createHash } from 'node:crypto';
 import { cpSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync, copyFileSync, existsSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { stripTypeScriptTypes } from 'node:module';
@@ -29,18 +30,23 @@ const sources = [
   join(APP, 'server', 'queries.ts'),
   ...['dict.ts', 'refs.ts', 'ids.ts', 'vec.ts'].map((f) => join(APP, 'build', 'lib', f)),
 ];
+// Every file the page loads carries the build version in its URL (?v=…). Hosts let browsers cache files for a while
+// (GitHub Pages: 10 minutes); with fixed names a browser could run new modules against an old database, or the reverse.
+// The version changes with the code, the styles and the database build.
+const builtAt = (new DatabaseSync(join(OUT, '10h.db'), { readOnly: true }).prepare("SELECT value FROM meta WHERE key = 'built_at'").get() as { value: string }).value;
+const V = createHash('sha256').update([...sources, join(APP, 'web', 'styles.css')].map((f) => readFileSync(f, 'utf8')).join('\0') + builtAt).digest('hex').slice(0, 10);
 for (const src of sources) {
   const js = stripTypeScriptTypes(readFileSync(src, 'utf8'), { mode: 'strip' })
-    .replace(/(from\s+['"][^'"]+)\.ts(['"])/g, '$1.js$2')
-    .replace(/(import\(\s*['"][^'"]+)\.ts(['"]\s*\))/g, '$1.js$2')
-    .replace(/(['"]\.\.\/\.\.\/server\/queries)\.ts(['"])/g, '$1.js$2');
+    .replace(/(from\s+['"][^'"]+)\.ts(['"])/g, `$1.js?v=${V}$2`)
+    .replace(/(import\(\s*['"][^'"]+)\.ts(['"]\s*\))/g, `$1.js?v=${V}$2`)
+    .replace(/(['"]\.\.\/\.\.\/server\/queries)\.ts(['"])/g, `$1.js?v=${V}$2`);
   const dest = join(DIST, relative(APP, src)).replace(/\.ts$/, '.js');
   mkdirSync(dirname(dest), { recursive: true });
   writeFileSync(dest, js);
 }
 copyFileSync(join(APP, 'web', 'styles.css'), join(DIST, 'web', 'styles.css'));
 copyFileSync(join(APP, 'web', 'og.png'), join(DIST, 'og.png'));
-log(`code: ${sources.length} modules`);
+log(`code: ${sources.length} modules, version ${V}`);
 
 // 2. sqlite-wasm runtime
 cpSync(join(APP, 'node_modules', '@sqlite.org', 'sqlite-wasm', 'dist'), join(DIST, 'vendor', 'sqlite-wasm'), { recursive: true,
@@ -60,15 +66,15 @@ const html = readFileSync(join(APP, 'web', 'index.html'), 'utf8')
   .replace(/\n\s*<meta name="description"[^>]*>/, '')
   .replace(/\n\s*<a [^>]*data-local-only[^>]*>[^<]*<\/a>/g, '') // local tools (review); removing them later would shift the layout
   .replace('<title>10H Explorer</title>', `<title>10H Explorer</title>\n  ${headTags({ site: SITE, title: 'How Bayern got 10H', url: SITE, description: DESCRIPTION, ogType: 'website' })}`)
-  .replace('href="styles.css"', 'href="web/styles.css"')
+  .replace('href="styles.css"', `href="web/styles.css?v=${V}"`)
   .replace('<script type="module" src="src/main.ts"></script>',
-    '<script src="config.js"></script>\n  <script type="module" src="web/src/main.js"></script>')
+    `<script src="config.js?v=${V}"></script>\n  <script type="module" src="web/src/main.js?v=${V}"></script>`)
   .replace('</body>', `  ${footer('')}\n</body>`);
 if (!html.includes('config.js') || !html.includes('og:title') || !html.includes('Content-Security-Policy')) throw new Error('web/index.html no longer matches the export');
 writeFileSync(join(DIST, 'index.html'), html);
 // In a file, not inline, so the Content Security Policy needs no 'unsafe-inline'.
 writeFileSync(join(DIST, 'config.js'),
-  `window.TENH_STATIC = { db: "10h-web.db", size: ${dbBytes}, vendor: new URL("vendor/sqlite-wasm/index.mjs", location.href).href };\n`);
+  `window.TENH_STATIC = { db: "10h-web.db?v=${V}", size: ${dbBytes}, vendor: new URL("vendor/sqlite-wasm/index.mjs?v=${V}", location.href).href, v: "${V}" };\n`);
 
 // The start page's numbers, so it renders without the database.
 const webQueries = new Queries(new DatabaseSync(webDb, { readOnly: true }));
@@ -96,7 +102,7 @@ writeFileSync(join(DIST, '10h.jsonld'), JSON.stringify(ld, null, 1));
 // 6. A plain page per entity, the index of all entries, sitemap.xml
 const entities = new DatabaseSync(webDb, { readOnly: true }).prepare('SELECT id, type, label FROM entity ORDER BY id').all() as Array<{ id: string; type: string; label: string }>;
 const pages = writeStaticPages(webQueries, entities, {
-  site: SITE, dist: DIST, builtAt: webQueries.meta().built_at,
+  site: SITE, dist: DIST, builtAt: webQueries.meta().built_at, version: V,
   jsonld: new Map(ld['@graph'].map((n) => [String(n['@id']).replace(/^tenh:/, ''), n])), context: ld['@context'],
 });
 log(`static pages: ${pages}`);

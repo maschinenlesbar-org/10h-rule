@@ -120,6 +120,8 @@ The server loads the model in the background at start; until it is ready, search
   `sitemap.xml` listing every page. The app lives behind `#/` routes that search engines and link previews do not
   see; these pages carry the same facts at real URLs, with a description, Open Graph tags, `og.png` and the entity's
   JSON-LD, and work without JavaScript. Entity pages in the app link to them ("Permanent link");
+- a build version in every URL the page loads (`?v=…` on modules, styles, `config.js`, `meta.json` and the database),
+  so a browser never mixes files of two deploys; GitHub Pages lets browsers cache files for 10 minutes;
 - `config.js` (the database's address and size) and a Content Security Policy in every page: scripts, styles and
   frames only from the site itself, no inline script or style;
 - `og.png`, the link preview image, rendered from `web/og.svg` (`rsvg-convert web/og.svg -o web/og.png`).

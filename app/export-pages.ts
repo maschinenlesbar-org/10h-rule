@@ -17,7 +17,7 @@ const ARENA: Record<string, string> = { bt: 'Bundestag', br: 'Bundesrat', by: 'B
 const SITE_NAME = '10H Explorer';
 const MAX_MENTIONS = 200;
 
-interface Ctx { site: string; dist: string; builtAt: string; jsonld: Map<string, unknown>; context: unknown }
+interface Ctx { site: string; dist: string; builtAt: string; version?: string; jsonld: Map<string, unknown>; context: unknown }
 
 const esc = (s: unknown): string => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 const fmtDate = (iso: string | null | undefined): string => {
@@ -294,7 +294,7 @@ function shell(o: { rel: string; ctx: Ctx; title: string; url: string; descripti
   ${FAVICON}
   <title>${esc(o.title)} · ${SITE_NAME}</title>
   ${headTags({ site: o.ctx.site, title: o.title, url: o.url, description: o.description, ogType: o.ogType })}
-  <link rel="stylesheet" href="${o.rel}web/styles.css">${ld}
+  <link rel="stylesheet" href="${o.rel}web/styles.css${o.ctx.version ? `?v=${o.ctx.version}` : ''}">${ld}
 </head>
 <body>
   <header class="site">
